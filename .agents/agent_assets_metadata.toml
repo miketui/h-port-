@@ -6,3 +6,9 @@ id = "YGjUTiFVqn7ZpOy6elOHN"
 uri = "file://mdw-portfolio.zip"
 type = "unspecified"
 title = "MDW Portfolio — Full Source Code"
+
+[[outputs]]
+id = "FFQ_vvSWzV8PHXhntkNS1"
+uri = "file://MDW_Portfolio_Image_Credits.md"
+type = "text"
+title = "MDW Portfolio — Complete Image Credits & Metadata"
