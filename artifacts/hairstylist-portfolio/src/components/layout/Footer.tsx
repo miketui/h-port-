@@ -50,8 +50,8 @@ export function Footer() {
             <h4 className="font-display text-lg mb-6 text-foreground">Inquiries</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <a href="mailto:studio@mdwstylist.com" className="hover:text-primary transition-colors">
-                  studio@mdwstylist.com
+                <a href="mailto:info@michaeldavidjr.beauty" className="hover:text-primary transition-colors">
+                  info@michaeldavidjr.beauty
                 </a>
               </li>
               <li className="pt-4">
@@ -64,13 +64,13 @@ export function Footer() {
             <h4 className="font-display text-lg mt-8 mb-4 text-foreground">Social</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                <a href="https://www.instagram.com/md.warren" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                  Models.com
+                <a href="https://www.linkedin.com/in/michael-david-warren-94855a239" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                  LinkedIn
                 </a>
               </li>
             </ul>

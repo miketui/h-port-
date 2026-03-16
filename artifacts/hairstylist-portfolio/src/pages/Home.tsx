@@ -211,14 +211,18 @@ export default function Home() {
                 <p className="text-accent text-xs font-medium uppercase tracking-widest mb-4">{press.publication} <span className="text-muted-foreground">&bull; {press.date}</span></p>
                 <h4 className="font-display text-2xl mb-4 italic leading-tight">"{press.title}"</h4>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-1">{press.excerpt}</p>
-                <a 
-                  href={press.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-xs uppercase tracking-widest border-b border-border hover:border-primary pb-1 transition-colors inline-block w-fit"
-                >
-                  Read Feature
-                </a>
+                {press.link ? (
+                  <a 
+                    href={press.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-xs uppercase tracking-widest border-b border-border hover:border-primary pb-1 transition-colors inline-block w-fit"
+                  >
+                    Read Feature
+                  </a>
+                ) : (
+                  <span className="text-xs uppercase tracking-widest text-muted-foreground/50">Publication Credit</span>
+                )}
               </motion.div>
             ))}
           </div>

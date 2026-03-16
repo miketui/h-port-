@@ -18,7 +18,7 @@ export default function Press() {
           </div>
           
           <a 
-            href="mailto:studio@mdwstylist.com?subject=Press Kit Request"
+            href="mailto:info@michaeldavidjr.beauty?subject=Press Kit Request"
             className="flex items-center gap-3 px-6 py-3 border border-border hover:border-primary hover:text-primary transition-all uppercase tracking-widest text-xs font-medium"
           >
             <Download className="w-4 h-4" /> Download Press Kit
@@ -42,14 +42,18 @@ export default function Press() {
               </div>
               <h2 className="text-3xl font-display mb-4 italic group-hover:text-primary transition-colors leading-tight">"{press.title}"</h2>
               <p className="text-base text-muted-foreground mb-8 flex-1 leading-relaxed">{press.excerpt}</p>
-              <a 
-                href={press.link} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-xs font-semibold uppercase tracking-widest flex items-center gap-2 border-b border-foreground pb-1 hover:border-primary hover:text-primary w-fit transition-colors"
-              >
-                Read Feature <ExternalLink className="w-3 h-3" />
-              </a>
+              {press.link ? (
+                <a 
+                  href={press.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-xs font-semibold uppercase tracking-widest flex items-center gap-2 border-b border-foreground pb-1 hover:border-primary hover:text-primary w-fit transition-colors"
+                >
+                  Read Feature <ExternalLink className="w-3 h-3" />
+                </a>
+              ) : (
+                <span className="text-xs uppercase tracking-widest text-muted-foreground/50">Publication Credit</span>
+              )}
             </motion.article>
           ))}
         </div>
@@ -89,14 +93,18 @@ export default function Press() {
                   <p className="text-muted-foreground text-sm line-clamp-2 md:line-clamp-none">{press.excerpt}</p>
                 </div>
                 <div className="md:w-32 shrink-0 md:text-right">
-                  <a 
-                    href={press.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-xs font-semibold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
-                  >
-                    Read <ExternalLink className="w-3 h-3" />
-                  </a>
+                  {press.link ? (
+                    <a 
+                      href={press.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-xs font-semibold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
+                    >
+                      Read <ExternalLink className="w-3 h-3" />
+                    </a>
+                  ) : (
+                    <span className="text-xs uppercase tracking-widest text-muted-foreground/40">Credit</span>
+                  )}
                 </div>
               </motion.article>
             ))}
@@ -107,8 +115,8 @@ export default function Press() {
           <div className="w-8 h-px bg-accent mx-auto mb-8" />
           <h3 className="text-2xl font-display mb-4">Media Contact</h3>
           <p className="text-muted-foreground mb-2">For press inquiries, interviews, and media assets:</p>
-          <a href="mailto:studio@mdwstylist.com" className="text-primary hover:text-foreground text-lg transition-colors border-b border-primary/30 pb-1">
-            studio@mdwstylist.com
+          <a href="mailto:info@michaeldavidjr.beauty" className="text-primary hover:text-foreground text-lg transition-colors border-b border-primary/30 pb-1">
+            info@michaeldavidjr.beauty
           </a>
         </div>
 

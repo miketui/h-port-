@@ -66,15 +66,15 @@ export default function Contact() {
                 <div>
                   <h3 className="text-xs uppercase tracking-[0.2em] text-accent mb-4 font-medium">Agency</h3>
                   <p className="font-display text-2xl text-foreground">MDW Studio</p>
-                  <a href="mailto:studio@mdwstylist.com" className="text-muted-foreground hover:text-foreground transition-colors mt-2 block">
-                    studio@mdwstylist.com
+                  <a href="mailto:info@michaeldavidjr.beauty" className="text-muted-foreground hover:text-foreground transition-colors mt-2 block">
+                    info@michaeldavidjr.beauty
                   </a>
                 </div>
 
                 <div>
                   <h3 className="text-xs uppercase tracking-[0.2em] text-accent mb-4 font-medium">Direct Studio</h3>
-                  <a href="mailto:studio@mdwstylist.com" className="font-display text-2xl text-foreground hover:text-primary transition-colors block border-b border-transparent hover:border-primary w-fit pb-1">
-                    studio@mdwstylist.com
+                  <a href="mailto:info@michaeldavidjr.beauty" className="font-display text-2xl text-foreground hover:text-primary transition-colors block border-b border-transparent hover:border-primary w-fit pb-1">
+                    info@michaeldavidjr.beauty
                   </a>
                 </div>
 
