@@ -27,3 +27,8 @@ timeoutMs = 20000
 
 [nix]
 channel = "stable-25_05"
+
+[userenv]
+
+[userenv.shared]
+BEEHIIV_PUBLICATION_ID = "pub_5c82b9f9-c0d4-4169-86f1-2ae0e33682f8"

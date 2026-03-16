@@ -17,11 +17,14 @@ function validateEmail(email: string) {
 }
 
 async function submitEmail(email: string, source: string): Promise<void> {
-  await new Promise((resolve) => setTimeout(resolve, 1200));
-  const existing = JSON.parse(localStorage.getItem("mdw_subscribers") || "[]");
-  if (!existing.includes(email)) {
-    existing.push({ email, source, date: new Date().toISOString() });
-    localStorage.setItem("mdw_subscribers", JSON.stringify(existing));
+  const res = await fetch("/api/subscribe", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, source }),
+  });
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}));
+    throw new Error((data as { error?: string }).error ?? "Subscription failed.");
   }
 }
 

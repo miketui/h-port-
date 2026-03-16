@@ -32,17 +32,42 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    
-    toast({
-      title: "Inquiry Sent",
-      description: "Thank you. The MDW team will be in touch shortly.",
-      duration: 5000,
-    });
-    
-    form.reset();
+    try {
+      const res = await fetch("https://formspree.io/f/xojkkjgz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          _replyto: data.email,
+          projectType: data.projectType,
+          message: data.message,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Submission failed");
+      }
+
+      toast({
+        title: "Inquiry Sent",
+        description: "Thank you. Michael will be in touch within 48–72 hours.",
+        duration: 5000,
+      });
+      form.reset();
+    } catch {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or email info@michaeldavidjr.beauty directly.",
+        duration: 6000,
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
