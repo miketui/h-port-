@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PRESS_MENTIONS } from "@/lib/data";
-import { Download } from "lucide-react";
+import { Download, ExternalLink } from "lucide-react";
 
 export default function Press() {
   return (
@@ -12,75 +12,95 @@ export default function Press() {
           <div className="max-w-2xl">
             <h1 className="text-5xl md:text-7xl font-display mb-6">Press & Media</h1>
             <p className="text-muted-foreground text-lg">
-              Interviews, features, and critical reception of Aria's industry-defining work.
+              Interviews, features, and critical reception of Michael David Warren Jr.'s industry-defining work.
             </p>
           </div>
           
-          <button 
-            onClick={() => alert("Press kit download simulated.")}
-            className="flex items-center gap-3 px-6 py-3 border border-border hover:border-primary hover:text-primary transition-all uppercase tracking-widest text-xs"
+          <a 
+            href="mailto:studio@mdwstylist.com?subject=Press Kit Request"
+            className="flex items-center gap-3 px-6 py-3 border border-border hover:border-primary hover:text-primary transition-all uppercase tracking-widest text-xs font-medium"
           >
             <Download className="w-4 h-4" /> Download Press Kit
-          </button>
+          </a>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          
-          {/* Main featured article */}
-          <div className="lg:col-span-8">
-            {PRESS_MENTIONS.slice(0, 1).map((press) => (
+        {/* Featured Press Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {PRESS_MENTIONS.slice(0, 3).map((press, i) => (
+            <motion.article 
+              key={press.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="group relative flex flex-col bg-card/30 border border-border p-8 hover:border-primary/50 transition-colors"
+            >
+              <div className="flex gap-4 items-center mb-6">
+                <span className="text-primary text-xs font-medium uppercase tracking-widest">{press.publication}</span>
+                <span className="w-8 h-[1px] bg-border"></span>
+                <span className="text-muted-foreground text-xs uppercase tracking-widest">{press.date}</span>
+              </div>
+              <h2 className="text-3xl font-display mb-4 italic group-hover:text-primary transition-colors leading-tight">"{press.title}"</h2>
+              <p className="text-base text-muted-foreground mb-8 flex-1 leading-relaxed">{press.excerpt}</p>
+              <a 
+                href={press.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-xs font-semibold uppercase tracking-widest flex items-center gap-2 border-b border-foreground pb-1 hover:border-primary hover:text-primary w-fit transition-colors"
+              >
+                Read Feature <ExternalLink className="w-3 h-3" />
+              </a>
+            </motion.article>
+          ))}
+        </div>
+
+        {/* Archive List */}
+        <div className="max-w-4xl mx-auto">
+          <div className="border-b border-border pb-4 mb-8">
+            <h3 className="text-xl font-display">Press Archive</h3>
+          </div>
+          <div className="flex flex-col">
+            {PRESS_MENTIONS.slice(3).map((press, i) => (
               <motion.article 
                 key={press.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="group relative overflow-hidden"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                className="group border-b border-border py-8 last:border-b-0 flex flex-col md:flex-row gap-6 md:gap-12 md:items-center hover:bg-muted/20 transition-colors px-4 -mx-4 rounded-sm"
               >
-                <div className="aspect-[16/9] mb-8 overflow-hidden bg-card">
-                  <img src={press.imageUrl} alt={press.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                <div className="md:w-1/4 shrink-0">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-primary text-sm font-medium uppercase tracking-widest">{press.publication}</span>
+                    <span className="text-muted-foreground text-xs uppercase tracking-widest">{press.date}</span>
+                  </div>
                 </div>
-                <div className="flex gap-4 items-center mb-4">
-                  <span className="text-primary text-sm uppercase tracking-widest">{press.publication}</span>
-                  <span className="w-12 h-[1px] bg-border"></span>
-                  <span className="text-muted-foreground text-sm">{press.date}</span>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-display mb-2 group-hover:text-primary transition-colors">"{press.title}"</h3>
+                  <p className="text-muted-foreground text-sm line-clamp-2 md:line-clamp-none">{press.excerpt}</p>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-display mb-4 italic group-hover:text-primary transition-colors">"{press.title}"</h2>
-                <p className="text-lg text-muted-foreground mb-6 max-w-3xl">{press.excerpt}</p>
-                <button className="text-sm font-semibold uppercase tracking-widest border-b border-foreground pb-1 hover:border-primary hover:text-primary transition-colors">
-                  Read Full Feature
-                </button>
+                <div className="md:w-32 shrink-0 md:text-right">
+                  <a 
+                    href={press.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-xs font-semibold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
+                  >
+                    Read <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
               </motion.article>
             ))}
           </div>
-
-          {/* Secondary articles */}
-          <div className="lg:col-span-4 flex flex-col gap-12 mt-12 lg:mt-0">
-            {PRESS_MENTIONS.slice(1).map((press, i) => (
-              <motion.article 
-                key={press.id}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 + (i * 0.2) }}
-                className="group border-t border-border pt-8 first:border-t-0 lg:first:border-t lg:first:pt-8 first:pt-0"
-              >
-                <div className="aspect-[4/3] mb-6 overflow-hidden bg-card hidden sm:block">
-                  <img src={press.imageUrl} alt={press.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-                </div>
-                <div className="flex gap-3 items-center mb-3">
-                  <span className="text-primary text-xs uppercase tracking-widest">{press.publication}</span>
-                  <span className="w-6 h-[1px] bg-border"></span>
-                  <span className="text-muted-foreground text-xs">{press.date}</span>
-                </div>
-                <h3 className="text-2xl font-display mb-3 group-hover:text-primary transition-colors">"{press.title}"</h3>
-                <p className="text-muted-foreground text-sm mb-4">{press.excerpt}</p>
-                <button className="text-xs font-semibold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors">
-                  Read Article
-                </button>
-              </motion.article>
-            ))}
-          </div>
-
         </div>
+
+        <div className="mt-24 pt-12 border-t border-border text-center">
+          <h3 className="text-2xl font-display mb-4">Media Contact</h3>
+          <p className="text-muted-foreground mb-2">For press inquiries, interviews, and media assets:</p>
+          <a href="mailto:studio@mdwstylist.com" className="text-primary hover:text-foreground text-lg transition-colors border-b border-primary/30 pb-1">
+            studio@mdwstylist.com
+          </a>
+        </div>
+
       </div>
     </PageTransition>
   );

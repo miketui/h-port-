@@ -1,0 +1,45 @@
+
+Identity & Branding
+1. Your full name as it should appear on the site — is it "Michael David Warren Jr." or a shorter version like "Michael Warren" or "MDW"?
+2. Your tagline / positioning statement — what one or two lines define what you do? (e.g., "Hair Direction. Creative Vision." — or something in your own voice)
+3. Your location(s) — where are you based and where do you travel to for work?
+4. Your contact email — the one you want inquiries sent to
+5. Your booking email or agency contact — if you have representation, what's their name and email?
+6. Your social media handles — Instagram, TikTok, LinkedIn, etc.
+
+About Page
+7. Your full biography — the long-form version of your story (the PRD references a specific updated story with your path through global fashion, the Rihanna era, lockdown client story, and your transition into founder/author/creative)
+8. Your short bio — a 2–3 sentence version for press and quick introductions
+9. Your speaking bio — a version specifically for speaking engagements
+10. Your career timeline milestones — key dates and moments (e.g., "20XX — began assisting / 20XX — joined Rihanna's team / 20XX — published Curls & Contemplation")
+11. Your creative philosophy / mission statement — in your own words
+12. Your portrait photo — the image you want used on the About page
+
+Portfolio
+13. Your actual portfolio images — organized by category:
+    * Covers (9 images per PRD)
+    * Editorial (20 images)
+    * Beauty (6 images / 13 per updated PRD)
+    * Commercial / ECOM (8 images)
+    * Red Carpet (18–23 images)
+14. Credits for each image — photographer name, publication, celebrity name, event, year — for as many as you have-see the csv files 
+15. Your hero image — the PRD mentions an Adot Gak / Christian Cowan x Le Specs image as the homepage hero. Do you have this image to upload?
+16. The 11 supporting homepage images — the PRD outlines a specific mix (3 prestige/cover moments, 3 editorial, 2 red carpet, 2 culture/entertainment, 1 campaign)
+
+Selected Clients & Collaborations
+17. Your client/collaboration list — the PRD mentions Rihanna, Nike, Vogue, Vanity Fair, W, Teen Vogue, Refinery29. Who else should be on this list, and are there any you prefer to keep private?
+
+Press Page
+1. Press mentions and features — publication name, article headline, date, and URL (or image) for each-see links 
+2. Press quotes or testimonials — any quotes from publications or collaborators you want featured
+3. Your press kit assets — short bio, long bio, speaking bio, approved headshots, and any downloadable one-sheet
+4. Your media contact details — who press should reach out to and how
+
+Book Curls & Contemplation
+22. Do you want a section dedicated to the book? — if so, cover image, purchase link, and a brief description
+No
+Contact & Booking
+1. Project types you accept — should the booking form include: Editorial, Red Carpet, Commercial, Beauty, Covers, Speaking, Consulting, or others? Should accept all and everyday clients 
+2. Your response time / booking expectations — e.g., "Inquiries are typically responded to within 48 hours is there a way to set up automated responses "
+3. Email newsletter / Insider Access — do you have a Mailchimp, ConvertKit, or other email list to connect the signup form to, or is it just a placeholder for now?
+Not yet but I plan on it 
