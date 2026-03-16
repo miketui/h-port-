@@ -25,7 +25,7 @@ export default function About() {
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
               />
             </div>
-            <div className="absolute -bottom-8 -right-8 w-64 p-8 bg-[#0a0a0a] border border-white/5 hidden md:block z-20 shadow-2xl">
+            <div className="absolute -bottom-8 -right-8 w-64 p-8 bg-[#0a0a0a] border-l-2 border-l-accent border border-white/5 hidden md:block z-20 shadow-2xl">
               <p className="font-display italic text-2xl text-center text-foreground/90">"Hair is a creative medium."</p>
             </div>
           </motion.div>
@@ -46,7 +46,7 @@ export default function About() {
                 With credits across Vogue, Harper's Bazaar, W Magazine, Vanity Fair, Glamour, Teen Vogue, Elle UK, and Refinery29 — alongside campaigns for Nike, Savage X Fenty, and Brother Vellies — Michael's work blurs the line between hairstyling and creative direction. He approaches every project with an eye for texture, narrative, and the deeper story a subject carries.
               </p>
               <p>
-                Beyond the chair, Michael is the author of <span className="italic text-foreground">Curls & Contemplation</span>, a landmark work exploring Black identity, beauty culture, and the emotional power of hair. His philosophy is simple: hair is a creative medium, and every person who sits with him deserves to leave transformed — not just styled.
+                Beyond the chair, Michael is the author of <span className="italic text-accent">Curls & Contemplation</span>, a landmark work exploring Black identity, beauty culture, and the emotional power of hair. His philosophy is simple: hair is a creative medium, and every person who sits with him deserves to leave transformed — not just styled.
               </p>
             </div>
 
@@ -72,12 +72,12 @@ export default function About() {
             <div className="w-12 h-px bg-primary mx-auto"></div>
           </div>
           
-          <div className="relative border-l border-border pl-8 md:pl-12 space-y-12 ml-4 md:ml-0">
+          <div className="relative border-l border-accent/30 pl-8 md:pl-12 space-y-12 ml-4 md:ml-0">
             {CAREER_TIMELINE.map((item, idx) => (
               <div key={idx} className="relative">
-                <div className="absolute -left-[41px] md:-left-[57px] top-1 w-4 h-4 rounded-full bg-background border-2 border-primary ring-4 ring-background"></div>
+                <div className="absolute -left-[41px] md:-left-[57px] top-1 w-4 h-4 rounded-full bg-background border-2 border-accent ring-4 ring-background"></div>
                 <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6 mb-2">
-                  <span className="text-primary font-medium tracking-widest uppercase text-sm w-32 shrink-0">{item.year}</span>
+                  <span className="text-accent font-medium tracking-widest uppercase text-sm w-32 shrink-0">{item.year}</span>
                   <h3 className="text-xl md:text-2xl font-display text-foreground">{item.event}</h3>
                 </div>
                 <p className="text-muted-foreground text-base md:ml-[152px] leading-relaxed max-w-2xl">{item.detail}</p>
@@ -100,7 +100,7 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-y-8 gap-x-4 text-center">
             {FEATURED_CLIENTS.map((client, idx) => (
               <div key={idx} className="p-4">
-                <p className="font-display text-lg text-foreground/80 hover:text-primary transition-colors cursor-default">{client}</p>
+                <p className="font-display text-lg text-foreground/80 hover:text-accent transition-colors cursor-default">{client}</p>
               </div>
             ))}
           </div>

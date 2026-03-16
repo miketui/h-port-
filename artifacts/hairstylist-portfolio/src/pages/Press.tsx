@@ -36,8 +36,8 @@ export default function Press() {
               className="group relative flex flex-col bg-card/30 border border-border p-8 hover:border-primary/50 transition-colors"
             >
               <div className="flex gap-4 items-center mb-6">
-                <span className="text-primary text-xs font-medium uppercase tracking-widest">{press.publication}</span>
-                <span className="w-8 h-[1px] bg-border"></span>
+                <span className="text-accent text-xs font-medium uppercase tracking-widest">{press.publication}</span>
+                <span className="w-8 h-[1px] bg-accent/30"></span>
                 <span className="text-muted-foreground text-xs uppercase tracking-widest">{press.date}</span>
               </div>
               <h2 className="text-3xl font-display mb-4 italic group-hover:text-primary transition-colors leading-tight">"{press.title}"</h2>
@@ -80,7 +80,7 @@ export default function Press() {
               >
                 <div className="md:w-1/4 shrink-0">
                   <div className="flex flex-col gap-1">
-                    <span className="text-primary text-sm font-medium uppercase tracking-widest">{press.publication}</span>
+                    <span className="text-accent text-sm font-medium uppercase tracking-widest">{press.publication}</span>
                     <span className="text-muted-foreground text-xs uppercase tracking-widest">{press.date}</span>
                   </div>
                 </div>
@@ -104,6 +104,7 @@ export default function Press() {
         </div>
 
         <div className="mt-24 pt-12 border-t border-border text-center">
+          <div className="w-8 h-px bg-accent mx-auto mb-8" />
           <h3 className="text-2xl font-display mb-4">Media Contact</h3>
           <p className="text-muted-foreground mb-2">For press inquiries, interviews, and media assets:</p>
           <a href="mailto:studio@mdwstylist.com" className="text-primary hover:text-foreground text-lg transition-colors border-b border-primary/30 pb-1">

@@ -64,7 +64,7 @@ export default function Contact() {
 
               <div className="space-y-12">
                 <div>
-                  <h3 className="text-xs uppercase tracking-[0.2em] text-primary mb-4 font-medium">Agency</h3>
+                  <h3 className="text-xs uppercase tracking-[0.2em] text-accent mb-4 font-medium">Agency</h3>
                   <p className="font-display text-2xl text-foreground">MDW Studio</p>
                   <a href="mailto:studio@mdwstylist.com" className="text-muted-foreground hover:text-foreground transition-colors mt-2 block">
                     studio@mdwstylist.com
@@ -72,14 +72,14 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <h3 className="text-xs uppercase tracking-[0.2em] text-primary mb-4 font-medium">Direct Studio</h3>
+                  <h3 className="text-xs uppercase tracking-[0.2em] text-accent mb-4 font-medium">Direct Studio</h3>
                   <a href="mailto:studio@mdwstylist.com" className="font-display text-2xl text-foreground hover:text-primary transition-colors block border-b border-transparent hover:border-primary w-fit pb-1">
                     studio@mdwstylist.com
                   </a>
                 </div>
 
                 <div>
-                  <h3 className="text-xs uppercase tracking-[0.2em] text-primary mb-4 font-medium">Locations</h3>
+                  <h3 className="text-xs uppercase tracking-[0.2em] text-accent mb-4 font-medium">Locations</h3>
                   <ul className="space-y-3 text-muted-foreground font-display text-xl">
                     <li>Los Angeles (Base)</li>
                     <li>New York</li>
@@ -87,7 +87,7 @@ export default function Contact() {
                   </ul>
                 </div>
                 
-                <div className="p-6 bg-card border border-border mt-8">
+                <div className="p-6 bg-card border border-border border-l-2 border-l-accent mt-8">
                   <h3 className="text-xs uppercase tracking-widest text-foreground mb-2">Response Time</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     All inquiries are reviewed personally. Expect a response within 48–72 hours.

@@ -42,7 +42,7 @@ export default function Category() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl font-sans leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl font-sans leading-relaxed border-l-2 border-accent/40 pl-6"
           >
             {category.description}
           </motion.p>
@@ -75,7 +75,7 @@ export default function Category() {
                 <div className="flex justify-between items-end mt-auto">
                   <p className="text-xs uppercase tracking-widest text-muted-foreground">
                     <span className="text-foreground">{project.client}</span> &bull; {project.year}
-                    {project.publication && <span className="block mt-1 text-primary">{project.publication}</span>}
+                    {project.publication && <span className="block mt-1 text-accent">{project.publication}</span>}
                   </p>
                   
                   {project.link && (

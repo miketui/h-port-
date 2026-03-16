@@ -64,12 +64,12 @@ export function Footer() {
             <h4 className="font-display text-lg mt-8 mb-4 text-foreground">Social</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
                   Models.com
                 </a>
               </li>
@@ -78,6 +78,7 @@ export function Footer() {
           
         </div>
         
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent mb-0" />
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground tracking-wider uppercase">
             &copy; {new Date().getFullYear()} MDW. All rights reserved.

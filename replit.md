@@ -95,3 +95,19 @@ Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHea
 ### `scripts` (`@workspace/scripts`)
 
 Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.
+
+### `artifacts/hairstylist-portfolio` (`@workspace/hairstylist-portfolio`)
+
+Premium editorial portfolio site for Michael David Warren Jr. (MDW). React + Vite, static frontend only.
+
+- **Color palette (HSL in index.css)**:
+  - `--background` (Obsidian Black): `0 0% 7%`
+  - `--foreground` (White Gold): `40 20% 87%`
+  - `--primary` (Antique Gold): `37 32% 52%` — buttons, CTA, nav active state, main hover
+  - `--accent` (Deep Jade #145B4B): `160 65% 22%` — signature accent for category markers, publication labels, timeline, section labels, hover states on clients/social, pull quote borders, email signup labels
+  - `--secondary` (Soft Jade Mist #C7D9D2): `157 19% 82%` — lighter jade for subtle uses
+- **Brand rule**: "Black leads. Gold elevates. Jade distinguishes." Gold is the primary CTA/interaction color. Jade is the distinguishing signature accent used for labels, markers, borders, and creative highlights.
+- **Typography**: Playfair Display (display), Inter (sans)
+- **Pages**: Home, Portfolio Hub, Covers, Editorial, Red Carpet, Beauty, Commercial/ECOM, About, Press, Contact
+- **Components**: `EmailSignup` (3 variants: banner/section/compact), Navbar, Footer, PageTransition
+- **Email signups**: localStorage demo (no backend). Sources tracked per page. Ready for Mailchimp/ConvertKit.

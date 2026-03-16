@@ -76,7 +76,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-2xl md:text-4xl lg:text-5xl font-display max-w-5xl mx-auto leading-tight text-foreground/90"
           >
-            From Rihanna to the red carpet, from Vogue covers to Savage X Fenty — <span className="italic text-primary">Michael David Warren Jr.</span> shapes the image of culture's most visible figures.
+            From Rihanna to the red carpet, from Vogue covers to Savage X Fenty — <span className="italic text-accent">Michael David Warren Jr.</span> shapes the image of culture's most visible figures.
           </motion.h2>
         </div>
       </section>
@@ -102,12 +102,12 @@ export default function Home() {
                 />
                 <div className="absolute bottom-0 left-0 p-8 z-20 w-full flex justify-between items-end">
                   <div>
-                    <span className="text-xs text-primary font-medium uppercase tracking-[0.2em] mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
+                    <span className="text-xs text-accent font-medium uppercase tracking-[0.2em] mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
                       Explore
                     </span>
                     <h3 className="text-3xl md:text-4xl font-display text-white">{category.title}</h3>
                   </div>
-                  <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-4 group-hover:translate-x-0 group-hover:bg-primary group-hover:border-primary text-white">
+                  <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-4 group-hover:translate-x-0 group-hover:bg-accent group-hover:border-accent text-white">
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
@@ -185,7 +185,7 @@ export default function Home() {
                 key={i} 
                 className="border-r border-b border-white/5 p-6 md:p-8 flex items-center justify-center text-center group transition-colors hover:bg-card/50"
               >
-                <span className="text-sm md:text-base font-display uppercase tracking-widest text-muted-foreground group-hover:text-primary transition-colors">
+                <span className="text-sm md:text-base font-display uppercase tracking-widest text-muted-foreground group-hover:text-accent transition-colors">
                   {client}
                 </span>
               </div>
@@ -208,7 +208,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="p-8 border border-border bg-card/30 hover:border-primary/50 hover:bg-card transition-all duration-300 flex flex-col h-full"
               >
-                <p className="text-primary text-xs font-medium uppercase tracking-widest mb-4">{press.publication} &bull; {press.date}</p>
+                <p className="text-accent text-xs font-medium uppercase tracking-widest mb-4">{press.publication} <span className="text-muted-foreground">&bull; {press.date}</span></p>
                 <h4 className="font-display text-2xl mb-4 italic leading-tight">"{press.title}"</h4>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-1">{press.excerpt}</p>
                 <a 
@@ -241,6 +241,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-primary/5 z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/10 via-background to-background z-0" />
         <div className="container mx-auto px-6 text-center relative z-10">
+          <div className="w-16 h-0.5 bg-accent mx-auto mb-10 opacity-60" />
           <h2 className="text-5xl md:text-7xl font-display mb-8">Work With Michael</h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-12 text-lg">
             Available globally for editorial, celebrity, red carpet, and commercial projects.

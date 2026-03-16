@@ -64,13 +64,13 @@
   --primary: 37 32% 52%; /* Antique Gold */
   --primary-foreground: 0 0% 7%;
   
-  --secondary: 162 30% 82%;
+  --secondary: 157 19% 82%; /* Soft Jade Mist #C7D9D2 */
   --secondary-foreground: 0 0% 7%;
   
   --muted: 0 0% 14%;
   --muted-foreground: 40 8% 55%;
   
-  --accent: 162 62% 22%; /* Deep Jade */
+  --accent: 160 65% 22%; /* Deep Jade #145B4B */
   --accent-foreground: 40 20% 87%;
   
   --destructive: 0 65% 45%;
@@ -108,7 +108,7 @@
   background: hsl(var(--border));
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground));
+  background: hsl(var(--accent) / 0.6);
 }
 
 /* Image Hover Zoom Utility */

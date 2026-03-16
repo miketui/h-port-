@@ -37,7 +37,7 @@ export default function Portfolio() {
                 <div className="flex justify-between items-start">
                   <div>
                     <h2 className="text-3xl md:text-4xl font-display mb-3 group-hover:text-primary transition-colors">{category.title}</h2>
-                    <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">{category.projects.length} Projects</p>
+                    <p className="text-xs uppercase tracking-[0.2em] text-accent font-medium">{category.projects.length} Projects</p>
                   </div>
                   <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                     <span className="sr-only">View {category.title}</span>
