@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PRESS_MENTIONS } from "@/lib/data";
+import { EmailSignup } from "@/components/EmailSignup";
 import { Download, ExternalLink } from "lucide-react";
 
 export default function Press() {
@@ -52,6 +53,15 @@ export default function Press() {
             </motion.article>
           ))}
         </div>
+
+        {/* Email Signup — between featured and archive */}
+        <EmailSignup
+          variant="section"
+          source="press-page"
+          heading="Get the Story First"
+          subheading="Join the MDW list to be notified of new press features, editorials, and exclusive releases."
+          className="mb-16"
+        />
 
         {/* Archive List */}
         <div className="max-w-4xl mx-auto">

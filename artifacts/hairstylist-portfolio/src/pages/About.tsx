@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { FEATURED_CLIENTS, CAREER_TIMELINE } from "@/lib/data";
+import { EmailSignup } from "@/components/EmailSignup";
 
 export default function About() {
   return (
@@ -104,6 +105,15 @@ export default function About() {
             ))}
           </div>
         </motion.div>
+
+        {/* Email Signup */}
+        <EmailSignup
+          variant="section"
+          source="about-page"
+          heading="Follow the Creative Journey"
+          subheading="Join the MDW insider list — new work, collaborations, and behind-the-scenes moments delivered directly to you."
+          className="mt-8"
+        />
 
       </div>
     </PageTransition>

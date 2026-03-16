@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { EmailSignup } from "@/components/EmailSignup";
 
 export function Footer() {
   return (
@@ -15,18 +16,12 @@ export function Footer() {
               Los Angeles — New York — Global
             </p>
             
-            <div className="space-y-3">
-              <p className="text-xs uppercase tracking-widest text-foreground">Stay Connected</p>
-              <div className="flex w-full max-w-xs border border-border">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="bg-transparent border-none focus:outline-none focus:ring-0 px-4 py-2 text-sm w-full"
-                />
-                <button className="px-4 text-xs uppercase tracking-widest text-primary hover:text-foreground transition-colors border-l border-border">
-                  Join
-                </button>
-              </div>
+            <div className="max-w-xs">
+              <EmailSignup
+                variant="compact"
+                source="footer"
+                heading="Stay Connected"
+              />
             </div>
           </div>
           

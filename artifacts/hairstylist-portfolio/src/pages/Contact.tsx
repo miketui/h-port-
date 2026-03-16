@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
+import { EmailSignup } from "@/components/EmailSignup";
 import { useToast } from "@/hooks/use-toast";
 
 const contactSchema = z.object({
@@ -184,17 +185,11 @@ export default function Contact() {
             </form>
             
             <div className="mt-12 pt-8 border-t border-border">
-              <label className="text-xs uppercase tracking-widest text-foreground block mb-4">Stay connected — join the MDW insider list</label>
-              <div className="flex w-full border border-border bg-background focus-within:border-primary transition-colors">
-                <input 
-                  type="email" 
-                  placeholder="Email address" 
-                  className="bg-transparent border-none focus:outline-none px-4 py-3 text-sm flex-1 text-foreground"
-                />
-                <button className="px-6 text-xs font-semibold uppercase tracking-widest text-primary hover:bg-primary hover:text-primary-foreground transition-colors border-l border-border">
-                  Subscribe
-                </button>
-              </div>
+              <EmailSignup
+                variant="compact"
+                source="contact-page"
+                heading="Stay connected — join the MDW insider list"
+              />
             </div>
           </motion.div>
 

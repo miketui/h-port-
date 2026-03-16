@@ -2,6 +2,7 @@ import { useParams, Link } from "wouter";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PORTFOLIO_CATEGORIES } from "@/lib/data";
+import { EmailSignup } from "@/components/EmailSignup";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 
 export default function Category() {
@@ -92,6 +93,17 @@ export default function Category() {
             </motion.div>
           ))}
         </div>
+
+        {/* Email Signup */}
+        <div className="container mx-auto px-6 md:px-12 mt-4">
+          <EmailSignup
+            variant="section"
+            source={`category-${categorySlug}`}
+            heading="Stay Ahead of the Work"
+            subheading="New MDW projects, behind-the-scenes access, and press moments — straight to your inbox."
+          />
+        </div>
+
       </div>
     </PageTransition>
   );

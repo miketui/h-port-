@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PORTFOLIO_CATEGORIES, PRESS_MENTIONS, FEATURED_CLIENTS } from "@/lib/data";
+import { EmailSignup } from "@/components/EmailSignup";
 import { ArrowRight } from "lucide-react";
 
 export default function Home() {
@@ -228,6 +229,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Email Signup Banner */}
+      <EmailSignup
+        variant="banner"
+        source="home-page"
+      />
 
       {/* CTA Section */}
       <section className="py-32 relative overflow-hidden">
