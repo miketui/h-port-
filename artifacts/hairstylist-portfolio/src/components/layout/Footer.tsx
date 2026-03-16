@@ -11,7 +11,7 @@ export function Footer() {
               MDW
             </Link>
             <p className="text-muted-foreground text-sm max-w-sm font-sans leading-relaxed mb-8">
-              Michael David Warren Jr. <br/>
+              Michael David <br/>
               Hair Direction · Celebrity · Editorial <br/>
               Los Angeles — New York — Global
             </p>

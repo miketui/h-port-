@@ -142,7 +142,7 @@ export const PRESS_MENTIONS = [
     publication: "Vogue",
     date: "2022",
     title: "Lupita Nyong'o's Beauty Look",
-    excerpt: "Michael David Warren Jr. crafted an ethereal look for Lupita Nyong'o at the ACE Awards — featuring facial jewels and vibrant orange eyeshadow.",
+    excerpt: "Michael David crafted an ethereal look for Lupita Nyong'o at the ACE Awards — featuring facial jewels and vibrant orange eyeshadow.",
     link: "https://www.vogue.com/article/lupita-nyongo-beauty-facial-jewels-orange-eyeshadow-new-york-city"
   },
   {
@@ -158,7 +158,7 @@ export const PRESS_MENTIONS = [
     publication: "W Magazine",
     date: "2022",
     title: "FoushÉe: Deep End",
-    excerpt: "On set with FoushÉe for W Magazine — hair direction by Michael David Warren Jr.",
+    excerpt: "On set with FoushÉe for W Magazine — hair direction by Michael David",
     link: "https://www.wmagazine.com/culture/foushee-deep-end-tiktok-time-machine-interview"
   },
   {
@@ -174,7 +174,7 @@ export const PRESS_MENTIONS = [
     publication: "Glamour",
     date: "2022",
     title: "Aurora James — Women of the Year 2022",
-    excerpt: "Aurora James photographed for Glamour's Women of the Year — hair by Michael David Warren Jr.",
+    excerpt: "Aurora James photographed for Glamour's Women of the Year — hair by Michael David",
     link: "https://www.glamour.com/story/aurora-james-glamour-women-of-the-year-2022"
   },
   {
@@ -182,7 +182,7 @@ export const PRESS_MENTIONS = [
     publication: "Grazia USA",
     date: "2022",
     title: "Aurora Rising: Aurora James",
-    excerpt: "A profile of designer Aurora James with hair direction by Michael David Warren Jr.",
+    excerpt: "A profile of designer Aurora James with hair direction by Michael David",
     link: "https://graziamagazine.com/us/articles/aurora-rising-aurora-james/"
   },
   {
@@ -190,7 +190,7 @@ export const PRESS_MENTIONS = [
     publication: "Refinery29",
     date: "2022",
     title: "Black Women Creators to Watch",
-    excerpt: "Refinery29 spotlights emerging Black creators — featuring work by Michael David Warren Jr.",
+    excerpt: "Refinery29 spotlights emerging Black creators — featuring work by Michael David",
     link: "https://www.refinery29.com/en-us/2022/12/11221549/black-women-creators-elsa-lala-aliyah-fannita-cleotrapa"
   },
   {
@@ -198,7 +198,7 @@ export const PRESS_MENTIONS = [
     publication: "Cultured Magazine",
     date: "2022",
     title: "Saniyya Sidney Is Ready for the Spotlight",
-    excerpt: "Cultured Magazine's feature on Saniyya Sidney — styled with hair direction by Michael David Warren Jr.",
+    excerpt: "Cultured Magazine's feature on Saniyya Sidney — styled with hair direction by Michael David",
     link: "https://www.culturedmag.com/article/2022/03/15/saniyya-sidney-is-ready-for-the-spotlight/"
   },
   {
@@ -206,7 +206,7 @@ export const PRESS_MENTIONS = [
     publication: "Composure Magazine",
     date: "2022",
     title: "Ritu Arya",
-    excerpt: "A portrait feature on Ritu Arya for Composure Magazine — hair by Michael David Warren Jr.",
+    excerpt: "A portrait feature on Ritu Arya for Composure Magazine — hair by Michael David",
     link: "https://composuremagazine.com/ritu-arya/"
   },
   {
@@ -214,7 +214,7 @@ export const PRESS_MENTIONS = [
     publication: "L'Officiel Malaysia",
     date: "2022",
     title: "L'Officiel Malaysia — Hao Zeng",
-    excerpt: "An editorial for L'Officiel Malaysia photographed by Hao Zeng — hair direction by Michael David Warren Jr.",
+    excerpt: "An editorial for L'Officiel Malaysia photographed by Hao Zeng — hair direction by Michael David",
     link: "https://www.beautyscene.net/editorial/lofficiel-malaysia-hao-zeng/"
   },
   {
@@ -222,7 +222,7 @@ export const PRESS_MENTIONS = [
     publication: "PhotoBook Magazine",
     date: "2022",
     title: "Alisha Wainwright",
-    excerpt: "PhotoBook's feature on actress Alisha Wainwright — hair by Michael David Warren Jr.",
+    excerpt: "PhotoBook's feature on actress Alisha Wainwright — hair by Michael David",
     link: "https://www.photobookmagazine.com/features/alisha-wainwright"
   },
   {
@@ -230,7 +230,7 @@ export const PRESS_MENTIONS = [
     publication: "PhotoBook Magazine",
     date: "2022",
     title: "Gracie Marie Bradley",
-    excerpt: "Gracie Marie Bradley photographed for PhotoBook Magazine — hair direction by Michael David Warren Jr.",
+    excerpt: "Gracie Marie Bradley photographed for PhotoBook Magazine — hair direction by Michael David",
     link: "https://www.photobookmagazine.com/features/gracie-marie-bradley"
   }
 ];

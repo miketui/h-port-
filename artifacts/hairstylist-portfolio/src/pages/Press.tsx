@@ -13,7 +13,7 @@ export default function Press() {
           <div className="max-w-2xl">
             <h1 className="text-5xl md:text-7xl font-display mb-6">Press & Media</h1>
             <p className="text-muted-foreground text-lg">
-              Interviews, features, and critical reception of Michael David Warren Jr.'s industry-defining work.
+              Interviews, features, and critical reception of Michael David's industry-defining work.
             </p>
           </div>
           

@@ -21,7 +21,7 @@ export default function About() {
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10" />
               <img 
                 src={`${import.meta.env.BASE_URL}images/about-portrait.png`}
-                alt="Michael David Warren Jr. Portrait" 
+                alt="Michael David Portrait" 
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
               />
             </div>
@@ -40,7 +40,7 @@ export default function About() {
             
             <div className="space-y-6 text-muted-foreground font-sans leading-relaxed text-lg">
               <p>
-                Michael David Warren Jr. is a Los Angeles and New York-based celebrity hairstylist, creative director, and author whose work spans the intersection of fashion, culture, and identity. His client roster reads like a cultural map of the moment — Rihanna, Lupita Nyong'o, Aurora James, Saniyya Sidney, Billy Porter, Lizzo — names that define this era of visual storytelling.
+                Michael David is a Los Angeles and New York-based celebrity hairstylist, creative director, and author whose work spans the intersection of fashion, culture, and identity. His client roster reads like a cultural map of the moment — Rihanna, Lupita Nyong'o, Aurora James, Saniyya Sidney, Billy Porter, Lizzo — names that define this era of visual storytelling.
               </p>
               <p>
                 With credits across Vogue, Harper's Bazaar, W Magazine, Vanity Fair, Glamour, Teen Vogue, Elle UK, and Refinery29 — alongside campaigns for Nike, Savage X Fenty, and Brother Vellies — Michael's work blurs the line between hairstyling and creative direction. He approaches every project with an eye for texture, narrative, and the deeper story a subject carries.
@@ -59,29 +59,33 @@ export default function About() {
           
         </div>
 
-        {/* Career Timeline Section */}
+        {/* Career Highlights — Editorial Grid */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="mb-32 max-w-4xl mx-auto"
+          className="mb-32"
         >
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display mb-4">Career Journey</h2>
+            <h2 className="text-4xl md:text-5xl font-display mb-4">Career Highlights</h2>
             <div className="w-12 h-px bg-primary mx-auto"></div>
           </div>
           
-          <div className="relative border-l border-accent/30 pl-8 md:pl-12 space-y-12 ml-4 md:ml-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CAREER_TIMELINE.map((item, idx) => (
-              <div key={idx} className="relative">
-                <div className="absolute -left-[41px] md:-left-[57px] top-1 w-4 h-4 rounded-full bg-background border-2 border-accent ring-4 ring-background"></div>
-                <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6 mb-2">
-                  <span className="text-accent font-medium tracking-widest uppercase text-sm w-32 shrink-0">{item.year}</span>
-                  <h3 className="text-xl md:text-2xl font-display text-foreground">{item.event}</h3>
-                </div>
-                <p className="text-muted-foreground text-base md:ml-[152px] leading-relaxed max-w-2xl">{item.detail}</p>
-              </div>
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
+                className="group p-8 bg-card/30 border border-border hover:border-accent/40 transition-all duration-500"
+              >
+                <span className="text-accent text-xs font-medium tracking-[0.3em] uppercase block mb-4">{item.year}</span>
+                <h3 className="text-xl font-display text-foreground mb-3 group-hover:text-primary transition-colors">{item.event}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.detail}</p>
+              </motion.div>
             ))}
           </div>
         </motion.div>

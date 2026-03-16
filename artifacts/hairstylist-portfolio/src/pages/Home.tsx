@@ -42,7 +42,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-5xl md:text-7xl lg:text-9xl font-display text-foreground leading-[0.9] tracking-tighter mx-auto max-w-[15ch]"
           >
-            MICHAEL DAVID WARREN
+            MICHAEL DAVID
           </motion.h1>
           <motion.div
             initial={{ opacity: 0 }}
@@ -76,7 +76,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-2xl md:text-4xl lg:text-5xl font-display max-w-5xl mx-auto leading-tight text-foreground/90"
           >
-            From Rihanna to the red carpet, from Vogue covers to Savage X Fenty — <span className="italic text-accent">Michael David Warren Jr.</span> shapes the image of culture's most visible figures.
+            From Rihanna to the red carpet, from Vogue covers to Savage X Fenty — <span className="italic text-accent">Michael David</span> shapes the image of culture's most visible figures.
           </motion.h2>
         </div>
       </section>
@@ -242,7 +242,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/10 via-background to-background z-0" />
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="w-16 h-0.5 bg-accent mx-auto mb-10 opacity-60" />
-          <h2 className="text-5xl md:text-7xl font-display mb-8">Work With Michael</h2>
+          <h2 className="text-5xl md:text-7xl font-display mb-8">Work With MDW</h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-12 text-lg">
             Available globally for editorial, celebrity, red carpet, and commercial projects.
           </p>
