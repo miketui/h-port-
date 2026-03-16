@@ -1,0 +1,82 @@
+import { useParams, Link } from "wouter";
+import { motion } from "framer-motion";
+import { PageTransition } from "@/components/layout/PageTransition";
+import { PORTFOLIO_CATEGORIES } from "@/lib/data";
+import { ArrowLeft } from "lucide-react";
+
+export default function Category() {
+  const params = useParams();
+  const categorySlug = params.category;
+  
+  const category = PORTFOLIO_CATEGORIES.find(c => c.slug === categorySlug);
+
+  if (!category) {
+    return (
+      <PageTransition className="flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-display mb-4">Category Not Found</h1>
+          <Link href="/portfolio" className="text-primary hover:underline">Return to Portfolio</Link>
+        </div>
+      </PageTransition>
+    );
+  }
+
+  return (
+    <PageTransition>
+      <div className="container mx-auto px-6 md:px-12 pt-8 pb-24">
+        <Link href="/portfolio" className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors mb-12">
+          <ArrowLeft className="w-4 h-4" /> Back to Categories
+        </Link>
+        
+        <div className="max-w-4xl mb-20">
+          <motion.h1 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-6xl md:text-8xl lg:text-9xl font-display tracking-tighter mb-6 uppercase"
+          >
+            {category.title}
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl font-sans"
+          >
+            {category.description}
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          {category.projects.map((project, i) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, delay: (i % 3) * 0.2 }}
+              className="group"
+            >
+              <div className={`img-zoom-wrapper mb-6 bg-card ${
+                category.slug === 'editorial' ? 'aspect-[4/5]' : 
+                category.slug === 'commercial' ? 'aspect-[16/9]' : 'aspect-[2/3]'
+              }`}>
+                <img 
+                  src={project.imageUrl} 
+                  alt={project.imageAlt} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h3 className="font-display text-2xl mb-1">{project.title}</h3>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <span className="text-primary">{project.client}</span> &bull; {project.year}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </PageTransition>
+  );
+}

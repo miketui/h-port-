@@ -1,0 +1,155 @@
+Build a premium, editorial-fashion hairstylist portfolio website for a celebrity/editorial hairstylist and creative entrepreneur.
+
+PROJECT GOAL
+Create a high-end personal portfolio website that immediately feels luxury, modern, fashion-forward, and credible. The site must position the stylist as a top-tier celebrity/editorial hair artist available for bookings, brand collaborations, press, and portfolio viewing.
+
+BRAND POSITIONING
+The brand should feel:
+- luxury
+- editorial
+- fashion industry credible
+- clean and elevated
+- artistic but not cluttered
+- premium on mobile first
+- visually image-led
+- minimalist with strong typography
+- suitable for celebrity, red carpet, editorial, commercial, and beauty work
+
+AVOID
+- generic agency look
+- startup SaaS look
+- template-like portfolio cards
+- cluttered layouts
+- childish animations
+- overdesigned gradients everywhere
+- cheap-looking shadows or effects
+- overly corporate styling
+
+VISUAL DIRECTION
+Use a refined luxury visual system inspired by fashion/editorial websites.
+Style cues:
+- strong typography hierarchy
+- immersive image presentation
+- lots of breathing room
+- elegant spacing
+- subtle motion
+- smooth scrolling
+- premium transitions
+- sharp art direction
+- dark, light, or mixed luxury palette options grounded in black / white / soft neutrals / metallic gold / muted jade accents only if tasteful
+
+TARGET USER ACTIONS
+Visitors should be able to:
+- view portfolio by category
+- understand the stylist’s level and credibility quickly
+- browse featured work
+- view press/features
+- inquire for bookings
+- access contact information easily
+
+SITE STRUCTURE
+Build these pages and sections:
+
+1. HOME
+- hero section with striking statement and premium imagery
+- short positioning intro
+- featured portfolio categories
+- selected featured work
+- client / publication / brand credibility strip
+- short about preview
+- press preview
+- strong booking CTA
+- refined footer
+
+2. PORTFOLIO LANDING PAGE
+- elegant intro
+- category navigation
+- visual grid or gallery system
+- filters or category segmentation if appropriate
+
+3. PORTFOLIO CATEGORY PAGES
+Create distinct layout directions for:
+- Editorial
+- Red Carpet
+- Celebrity
+- Beauty
+- Commercial / Campaign
+Each category should feel visually distinct while staying within one design system.
+
+4. ABOUT PAGE
+- polished biography/story section
+- career positioning
+- selected clients / collaborators
+- mission / creative philosophy
+- portrait area
+- CTA to book or contact
+
+5. PRESS PAGE
+- featured publications
+- interviews / articles / campaigns
+- press quote or testimonial section if useful
+- downloadable press kit placeholder
+
+6. CONTACT / BOOKING PAGE
+- premium inquiry form
+- booking information
+- contact email placeholder
+- optional project-type dropdown
+- availability / location placeholder
+- social links
+
+7. OPTIONAL
+- simple journal/news section placeholder
+- services / consulting placeholder if it fits elegantly
+
+DESIGN SYSTEM REQUIREMENTS
+Define a clear reusable system for:
+- typography pairings
+- spacing scale
+- button styles
+- navigation behavior
+- image ratio logic
+- gallery behavior
+- mobile responsiveness
+- section padding rules
+- form styling
+- footer styling
+- hover and transition behavior
+
+PORTFOLIO UX REQUIREMENTS
+The website should be optimized for a hairstylist portfolio where imagery is the primary proof of value.
+Include:
+- large image-first storytelling
+- elegant caption treatment
+- optional credits structure for photographer / makeup / styling / publication
+- ability to support missing credits gracefully
+- layouts that still feel premium even if some project details are unavailable
+
+TECH REQUIREMENTS
+Build this as a modern, responsive, production-ready front-end app.
+Preferred stack:
+- Next.js
+- React
+- Tailwind CSS
+- reusable components
+- clean folder structure
+- responsive mobile-first implementation
+- easy to expand later into CMS-backed content
+
+DELIVERABLES
+Provide:
+1. sitemap
+2. visual design direction summary
+3. reusable design system
+4. page-by-page wireframe structure
+5. responsive component plan
+6. polished homepage mockup direction
+7. portfolio category mockup directions for Editorial and Red Carpet first
+8. production-ready front-end code scaffold
+9. placeholder content where real content is not yet available
+
+IMPORTANT
+This must not feel like a generic portfolio template. It should feel like a premium fashion/editorial hairstylist website that makes the work look more valuable within 3 seconds of landing on the page.
+
+Prioritize elegance, authority, and image presentation.
+Start with the homepage, Editorial category, and Red Carpet category as the strongest first-pass screens.
