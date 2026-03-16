@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "YGjUTiFVqn7ZpOy6elOHN"
+uri = "file://mdw-portfolio.zip"
+type = "unspecified"
+title = "MDW Portfolio — Full Source Code"
