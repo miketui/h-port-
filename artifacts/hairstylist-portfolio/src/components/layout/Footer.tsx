@@ -29,7 +29,7 @@ export function Footer() {
             <h4 className="font-display text-lg mb-6 text-foreground">Portfolio</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <Link href="/portfolio/covers" className="hover:text-primary transition-colors">Covers</Link>
+                <Link href="/portfolio/cover" className="hover:text-primary transition-colors">Covers</Link>
               </li>
               <li>
                 <Link href="/portfolio/editorial" className="hover:text-primary transition-colors">Editorial</Link>
