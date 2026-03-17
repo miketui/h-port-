@@ -1,9 +1,65 @@
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PORTFOLIO_CATEGORIES, PRESS_MENTIONS, FEATURED_CLIENTS } from "@/lib/data";
 import { EmailSignup } from "@/components/EmailSignup";
 import { ArrowRight } from "lucide-react";
+
+const HERO_IMAGES = [
+  { src: `${import.meta.env.BASE_URL}images/hero-1.jpg`, alt: "MDW editorial styling" },
+  { src: `${import.meta.env.BASE_URL}images/hero-2.jpg`, alt: "MDW red carpet styling" },
+  { src: `${import.meta.env.BASE_URL}images/hero-3.jpg`, alt: "MDW celebrity hair direction" },
+  { src: `${import.meta.env.BASE_URL}images/hero-4.jpg`, alt: "MDW fashion editorial" },
+  { src: `${import.meta.env.BASE_URL}images/hero-5.jpg`, alt: "MDW creative direction" },
+];
+
+const SLIDE_DURATION = 7000;
+
+function HeroCarousel() {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  const advance = useCallback(() => {
+    setDirection(1);
+    setCurrent(prev => (prev + 1) % HERO_IMAGES.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(advance, SLIDE_DURATION);
+    return () => clearInterval(timer);
+  }, [advance]);
+
+  return (
+    <>
+      <AnimatePresence initial={false} custom={direction}>
+        <motion.img
+          key={current}
+          src={HERO_IMAGES[current].src}
+          alt={HERO_IMAGES[current].alt}
+          custom={direction}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 0.6, scale: 1, transition: { opacity: { duration: 1.5 }, scale: { duration: SLIDE_DURATION / 1000 + 1.5, ease: "linear" } } }}
+          exit={{ opacity: 0, transition: { duration: 1.5 } }}
+          className="absolute inset-0 w-full h-full object-cover object-top mix-blend-luminosity"
+        />
+      </AnimatePresence>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+        {HERO_IMAGES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${
+              i === current ? "bg-accent w-6" : "bg-white/30 hover:bg-white/60"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </>
+  );
+}
 
 export default function Home() {
   const featuredWork = [
@@ -20,11 +76,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-background/50 z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 z-10" />
-          <img
-            src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
-            alt="MDW styling"
-            className="w-full h-full object-cover object-top opacity-60 mix-blend-luminosity"
-          />
+          <HeroCarousel />
         </div>
         
         <div className="relative z-20 text-center px-4 max-w-7xl mx-auto w-full">
