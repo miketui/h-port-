@@ -7,10 +7,34 @@ import { EmailSignup } from "@/components/EmailSignup";
 import { ArrowRight } from "lucide-react";
 
 const EDITORIAL_STRIP = [
-  { src: `${import.meta.env.BASE_URL}images/portfolio/editorial/exports/featured/editorial_2021_aurora-james_grazia-usa_34.jpg`, alt: "Aurora James Grazia USA editorial", label: "Editorial" },
-  { src: `${import.meta.env.BASE_URL}images/portfolio/red-carpet/exports/featured/redcarpet_2022_saniyya-sidney_hca-awards_09.jpg`, alt: "Saniyya Sidney HCA Awards red carpet", label: "Red Carpet" },
-  { src: `${import.meta.env.BASE_URL}images/portfolio/beauty/exports/featured/beauty_2018_duckie-thot_harpers-bazaar_20.jpg`, alt: "Duckie Thot Harper's Bazaar beauty", label: "Beauty" },
-  { src: `${import.meta.env.BASE_URL}images/portfolio/commercial-ecom/exports/featured/ecom_2020_veronika-vilim_le-specs_01.jpg`, alt: "Le Specs commercial campaign", label: "Commercial" },
+  {
+    src: `${import.meta.env.BASE_URL}images/portfolio/editorial/exports/featured/editorial_2021_aurora-james_grazia-usa_34.jpg`,
+    alt: "Aurora James Grazia USA editorial",
+    label: "Editorial",
+    subtitle: "Grazia USA",
+    origin: { x: -60, y: 80, rotate: -2 },
+  },
+  {
+    src: `${import.meta.env.BASE_URL}images/portfolio/red-carpet/exports/featured/redcarpet_2022_saniyya-sidney_hca-awards_09.jpg`,
+    alt: "Saniyya Sidney HCA Awards red carpet",
+    label: "Red Carpet",
+    subtitle: "HCA Awards",
+    origin: { x: 0, y: 100, rotate: 1 },
+  },
+  {
+    src: `${import.meta.env.BASE_URL}images/portfolio/beauty/exports/featured/beauty_2018_duckie-thot_harpers-bazaar_20.jpg`,
+    alt: "Duckie Thot Harper's Bazaar beauty",
+    label: "Beauty",
+    subtitle: "Harper's Bazaar",
+    origin: { x: 0, y: 120, rotate: -1 },
+  },
+  {
+    src: `${import.meta.env.BASE_URL}images/portfolio/commercial-ecom/exports/featured/ecom_2020_veronika-vilim_le-specs_01.jpg`,
+    alt: "Le Specs commercial campaign",
+    label: "Commercial",
+    subtitle: "Le Specs",
+    origin: { x: 60, y: 80, rotate: 2 },
+  },
 ];
 
 export default function Home() {
@@ -80,28 +104,81 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Editorial Image Strip — 4 images proving range */}
-      <section className="py-16 md:py-24 bg-background border-b border-white/5">
+      {/* Editorial Image Strip — Cinematic storytelling reveal */}
+      <section className="py-20 md:py-32 bg-background border-b border-white/5 overflow-hidden">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.8 }}
+            className="text-center text-xs uppercase tracking-[0.35em] text-muted-foreground mb-16 md:mb-20"
+          >
+            The Work &mdash; Four Disciplines
+          </motion.p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             {EDITORIAL_STRIP.map((item, i) => (
               <motion.div
                 key={item.label}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, delay: i * 0.1 }}
-                className="group relative aspect-[3/4] overflow-hidden bg-card"
+                initial={{
+                  opacity: 0,
+                  x: item.origin.x,
+                  y: item.origin.y,
+                  rotate: item.origin.rotate,
+                  scale: 0.92,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                  y: 0,
+                  rotate: 0,
+                  scale: 1,
+                }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{
+                  duration: 1.2,
+                  delay: 0.15 + i * 0.18,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="group relative"
               >
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
+                <div className="relative aspect-[3/4] overflow-hidden bg-card">
+                  <motion.img
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.06 }}
+                    transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  />
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.6 + i * 0.18 }}
+                  />
+                  <motion.div
+                    className="absolute bottom-0 left-0 w-full p-5 md:p-6"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.8 + i * 0.2 }}
+                  >
+                    <span className="block text-[10px] md:text-xs uppercase tracking-[0.25em] text-accent/80 mb-1">
+                      {item.subtitle}
+                    </span>
+                    <span className="block text-sm md:text-base font-display text-white/95 tracking-wide">
+                      {item.label}
+                    </span>
+                  </motion.div>
+                </div>
+                <motion.div
+                  className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent mt-4"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.2, delay: 1.0 + i * 0.15, ease: "easeOut" }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="absolute bottom-0 left-0 p-5 md:p-6 text-xs md:text-sm uppercase tracking-[0.2em] text-white/90 font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                  {item.label}
-                </span>
               </motion.div>
             ))}
           </div>
