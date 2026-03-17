@@ -3,13 +3,16 @@ import { motion } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PORTFOLIO_CATEGORIES } from "@/lib/data";
 import { EmailSignup } from "@/components/EmailSignup";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 
 export default function Category() {
   const params = useParams();
   const categorySlug = params.category;
   
-  const category = PORTFOLIO_CATEGORIES.find(c => c.slug === categorySlug);
+  const categoryIndex = PORTFOLIO_CATEGORIES.findIndex(c => c.slug === categorySlug);
+  const category = categoryIndex >= 0 ? PORTFOLIO_CATEGORIES[categoryIndex] : undefined;
+  const prevCategory = categoryIndex > 0 ? PORTFOLIO_CATEGORIES[categoryIndex - 1] : null;
+  const nextCategory = categoryIndex < PORTFOLIO_CATEGORIES.length - 1 ? PORTFOLIO_CATEGORIES[categoryIndex + 1] : null;
 
   if (!category) {
     return (
@@ -59,13 +62,12 @@ export default function Category() {
               className="group flex flex-col"
             >
               <div className={`img-zoom-wrapper mb-6 bg-card border border-white/5 ${
-                category.slug === 'editorial' ? 'aspect-[4/5]' : 
-                category.slug === 'commercial-ecom' ? 'aspect-[4/5]' : 
-                category.slug === 'covers' ? 'aspect-[3/4]' : 'aspect-[3/4]'
+                category.slug === 'editorial' || category.slug === 'commercial-ecom' ? 'aspect-[4/5]' : 'aspect-[3/4]'
               }`}>
-                <img 
-                  src={project.imageUrl} 
-                  alt={project.imageAlt} 
+                <img
+                  src={project.imageUrl}
+                  alt={project.imageAlt}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -92,6 +94,28 @@ export default function Category() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Next / Previous Category Navigation */}
+        <div className="mt-24 pt-12 border-t border-white/5 flex justify-between items-center">
+          {prevCategory ? (
+            <Link href={`/portfolio/${prevCategory.slug}`} className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              <div>
+                <span className="text-[10px] uppercase tracking-widest block mb-1">Previous</span>
+                <span className="font-display text-lg text-foreground group-hover:text-primary transition-colors">{prevCategory.title}</span>
+              </div>
+            </Link>
+          ) : <div />}
+          {nextCategory ? (
+            <Link href={`/portfolio/${nextCategory.slug}`} className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-right">
+              <div>
+                <span className="text-[10px] uppercase tracking-widest block mb-1">Next</span>
+                <span className="font-display text-lg text-foreground group-hover:text-primary transition-colors">{nextCategory.title}</span>
+              </div>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          ) : <div />}
         </div>
 
         {/* Email Signup */}

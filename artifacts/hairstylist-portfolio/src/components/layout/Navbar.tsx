@@ -109,16 +109,11 @@ export function Navbar() {
             
             <Link
               href="/contact"
-              className={`text-sm tracking-widest uppercase transition-colors duration-300 hover:text-primary ${
-                location === "/contact" ? "text-primary" : "text-muted-foreground"
+              className={`ml-4 px-6 py-2 border border-primary/30 text-xs uppercase tracking-widest transition-all duration-300 ${
+                location === "/contact"
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "text-primary hover:bg-primary hover:text-primary-foreground"
               }`}
-            >
-              Contact
-            </Link>
-
-            <Link
-              href="/contact"
-              className="ml-4 px-6 py-2 border border-primary/30 text-primary text-xs uppercase tracking-widest hover:bg-primary hover:text-primary-foreground transition-all duration-300"
             >
               Book Now
             </Link>

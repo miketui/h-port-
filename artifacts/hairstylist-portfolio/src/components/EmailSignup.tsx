@@ -16,12 +16,19 @@ export function EmailSignup({
   className = "",
 }: EmailSignupProps) {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || status === "submitting") return;
+    setStatus("submitting");
     try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source }),
+      });
+      if (!res.ok) throw new Error("Subscription failed");
       setStatus("success");
       setEmail("");
     } catch {
@@ -52,13 +59,17 @@ export function EmailSignup({
             />
             <button
               type="submit"
-              className="px-6 py-3 bg-primary text-primary-foreground text-xs uppercase tracking-widest font-semibold hover:bg-primary/90 transition-colors"
+              disabled={status === "submitting"}
+              className="px-6 py-3 bg-primary text-primary-foreground text-xs uppercase tracking-widest font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Subscribe
+              {status === "submitting" ? "Sending..." : "Subscribe"}
             </button>
           </form>
           {status === "success" && (
             <p className="text-accent text-sm mt-4">You're on the list.</p>
+          )}
+          {status === "error" && (
+            <p className="text-destructive text-sm mt-4">Something went wrong. Please try again.</p>
           )}
         </div>
       </section>
@@ -87,13 +98,17 @@ export function EmailSignup({
           />
           <button
             type="submit"
-            className="px-6 py-3 bg-primary text-primary-foreground text-xs uppercase tracking-widest font-semibold hover:bg-primary/90 transition-colors"
+            disabled={status === "submitting"}
+            className="px-6 py-3 bg-primary text-primary-foreground text-xs uppercase tracking-widest font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Join
+            {status === "submitting" ? "..." : "Join"}
           </button>
         </form>
         {status === "success" && (
           <p className="text-accent text-sm mt-4 text-center">You're on the list.</p>
+        )}
+        {status === "error" && (
+          <p className="text-destructive text-sm mt-4 text-center">Something went wrong. Please try again.</p>
         )}
       </div>
     );
@@ -117,13 +132,17 @@ export function EmailSignup({
         />
         <button
           type="submit"
-          className="px-4 py-2 bg-primary text-primary-foreground text-xs uppercase tracking-widest font-semibold hover:bg-primary/90 transition-colors"
+          disabled={status === "submitting"}
+          className="px-4 py-2 bg-primary text-primary-foreground text-xs uppercase tracking-widest font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Join
+          {status === "submitting" ? "..." : "Join"}
         </button>
       </form>
       {status === "success" && (
         <p className="text-accent text-xs mt-2">You're on the list.</p>
+      )}
+      {status === "error" && (
+        <p className="text-destructive text-xs mt-2">Something went wrong.</p>
       )}
     </div>
   );
