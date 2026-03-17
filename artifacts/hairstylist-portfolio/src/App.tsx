@@ -1,5 +1,6 @@
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { AnimatePresence } from "framer-motion";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/layout/Navbar";
@@ -21,15 +22,17 @@ function Router() {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <div className="flex-1">
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/portfolio" component={Portfolio} />
-          <Route path="/portfolio/:category" component={Category} />
-          <Route path="/about" component={About} />
-          <Route path="/press" component={Press} />
-          <Route path="/contact" component={Contact} />
-          <Route component={NotFound} />
-        </Switch>
+        <AnimatePresence mode="wait">
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/portfolio" component={Portfolio} />
+            <Route path="/portfolio/:category" component={Category} />
+            <Route path="/about" component={About} />
+            <Route path="/press" component={Press} />
+            <Route path="/contact" component={Contact} />
+            <Route component={NotFound} />
+          </Switch>
+        </AnimatePresence>
       </div>
       <Footer />
     </div>
