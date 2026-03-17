@@ -144,7 +144,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         client: "Carmen Solomons",
         year: "2021",
         filename: "beauty_2021_carmen-solomons_studio_11.jpg",
-        imageUrl: cover4x5("editorial", "beauty_2021_carmen-solomons_studio_11.jpg"),
+        imageUrl: img("beauty", "beauty_2021_carmen-solomons_studio_11.jpg"),
         imageAlt: "Carmen Solomons studio portrait"
       },
       {
