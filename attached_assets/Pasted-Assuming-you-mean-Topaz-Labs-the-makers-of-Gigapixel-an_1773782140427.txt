@@ -1,0 +1,20 @@
+Assuming you mean Topaz Labs (the makers of Gigapixel and Photo AI), the answer is yes, they do have a command-line interface (CLI), but there is a massive catch depending on which specific software you own and what license you have.
+Here is exactly how the "command line situation" works for their image tools, and how it impacts that master automation pipeline we just built:
+1. Topaz Gigapixel AI (The Catch)
+Gigapixel is their best dedicated upscaler, but Topaz recently split it into two tiers.
+ * Standard Gigapixel 7: Does not have an official command line interface. It is strictly a visual desktop app.
+ * Gigapixel Pro: Topaz recently launched this specifically for professional studios. This version includes a full, robust CLI meant for massive batch processing. The catch? The "Pro" version usually requires purchasing a multi-seat commercial license.
+2. Topaz Photo AI (The Workaround)
+Topaz Photo AI (which combines their upscaling, sharpening, and denoising models) does include a CLI in the standard consumer version.
+ * On Windows, it is called tpai.exe.
+ * On Mac, it is located inside the application bundle (e.g., /Applications/Topaz Photo AI.app/Contents/MacOS/Topaz Photo AI).
+You can run it completely headless (without the app opening) in your terminal to batch-process a whole folder. Recent updates allow you to bypass its "Autopilot" and pass specific parameters.
+A command looks something like this:
+tpai --overwrite --upscale scale=2 model="High Fidelity V2" --sharpen strength=50 "input_image.jpg"
+How this changes your Manus Workflow
+If you have Gigapixel Pro or Topaz Photo AI, you actually don't have to do the 15 priority images entirely by hand. You can fully automate Route A (the Topaz + Manus route) completely inside your terminal.
+Instead of making you click through the Topaz UI, you can prompt Manus or Claude Code to do this:
+> "Write a Python script using the subprocess module to trigger the Topaz Photo AI CLI (tpai.exe). Loop through the 15 CRITICAL and HIGH priority images, apply a 2x upscale using the High Fidelity model, and save them to the upscaled_masters folder."
+> 
+The Verdict:
+If you only have the standard consumer version of Gigapixel, you are stuck using the visual desktop app for those 15 priority shots (which honestly is still safer for quality control). But if you have Photo AI installed, you absolutely have a command-line engine sitting on your computer right now that Manus can interact with!
