@@ -6,3 +6,9 @@ id = "YGjUTiFVqn7ZpOy6elOHN"
 uri = "file://mdw-portfolio.zip"
 type = "unspecified"
 title = "MDW Portfolio — Full Source Code"
+
+[[outputs]]
+id = "4QeHgS2LWxX-ovXqO8Wsm"
+uri = "file://artifacts/hairstylist-portfolio/MDW_IMAGE_CHECKLIST.md"
+type = "text"
+title = "MDW Complete Image Checklist"
