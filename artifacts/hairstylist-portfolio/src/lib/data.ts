@@ -20,34 +20,14 @@ export type Category = {
   projects: Project[];
 };
 
-const categorySeeds: Record<string, number> = {
-  cover: 100,
-  editorial: 200,
-  "red-carpet": 300,
-  beauty: 400,
-  "commercial-ecom": 500,
-  homepage: 600,
-};
-
-function hashFilename(filename: string): number {
-  let h = 0;
-  for (let i = 0; i < filename.length; i++) h = (h * 31 + filename.charCodeAt(i)) | 0;
-  return Math.abs(h);
-}
-
-const placeholder = (category: string, filename: string, w: number, h: number): string => {
-  const seed = (categorySeeds[category] || 0) + hashFilename(filename);
-  return `https://picsum.photos/seed/${seed}/${w}/${h}`;
-};
-
 const img = (category: string, filename: string): string =>
-  placeholder(category, filename, 600, 800);
+  `${import.meta.env.BASE_URL}images/portfolio/${category}/exports/3x4/${filename}`;
 
 const cover4x5 = (category: string, filename: string): string =>
-  placeholder(category, filename, 640, 800);
+  `${import.meta.env.BASE_URL}images/portfolio/${category}/exports/4x5/${filename}`;
 
 const coverImg = (category: string, filename: string): string =>
-  placeholder(category, filename, 1200, 800);
+  `${import.meta.env.BASE_URL}images/portfolio/${category}/exports/featured/${filename}`;
 
 export const PORTFOLIO_CATEGORIES: Category[] = [
   {

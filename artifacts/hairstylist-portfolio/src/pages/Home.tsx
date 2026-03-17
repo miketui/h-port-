@@ -7,10 +7,10 @@ import { EmailSignup } from "@/components/EmailSignup";
 import { ArrowRight } from "lucide-react";
 
 const EDITORIAL_STRIP = [
-  { src: "https://picsum.photos/seed/strip-editorial/800/1000", alt: "MDW editorial work", label: "Editorial" },
-  { src: "https://picsum.photos/seed/strip-redcarpet/800/1000", alt: "MDW red carpet styling", label: "Red Carpet" },
-  { src: "https://picsum.photos/seed/strip-beauty/800/1000", alt: "MDW beauty work", label: "Beauty" },
-  { src: "https://picsum.photos/seed/strip-commercial/800/1000", alt: "MDW commercial campaign", label: "Commercial" },
+  { src: `${import.meta.env.BASE_URL}images/portfolio/editorial/exports/featured/editorial_2021_aurora-james_grazia-usa_34.jpg`, alt: "Aurora James Grazia USA editorial", label: "Editorial" },
+  { src: `${import.meta.env.BASE_URL}images/portfolio/red-carpet/exports/featured/redcarpet_2022_saniyya-sidney_hca-awards_09.jpg`, alt: "Saniyya Sidney HCA Awards red carpet", label: "Red Carpet" },
+  { src: `${import.meta.env.BASE_URL}images/portfolio/beauty/exports/featured/beauty_2018_duckie-thot_harpers-bazaar_20.jpg`, alt: "Duckie Thot Harper's Bazaar beauty", label: "Beauty" },
+  { src: `${import.meta.env.BASE_URL}images/portfolio/commercial-ecom/exports/featured/ecom_2020_veronika-vilim_le-specs_01.jpg`, alt: "Le Specs commercial campaign", label: "Commercial" },
 ];
 
 export default function Home() {
@@ -34,7 +34,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-background/40 z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent z-10" />
           <motion.img
-            src="https://picsum.photos/seed/mdw-hero/1920/1080"
+            src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
             alt="Michael David — Celebrity Hairstylist & Creative Director"
             style={{ scale: heroScale, opacity: heroOpacity }}
             className="absolute inset-0 w-full h-full object-cover object-top"
