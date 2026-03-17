@@ -1,0 +1,593 @@
+Yes — extracting the ZIP helps a lot. I can tailor this much more specifically now.
+
+## What an Open Graph image is
+
+An **Open Graph image** is the preview image that appears when your site link is shared in places like:
+
+* iMessage
+* Facebook
+* X / Twitter
+* Slack
+* LinkedIn
+* some other apps that generate link previews
+
+For your site, `public/opengraph.jpg` is basically your **share card cover image**. It is not a gallery image. It should be a deliberately designed preview that makes your brand look strong when someone shares your site.
+
+Best practice for yours:
+
+* **1200 × 630 px**
+* one strong image
+* your name / portfolio branding if desired
+* clean composition
+* no tiny details that disappear in preview mode
+
+---
+
+# What I found in your ZIP
+
+You currently have these image groups:
+
+* **Beauty** — 13 files
+* **Commercial:ECOM** — 8 files
+* **Cover** — 9 files
+* **Editorial** — 20 files
+* **Homepage** — 11 files
+* **Red Carpet** — 18 files
+
+That is **79 source images total** across the 6 folders.
+
+That is enough to build a strong site, but before you touch enhancement, there are a few repo/image issues to fix first.
+
+---
+
+# What needs to be fixed before enhancing images
+
+This is the most important part.
+
+## 1. Fix folder naming for web safety
+
+Your current folder names include spaces and one includes a colon:
+
+* `Commercial:ECOM`
+* `Red Carpet`
+
+These can work in some cases, but they are not ideal for a clean production pipeline.
+
+### Change to:
+
+* `beauty`
+* `commercial-ecom`
+* `cover`
+* `editorial`
+* `homepage`
+* `red-carpet`
+
+That keeps categories intact without mixing files.
+
+---
+
+## 2. Fix filename inconsistencies
+
+A number of files have inconsistent or messy extensions like:
+
+* `.jpg.jpg`
+* `.jpg.JPG`
+* `.JPG`
+
+These should be normalized before enhancement so your pipeline stays predictable.
+
+### Example cleanup:
+
+* `Beauty_2018_lizzo_paper-magazine_19.jpg.JPG`
+  → `beauty_2018_lizzo_paper-magazine_19.jpg`
+
+* `Beauty_2018_duckie-thot_harpers-bazaar_20.jpg.jpg`
+  → `beauty_2018_duckie-thot_harpers-bazaar_20.jpg`
+
+Also normalize case:
+
+* use all lowercase filenames
+* use hyphens/underscores consistently
+* use `.jpg` only unless there is a real reason to keep `.png`
+
+---
+
+## 3. Decide on one image architecture
+
+Right now, the repo still mixes:
+
+* public image files
+* category source folders
+* site data references
+* placeholder logic
+
+Before enhancement, decide this clearly:
+
+### Recommended image architecture
+
+```text
+public/images/
+  hero-bg.png
+  about-portrait.png
+  opengraph.jpg
+  portfolio/
+    beauty/
+    commercial-ecom/
+    cover/
+    editorial/
+    homepage/
+    red-carpet/
+```
+
+That way:
+
+* your site points to final local images
+* every category remains together
+* you do not have to re-sort later
+
+---
+
+## 4. Create a folder-safe production structure
+
+You said you do **not** want everything mixed together. Agreed.
+
+Inside each category, use this:
+
+```text
+public/images/portfolio/beauty/
+  raw/
+  masters/
+  exports/
+    3x4/
+    4x5/
+    featured/
+
+public/images/portfolio/editorial/
+  raw/
+  masters/
+  exports/
+    3x4/
+    4x5/
+    featured/
+```
+
+Repeat for all six categories.
+
+This lets:
+
+* Beauty stay with Beauty
+* ECOM stay with ECOM
+* Homepage stay with Homepage
+* Cover stay with Cover
+
+---
+
+# What “enhance before resizing” means
+
+You asked what that really means.
+
+## Correct order
+
+**raw image → cleanup → enhancement → upscale if needed → save master → crop → resize → export**
+
+### Definitions
+
+## Cleanup
+
+Remove screenshot evidence or junk before anything else:
+
+* UI badges
+* counters
+* overlay icons
+* circles in corners
+* app/browser edges
+* borders
+* text snippets
+
+## Enhance
+
+Improve image quality overall:
+
+* tone
+* clarity
+* contrast
+* recover detail carefully
+
+## Denoise
+
+Reduce noise/grain/compression roughness.
+
+## Deartifact
+
+Remove screenshot/JPEG damage like:
+
+* blockiness
+* smearing
+* halos
+* ugly compression texture
+
+## Upscale
+
+Increase image dimensions after cleanup.
+
+## Master
+
+A high-quality cleaned version of the image that becomes your source for all later crops.
+
+## Crop
+
+Choose composition for the needed aspect ratio.
+
+## Resize
+
+Set the exact final pixel dimensions for the site slot.
+
+## Export
+
+Save the final web-ready file.
+
+---
+
+# Why this order matters
+
+If you resize or crop too early:
+
+* defects get baked into the file
+* hair detail gets softer
+* sharpening looks fake faster
+* you lose flexibility for multiple outputs
+
+Because your portfolio is **beauty/hair/editorial**, detail around:
+
+* hairline
+* texture
+* silhouette
+* edge definition
+  matters a lot more than with a generic portfolio.
+
+---
+
+# Customized guidance based on your actual folders
+
+## 1. Homepage folder
+
+These should be your **highest-visibility candidates**.
+
+Use this folder for:
+
+* hero background candidates
+* homepage category cards
+* possibly one or two homepage featured images
+
+### Best likely uses
+
+* `homepage_2022_gottmik_coveteur_07.jpg`
+* `homepage_2022_keke-palmer_sag-aftra_09.jpg`
+* `homepage_2023_aurora-james_vanity-fair_10.jpg`
+
+These likely have the strongest premium homepage feel.
+
+### Caution
+
+Some homepage files are small:
+
+* `homepage_2021_aurora-james_grazia_06.jpg`
+* `homepage_2021_dashaun-wesley_hbo-max_11.jpg`
+
+These may still work for standard cards, but I would avoid using them as hero unless enhancement tests prove otherwise.
+
+---
+
+## 2. Cover folder
+
+This is one of your strongest folders for premium-impact placement.
+
+Use for:
+
+* `/portfolio` category covers
+* one possible homepage hero alt
+* press/promotional use
+* Open Graph source candidate
+
+### Strong likely candidates
+
+* `cover_2022_gottmik_coveteur_09.jpg`
+* `cover_2022_aurora-james_glamour_08.jpg`
+* `cover_2022_alisha-wainwright_photobook_05.jpg`
+* `cover_2020_gugu-mbatha-raw_variety_06.jpg`
+
+### Caution
+
+Some are small:
+
+* `cover_2018_duckie-thot_harpers-bazaar_01.jpg`
+* `cover_2018_duckie-thot_wonderland_02.jpg`
+
+These can still work for standard portfolio placements, but not my first choice for the highest-value hero/cover roles.
+
+---
+
+## 3. Beauty folder
+
+This should focus on:
+
+* close beauty crops
+* texture-driven images
+* refined editorial beauty moments
+
+### Strong likely candidates
+
+* `Beauty_2021_carmen-solomons_studio_11.jpg`
+* `Beauty_2021_carmen-solomons_studio_12.jpg`
+* `Beauty_2021_chloe-coleman_gunpowder-milkshake_13.jpg`
+
+### Caution
+
+A few files are weaker technically:
+
+* `Beauty_2021_thuso-mbedu_underground-railroad_16.JPG` is small
+* `Beauty_2019_rihanna_savage-fenty_18.jpg.JPG` is short for your preferred portrait outputs
+* several need filename cleanup first
+
+---
+
+## 4. Commercial / ECOM folder
+
+This folder is smaller and should be easier to standardize.
+
+Use for:
+
+* commercial gallery
+* product/campaign-style layout
+* any cleaner 4:5 grid assets
+
+### Likely easier batch candidates
+
+* `Ecom_2020_veronika-vilim_le-specs_01.jpg`
+* `Ecom_unknown_mical-bockru_brother-vellies_05.jpg`
+* `Ecom_unknown_mical-bockru_brother-vellies_06.jpg`
+
+### Note
+
+Some are landscape-heavy. That is okay, but those should not be blindly batch-cropped. You will need composition judgment.
+
+---
+
+## 5. Editorial folder
+
+This is your largest storytelling/fashion folder.
+
+Use for:
+
+* editorial category
+* featured work
+* sophisticated homepage support
+* lower-priority category cards if needed
+
+### Strong likely candidates
+
+* `Editorial_2021_aurora-james_grazia-usa_34.jpg`
+* `Editorial_2021_aurora-james_grazia-usa_35.jpg`
+* `Editorial_2022_alisha-wainwright_photobook_33.jpg`
+* `Editorial_2021_kylie-bunbury_emmy-magazine_36.jpg`
+* `Editorial_2021_hailey-kilgore_contents-beauty_37.jpg`
+
+### Caution
+
+A few are short or wide and need individual review before deciding whether they are:
+
+* hero-worthy
+* featured-only
+* standard gallery only
+
+---
+
+## 6. Red Carpet folder
+
+This is a credibility folder. It should communicate celebrity/public-facing polish fast.
+
+Use for:
+
+* Red Carpet category cover
+* homepage featured work
+* selected portfolio entries
+
+### Strong likely candidates
+
+* `Redcarpet_2022_billy-porter_city-of-hope_16.jpg`
+* `Redcarpet_2022_billy-porter_spirit-day_17.jpg`
+* `Redcarpet_2022_ebony-obsidian_red-carpet_02.jpg`
+* `Redcarpet_2022_mallori-johnson_kindred-premiere_11.jpg`
+* `Redcarpet_2023_aurora-james_vanity-fair_07.jpg`
+
+### Caution
+
+This folder likely contains some screenshot-style artifacts in some files, so cleanup before enhancement matters even more here.
+
+---
+
+# What to fix in the repo before processing all 79 images
+
+Do these first.
+
+## Phase 1 — Structural fixes
+
+1. Rename folders to web-safe slugs.
+2. Normalize filenames to lowercase `.jpg`.
+3. Move categories into one final image root under `public/images/portfolio/`.
+4. Decide whether site code will point to:
+
+   * `masters`
+   * or `exports`
+
+It should point to **exports**, not raw or masters.
+
+---
+
+## Phase 2 — Strategy fixes
+
+1. Pick the exact image roles first:
+
+   * 1 hero
+   * 1 about portrait
+   * 1 Open Graph image
+   * 5 portfolio category covers
+   * 5 homepage category grid images
+   * 8–12 featured work images
+
+2. Do **not** process everything before these are chosen.
+
+---
+
+## Phase 3 — Production pipeline setup
+
+Inside every category, create:
+
+```text
+raw/
+masters/
+exports/
+```
+
+Optionally inside `exports/`:
+
+```text
+3x4/
+4x5/
+featured/
+social/
+```
+
+---
+
+# Exact recommended image specs by site slot
+
+## Hero background
+
+* Target: **1920 × 2400 minimum**
+* Best source folder: **Homepage** or **Cover**
+* Priority: highest
+* Needs manual art direction
+
+## About portrait
+
+* Target: **1200 × 1600**
+* Best source: a strong personal portrait or selected editorial image if you are using portfolio imagery temporarily
+* Priority: highest
+* Needs manual art direction
+
+## Open Graph
+
+* Target: **1200 × 630**
+* Best source: hero-adjacent image or designed composition
+* Priority: high
+* Needs a separate crop/design, not just a random export
+
+## Portfolio category covers
+
+* Target: **1200 × 1600**
+* Best source:
+
+  * Beauty → Beauty
+  * ECOM → Commercial/ECOM
+  * Editorial → Editorial
+  * Red Carpet → Red Carpet
+  * Cover/general high-impact → Cover or Homepage
+* Priority: high
+* Needs manual selection
+
+## Home page category grid
+
+* Target: **1000 × 1250**
+* Same image family as covers if desired, but should often be separately cropped
+* Priority: high
+
+## Featured work
+
+* Target: **800 × 1067**
+* Strong but not necessarily hero-tier files
+* Priority: medium-high
+
+## Standard portfolio
+
+* Target:
+
+  * **1200 × 1600** for 3:4
+  * **1200 × 1500** for 4:5
+* Can be processed in a more repeatable way after the first round
+
+---
+
+# What not to do
+
+Do not:
+
+* batch sharpen everything the same way
+* batch crop every category without review
+* enhance exports instead of masters
+* leave filename chaos in place
+* process hero/about/cover images with the same lazy workflow as standard gallery images
+
+---
+
+# Best order of work for you
+
+## Round 1 — lock the visible system
+
+Do these first:
+
+1. hero image
+2. about portrait
+3. Open Graph image
+4. 5 category covers
+5. 5 homepage category grid crops
+
+## Round 2 — featured work
+
+Select and process 8–12 strong images
+
+## Round 3 — standard portfolio gallery
+
+Process remaining images category by category
+
+This keeps your highest-value pages premium first.
+
+---
+
+# Final answer to “what do I have to do before fixing my images?”
+
+You need to do **four things first**:
+
+## 1. Clean the file system
+
+* folder names
+* file names
+* extension consistency
+
+## 2. Lock the site image architecture
+
+* where final images live
+* which files are raw vs master vs export
+* what the code points to
+
+## 3. Choose your highest-priority images first
+
+* hero
+* about
+* Open Graph
+* covers
+* homepage cards
+
+## 4. Set up the enhancement pipeline before touching bulk processing
+
+* cleanup
+* enhance
+* upscale
+* master
+* crop
+* resize
+* export
+
+That is the order that will save you the most time and prevent rework.
+
+If you want, the next best step is for me to give you a **repo-specific exact folder plan and naming convention** for all six categories, plus a **priority shortlist template** you can use to decide which files become hero, covers, and featured first.

@@ -1,0 +1,308 @@
+I reviewed the repo structure, the image folders, the current public assets, and the portfolio data wiring from GitHub. I could not literally git clone it in this environment, but I did read the key files and inspect representative source images directly from the repo. The biggest finding is this:
+
+Your real portfolio folders are present in the repo, but the live portfolio pages are still largely driven by placeholder/remote image URLs from src/lib/data.ts, not by those local folders yet. The repo root contains the six image folders you mentioned plus public and src, while public/images currently only contains hero-bg.png and about-portrait.png, and public also contains opengraph.jpg.  ￼
+data.ts defines the portfolio categories and filenames, but the category coverImage values and project imageUrl values are still Unsplash URLs.  ￼
+
+1. What the repo is doing right now
+
+Your site structure is clear: Home, About, Portfolio Hub, category pages, Press, and Contact are all present in src/pages, and the portfolio is driven by PORTFOLIO_CATEGORIES in src/lib/data.ts.  ￼
+
+The current public-facing image setup is split into two systems:
+	•	Static public assets for hero/about/share:
+	•	public/images/hero-bg.png
+	•	public/images/about-portrait.png
+	•	public/opengraph.jpg  ￼
+	•	Portfolio/category content coming from data.ts:
+	•	categories use coverImage
+	•	projects use imageUrl
+	•	both are still remote placeholders in the current file.  ￼
+
+So before any enhancement pipeline, the first architectural fix is:
+
+move to one clean local-image system for all portfolio assets.
+
+2. What needs to change structurally
+
+Your current top-level source folders are:
+	•	Beauty
+	•	Commercial:ECOM
+	•	Cover
+	•	Editorial
+	•	Homepage
+	•	Red Carpet  ￼
+
+That grouping is good conceptually, but not ideal technically. The current folder names include a colon and a space, which are avoidable path hazards for web asset workflows. Also, your Beauty folder already shows extension inconsistency like .jpg.jpg, .jpg.JPG, and .JPG.  ￼
+
+Safer folder structure
+
+Keep every category together, but put them under public/images/portfolio/ and normalize the folder slugs once:
+
+public/images/portfolio/
+  beauty/
+  commercial-ecom/
+  covers/
+  editorial/
+  homepage/
+  red-carpet/
+
+That preserves separation without mixing categories.
+
+Then in data.ts, replace remote URLs with local paths like:
+
+coverImage: `${import.meta.env.BASE_URL}images/portfolio/covers/cover_2022_gottmik_coveteur_09.jpg`
+imageUrl: `${import.meta.env.BASE_URL}images/portfolio/editorial/Editorial_2021_...jpg`
+
+3. My exact recommendation for where enhancement happens
+
+This is the order:
+
+raw source → cleanup → enhancement → upscale if needed → master save → crop to aspect ratio → final resize → export
+
+That is the correct sequence for your case.
+
+What each step means
+
+Cleanup
+Remove screenshot evidence first:
+	•	UI badges
+	•	carousel counters
+	•	floating circles/icons
+	•	browser/app chrome
+	•	visible borders
+
+This matters because several of the repo images visibly still carry screenshot-style overlay artifacts. For example, the Rihanna red-carpet image includes a 1/4 badge, and other source images show floating circular UI elements in the top-right.  ￼
+
+Enhancement
+Improve the source visually:
+	•	tonal correction
+	•	contrast recovery
+	•	mild texture recovery
+	•	sharpening control
+
+Denoise
+Remove digital noise, grain, and rough compression texture.
+
+Deartifact
+Remove JPEG blockiness, halos, smearing, and screenshot compression damage.
+
+Upscale
+Increase pixel dimensions only after cleanup so you do not enlarge defects.
+
+Master save
+Create one high-quality “clean master” per image.
+This is the file you derive all exports from.
+
+Crop
+Choose the framing for the required aspect ratio.
+
+Resize
+Set the final exact pixel dimensions for the site slot.
+
+Export
+Compress/save for web delivery.
+
+4. Why enhancement should happen before resizing
+
+Because resizing a weak screenshot first bakes in the damage.
+
+If you crop/export too early:
+	•	artifacts get harder to remove
+	•	hair texture gets mushier
+	•	edges get harsher
+	•	your final files look processed instead of premium
+
+For a hairstylist portfolio, this is especially important because viewers will notice bad hair detail faster than almost anything else.
+
+5. Folder-safe production system
+
+You said you do not want categories mixed. I agree.
+
+Use this inside each category:
+
+beauty/
+  raw/
+  masters/
+  exports/
+    3x4/
+    4x5/
+    featured/
+
+Repeat that same pattern for every category.
+
+Example:
+
+public/images/portfolio/beauty/
+  raw/
+  masters/
+  exports/3x4/
+  exports/4x5/
+  exports/featured/
+
+public/images/portfolio/red-carpet/
+  raw/
+  masters/
+  exports/3x4/
+  exports/featured/
+
+That keeps every Beauty file with Beauty, every ECOM file with ECOM, and so on.
+
+6. Exact slot strategy for your site
+
+Based on your stated site spec and the repo’s current structure, here is the practical slot mapping.
+
+Hero background
+
+Use one image only, from homepage/, processed separately.
+
+Best profile:
+	•	strong upper-frame interest
+	•	dramatic silhouette
+	•	can survive dark overlay
+	•	can handle a tall crop
+
+From the source images I spot-checked, homepage_2022_keke-palmer_sag-aftra_09.jpg and homepage_2019_rihanna_phaidon_01.jpg both read as strong hero candidates. The Keke image has clean portrait authority; the Rihanna image has stronger editorial atmosphere.  ￼
+
+About portrait
+
+Use one image only, ideally not a placeholder.
+The current about-portrait.png in public/images does not match the rest of your actual portfolio work and should be replaced with a real MDW portrait or a strong personal editorial image.  ￼
+
+OpenGraph
+
+The current opengraph.jpg is already a composed social card, but it is built around the current placeholder hero. Once you change hero direction, rebuild OG intentionally from the final brand image.  ￼
+
+Portfolio Hub category covers
+
+Use your strongest representatives:
+	•	Covers → cover_2022_gottmik_coveteur_09.jpg or cover_2022_aurora-james_glamour_08.jpg
+	•	Editorial → strongest fashion-led editorial portrait from Editorial/
+	•	Beauty → Beauty_2021_carmen-solomons_studio_11.jpg is a strong close-up candidate
+	•	Commercial / ECOM → pick the cleanest campaign-style image from Commercial:ECOM/
+	•	Red Carpet → pick the cleanest full-look or polished portrait from Red Carpet/ after screenshot cleanup  ￼
+
+7. Category-by-category guidance
+
+Homepage folder
+
+Treat this as your high-visibility source pool:
+	•	hero candidates
+	•	homepage category-card candidates
+	•	possibly one OpenGraph source
+
+Based on the filenames and spot checks, this folder is where your strongest all-around “authority” images likely live.  ￼
+
+Cover folder
+
+These are naturally your best source files for:
+	•	Covers category cover
+	•	press/promotional crops
+	•	premium “portfolio hub” visual anchors
+
+cover_2022_gottmik_coveteur_09.jpg is especially strong for visual punch. cover_2022_aurora-james_glamour_08.jpg is strong but busier because of the environment and typography.  ￼
+
+Beauty folder
+
+This should remain your detail and texture category.
+Use these for:
+	•	close crop beauty thumbnails
+	•	3:4 beauty portfolio images
+	•	one possible category cover if the composition is bold enough
+
+Beauty_2021_carmen-solomons_studio_11.jpg looks especially suitable for the Beauty cover slot.  ￼
+
+Editorial folder
+
+This is likely your largest conceptual/storytelling pool.
+Use this category for:
+	•	4:5 editorial gallery rhythm
+	•	homepage featured work
+	•	secondary premium category cards
+
+The filenames suggest multiple strong publication-based story images across Grazia, Rollacoaster, Refinery29, Variety, and more.  ￼
+
+Commercial / ECOM folder
+
+These should be the cleanest, most controlled, least noisy files.
+Use them for:
+	•	4:5 commercial grid
+	•	homepage featured work
+	•	clean campaign-style crops
+
+This folder is already relatively compact and should be easier to batch process consistently.  ￼
+
+Red Carpet folder
+
+These should signal polish and celebrity credibility fast.
+Use them for:
+	•	3:4 gallery images
+	•	one category cover
+	•	homepage featured work if cleaned
+
+But this folder also appears to contain screenshot-derived files with visible UI overlays, so cleanup is mandatory before export.  ￼
+
+8. The most important repo issue
+
+Right now the site is visually split between:
+	•	public placeholder assets
+	•	live remote placeholder portfolio data
+	•	your real source files sitting outside the actual rendered image pipeline
+
+That means your enhancement work should not start with random exports.
+It should start with wiring the real file system into the site.
+
+9. Exact recommended next actions
+	1.	Normalize the storage path
+	•	move the six category folders under public/images/portfolio/
+	•	normalize folder names to URL-safe slugs
+	2.	Normalize filenames/extensions
+	•	convert .JPG, .jpg.JPG, .jpg.jpg to a single lowercase .jpg
+	•	keep the base filename intact unless necessary  ￼
+	3.	Replace placeholder image usage in data.ts
+	•	swap coverImage and imageUrl away from Unsplash
+	•	point them to your real local files instead  ￼
+	4.	Create per-category raw / masters / exports subfolders
+	•	do not mix categories
+	5.	Process only the first 8–10 high-visibility images first
+	•	1 hero
+	•	1 about portrait
+	•	5 category covers
+	•	2–3 featured work cards
+	6.	For every chosen image, use this order
+	•	remove screenshot/UI artifacts
+	•	deartifact
+	•	denoise
+	•	mild sharpen
+	•	upscale if needed
+	•	save master
+	•	crop for 3:4 or 4:5
+	•	resize to final pixel spec
+	•	export
+	7.	Then batch the remaining portfolio images
+	•	only after the visual recipe is proven
+
+10. Direct feedback
+
+Keep
+	•	the category separation
+	•	the folder-based organization concept
+	•	the clear site page architecture
+	•	the luxury visual intent
+
+Revise
+	•	image delivery architecture
+	•	placeholder-vs-real-image split
+	•	folder names with spaces/colon
+	•	extension inconsistency
+	•	screenshot artifact cleanup
+
+Missing
+	•	one unified local portfolio image pipeline
+	•	final local-path mapping in data.ts
+	•	final curated hero/about image selection using real work
+
+Risks
+	•	if you enhance before wiring the file paths, you’ll do duplicate work
+	•	if you export before cleanup, screenshot defects will stay visible
+	•	if you leave current placeholders in place, the site will feel inconsistent with your actual portfolio quality
+
+The fastest useful next step is for me to turn this into an exact folder-by-folder implementation plan for your repo, including the precise path conventions and the data.ts replacement pattern.
