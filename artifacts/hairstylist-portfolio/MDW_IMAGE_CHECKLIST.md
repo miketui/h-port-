@@ -14,21 +14,31 @@ All paths are relative to `artifacts/hairstylist-portfolio/public/`.
 
 ---
 
-## ROUND 1 — Hero Carousel + About Portrait (highest visibility)
+## ROUND 1 — Hero + Editorial Strip + About Portrait (highest visibility)
 
-### Hero carousel (5 images)
+### Hero image (1 image — single dominant)
 
-All go in `images/` at the root of public. These rotate every 7 seconds with crossfade transitions.
+One cinematic image fills the entire opening screen. No carousel, no rotation.
+It has a subtle parallax zoom as the user scrolls. This image does the emotional work.
 
 | File | Path | Size | Notes |
 |------|------|------|-------|
-| Hero 1 | `images/hero-1.jpg` | 1920 x 2400 min | Loads first. Pick your absolute strongest image. |
-| Hero 2 | `images/hero-2.jpg` | 1920 x 2400 min | Red carpet or celebrity moment. |
-| Hero 3 | `images/hero-3.jpg` | 1920 x 2400 min | Editorial or fashion story. |
-| Hero 4 | `images/hero-4.jpg` | 1920 x 2400 min | Beauty or cover work. |
-| Hero 5 | `images/hero-5.jpg` | 1920 x 2400 min | Campaign or creative direction. |
+| Hero | `images/hero.jpg` | 1920 x 2400 min | Your absolute strongest image. Premium, fashion-forward, memorable. Not necessarily the most famous person — the best photo. |
 
-Portrait orientation. The site overlays a dark gradient + luminosity blend, so images with strong subject contrast work best. The old `hero-bg.png` is no longer referenced — delete it after adding these.
+Portrait orientation. Dark gradient overlay fades bottom-to-top. The old `hero-bg.png` can be deleted once this is placed.
+
+### Editorial strip (4 images — proving range)
+
+These appear as a luxury 4-up horizontal panel directly below the hero. Generous spacing, hover reveals the category label with a subtle gradient. No dots, no arrows — feels editorial, not template.
+
+| File | Path | Size | Notes |
+|------|------|------|-------|
+| Strip — Editorial | `images/strip-editorial.jpg` | 1200 x 1600 | Best editorial shot. Fashion story or magazine work. |
+| Strip — Red Carpet | `images/strip-redcarpet.jpg` | 1200 x 1600 | Strongest red carpet / event moment. |
+| Strip — Beauty | `images/strip-beauty.jpg` | 1200 x 1600 | Close-up beauty work showing texture and detail. |
+| Strip — Commercial | `images/strip-commercial.jpg` | 1200 x 1600 | Campaign or brand collaboration. |
+
+3:4 ratio (portrait). These prove range — four distinct strengths visible at once.
 
 ### About portrait
 
@@ -176,20 +186,21 @@ Target size: 1200 x 1500 (4:5 ratio)
 | Beauty | 13 in `exports/3x4/` | 1 in `exports/featured/` | `images/portfolio/beauty/` |
 | Commercial | 8 in `exports/4x5/` | 1 in `exports/featured/` | `images/portfolio/commercial-ecom/` |
 | **Subtotal** | **66 grid** | **5 covers** | |
-| Hero carousel | 5 in `images/` | | `images/hero-1.jpg` — `hero-5.jpg` |
+| Hero image | 1 in `images/` | | `images/hero.jpg` |
+| Editorial strip | 4 in `images/` | | `images/strip-editorial.jpg` etc. |
 | About portrait | 1 in `images/` | | `images/about-portrait.png` |
 | Open Graph | 1 in root of `public/` | | `opengraph.jpg` |
 | Favicon | 1 in root of `public/` | | `favicon.svg` |
-| **GRAND TOTAL** | **79 unique files** | | |
+| **GRAND TOTAL** | **78 unique files** | | |
 
-Note: 5 images appear in BOTH `exports/featured/` (as category covers) and `exports/3x4/` or `exports/4x5/` (in the grid). You can copy the same file to both or make separate crops. That means 79 unique source images but 84 total files to place.
+Note: 5 images appear in BOTH `exports/featured/` (as category covers) and `exports/3x4/` or `exports/4x5/` (in the grid). You can copy the same file to both or make separate crops. That means 78 unique source images but 83 total files to place.
 
 ---
 
 ## RECOMMENDED WORKFLOW
 
 1. Start with Round 0 (favicon + OG) — quick wins
-2. Do Round 1 (hero + about) — makes the homepage real
+2. Do Round 1 (hero + strip + about) — makes the homepage real
 3. Do Round 2 (5 covers) — makes Portfolio Hub and homepage grid real
 4. Do Round 3 category by category — fills in the gallery pages
 
@@ -241,7 +252,11 @@ h-port-/
 
 | Asset | Master location | Final export location |
 |-------|----------------|----------------------|
-| Hero images (5) | `source-assets/masters/homepage/hero-1.jpg` — `hero-5.jpg` | `artifacts/.../public/images/hero-1.jpg` — `hero-5.jpg` |
+| Hero image | `source-assets/masters/homepage/hero.jpg` | `artifacts/.../public/images/hero.jpg` |
+| Strip — Editorial | `source-assets/masters/homepage/strip-editorial.jpg` | `artifacts/.../public/images/strip-editorial.jpg` |
+| Strip — Red Carpet | `source-assets/masters/homepage/strip-redcarpet.jpg` | `artifacts/.../public/images/strip-redcarpet.jpg` |
+| Strip — Beauty | `source-assets/masters/homepage/strip-beauty.jpg` | `artifacts/.../public/images/strip-beauty.jpg` |
+| Strip — Commercial | `source-assets/masters/homepage/strip-commercial.jpg` | `artifacts/.../public/images/strip-commercial.jpg` |
 | About portrait | `source-assets/masters/homepage/about-portrait.png` | `artifacts/.../public/images/about-portrait.png` |
 | Open Graph | `source-assets/masters/homepage/opengraph.jpg` | `artifacts/.../public/opengraph.jpg` |
 | Favicon | `source-assets/masters/homepage/favicon.svg` | `artifacts/.../public/favicon.svg` |
