@@ -1,0 +1,115 @@
+Yes — and your diagnosis is basically right.
+
+For editorial / beauty / red-carpet hair work, the biggest failure mode is detail hallucination or over-smoothing. Your own guide is built around preserving face, hair, neckline, and the most striking horizontal crop band, especially for hero, category covers, and homepage strip images.  ￼  ￼
+
+Here’s the real comparison.
+
+Best quality
+
+Topaz Gigapixel / Adobe Camera Raw Super Resolution first, then Manus for crop/export
+
+This is the strongest route if you care most about:
+	•	preserving hair texture
+	•	controlling smoothing vs sharpening
+	•	avoiding the “plastic AI” look
+	•	manually rejecting bad outputs before they infect the whole pipeline
+
+That recommendation is reinforced by your actual image mix: only 15 images are in the danger zone for upscale-sensitive quality, while 29 images need no upscaling at all and 22 are mainly crop problems. So the risky part is a relatively small set; you do not need AI to touch all 69 files.  ￼  ￼
+
+Why this route wins:
+	•	Topaz exposes models like High Fidelity, Recover, Redefine, and Face Recovery, instead of forcing one generic output. Topaz’s own docs describe High Fidelity as the best fit for images already high-res, and note that Recover is tuned for softer, realistic enhancement rather than aggressive reconstruction. They also warn Face Recovery can smooth small facial or hair details if pushed too hard.  ￼
+	•	Adobe Camera Raw’s Super Resolution is non-destructive and can be batch-applied, which makes it practical for your 15-image priority set. Adobe also supports applying Enhance to multiple files at once.  ￼
+
+My honest verdict:
+	•	Best output quality: Topaz
+	•	Best “safe enough” manual fallback: Adobe Super Resolution
+	•	Best use of Manus here: crop math, renaming, folder sorting, QA zip
+
+Best automation
+
+fal.ai direct API in Manus
+
+This is better than generic Replicate upscaling if you want Manus to stay more automated.
+
+Why:
+	•	fal’s Clarity Upscaler explicitly exposes knobs like creativity, resemblance, and guidance, which matter a lot when you want “preserve the original editorial photo” rather than “invent a prettier new one.” Higher resemblance and lower creativity are exactly the kind of controls you want for hair-heavy portfolio shots.  ￼
+	•	fal’s Creative Upscaler also exposes shape_preservation and detail controls, which can be useful, but that model is more dangerous for your use case because it is explicitly “creative.”  ￼
+
+My honest verdict:
+	•	Best automated API option: fal Clarity Upscaler
+	•	Do not use first: fal Creative Upscaler for your hero/about/beauty shots unless you are deliberately testing a more interpretive result
+
+Weakest fit for your use case
+
+Generic Replicate upscale runs with default settings
+
+Replicate itself is fine as a platform. The problem is the specific model choice and defaults. If Manus just grabs a generic model and runs your editorial images through it without careful parameter control, you get exactly what you described: softened hair, flattened texture, and a fake painted finish.
+
+So I would not call Replicate “bad.” I would call default unattended Replicate runs the weakest option for this portfolio job.
+
+What I would do if this were my final pipeline
+
+Route A — highest confidence
+	1.	Manually upscale only the 2 CRITICAL + 13 HIGH files in Topaz or Adobe.
+	2.	Review each output at 100% zoom, especially hairline, curls, edges, lashes, and garment detail.
+	3.	Put those approved masters into upscaled_masters/.
+	4.	Give Manus the approved masters plus originals.
+	5.	Let Manus do:
+	•	the exact 4 exports
+	•	crop guidance rules
+	•	rename-on-export rules
+	•	QA report
+	•	final zip
+
+That fits your guide perfectly because it already separates “upscale first” from “crop/export,” and it defines the four output folders and crop codes.  ￼  ￼
+
+Route B — most automated without being reckless
+	1.	Use Manus + fal Clarity Upscaler only for:
+	•	hero-bg.png
+	•	about-portrait.png
+	•	the 13 HIGH files
+	2.	Force Manus to save:
+	•	original
+	•	upscaled candidate
+	•	side-by-side preview contact sheet
+	3.	Review before any crop/export
+	4.	After approval, let Manus run deterministic crop/export
+
+This is the best automation-first route because your hero and about images need the biggest upscale jumps, especially hero-bg.png at 2.81x and about-portrait.png at 1.88x.  ￼
+
+My recommendation for you
+
+Because your site is a luxury hairstylist portfolio, I would choose:
+
+Topaz/Adobe for the 15 priority images
+then
+Manus for crop/export automation
+
+That is the best balance of quality and speed.
+
+I would only choose fal API inside Manus if:
+	•	you do not want desktop software
+	•	you are okay testing outputs
+	•	you force a review checkpoint before cropping
+
+I would not use generic default Replicate runs as the main path for your portfolio hero/category images.
+
+Clean ranking
+	1.	Topaz Gigapixel + Manus crop/export — best final quality
+	2.	Adobe Super Resolution + Manus crop/export — very solid, simpler
+	3.	fal Clarity Upscaler + Manus — best full-automation API path
+	4.	Replicate default upscalers + Manus — acceptable for testing, not my first choice for editorial hair work
+
+Bottom line
+
+For your images, the AI should not be trusted with full creative control. Your guides already show that many of the important files depend on preserving the exact face/hair/neckline band during crops, especially featured and homepage-strip exports.  ￼  ￼
+
+So the smart split is:
+
+manual judgment for upscale quality
+automation for crop math and packaging
+
+I can turn this into a final decision tree plus exact Manus prompt chain for either:
+	•	Topaz/Adobe + Manus
+or
+	•	fal + Manus
