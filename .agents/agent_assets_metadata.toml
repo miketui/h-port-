@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "-Klbe7pdSVDdu-No10LQG"
+uri = "file://artifacts/hairstylist-portfolio/MDW_IMAGE_CHECKLIST.md"
+type = "text"
+title = "MDW Image Checklist — Complete Filename & Folder Guide"
