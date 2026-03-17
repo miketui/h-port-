@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { EmailSignup } from "@/components/EmailSignup";
 import { useToast } from "@/hooks/use-toast";
@@ -89,17 +90,16 @@ export default function Contact() {
 
               <div className="space-y-12">
                 <div>
-                  <h3 className="text-xs uppercase tracking-[0.2em] text-accent mb-4 font-medium">Agency</h3>
-                  <p className="font-display text-2xl text-foreground">MDW Studio</p>
-                  <a href="mailto:info@michaeldavidjr.beauty" className="text-muted-foreground hover:text-foreground transition-colors mt-2 block">
+                  <h3 className="text-xs uppercase tracking-[0.2em] text-accent mb-4 font-medium">MDW Studio</h3>
+                  <a href="mailto:info@michaeldavidjr.beauty" className="font-display text-2xl text-foreground hover:text-primary transition-colors block border-b border-transparent hover:border-primary w-fit pb-1">
                     info@michaeldavidjr.beauty
                   </a>
                 </div>
 
                 <div>
-                  <h3 className="text-xs uppercase tracking-[0.2em] text-accent mb-4 font-medium">Direct Studio</h3>
-                  <a href="mailto:info@michaeldavidjr.beauty" className="font-display text-2xl text-foreground hover:text-primary transition-colors block border-b border-transparent hover:border-primary w-fit pb-1">
-                    info@michaeldavidjr.beauty
+                  <h3 className="text-xs uppercase tracking-[0.2em] text-accent mb-4 font-medium">Social</h3>
+                  <a href="https://www.instagram.com/md.warren" target="_blank" rel="noopener noreferrer" className="font-display text-2xl text-foreground hover:text-accent transition-colors block border-b border-transparent hover:border-accent w-fit pb-1">
+                    @md.warren
                   </a>
                 </div>
 
@@ -178,7 +178,7 @@ export default function Contact() {
                     <option value="other">Other</option>
                   </select>
                   <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-primary">
-                    ▼
+                    <ChevronDown className="w-4 h-4" />
                   </div>
                 </div>
                 {form.formState.errors.projectType && (

@@ -84,8 +84,8 @@ export function Footer() {
             &copy; {new Date().getFullYear()} MDW. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-muted-foreground tracking-wider uppercase">
-            <Link href="#" className="hover:text-foreground transition-colors">Privacy</Link>
-            <Link href="#" className="hover:text-foreground transition-colors">Terms</Link>
+            <a href="mailto:info@michaeldavidjr.beauty?subject=Privacy Inquiry" className="hover:text-foreground transition-colors">Privacy</a>
+            <a href="mailto:info@michaeldavidjr.beauty?subject=Terms Inquiry" className="hover:text-foreground transition-colors">Terms</a>
           </div>
         </div>
       </div>

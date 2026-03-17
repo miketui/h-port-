@@ -95,7 +95,7 @@ export default function Category() {
         </div>
 
         {/* Email Signup */}
-        <div className="container mx-auto px-6 md:px-12 mt-4">
+        <div className="mt-4">
           <EmailSignup
             variant="section"
             source={`category-${categorySlug}`}

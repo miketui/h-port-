@@ -29,8 +29,8 @@ export default function Home() {
         
         <div className="relative z-20 text-center px-4 max-w-7xl mx-auto w-full">
           <motion.p
-            initial={{ opacity: 0, tracking: "0" }}
-            animate={{ opacity: 1, tracking: "0.3em" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
             className="text-primary text-xs md:text-sm uppercase tracking-[0.3em] mb-6 font-medium"
           >
@@ -122,10 +122,10 @@ export default function Home() {
         <div className="container mx-auto px-6 text-center mb-12">
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Featured In</p>
         </div>
-        <div className="flex w-full whitespace-nowrap">
-          <div className="flex animate-[pulse_10s_ease-in-out_infinite] mx-auto items-center justify-center gap-12 md:gap-24 opacity-60">
-            {['Vogue', "Harper's Bazaar", 'W Magazine', 'Vanity Fair', 'Savage X Fenty', 'Nike', 'Teen Vogue', 'Refinery29', 'Glamour', 'Elle UK'].map((brand, i) => (
-              <span key={i} className="text-2xl md:text-3xl font-display uppercase tracking-widest text-outline hover:text-foreground hover:-webkit-text-stroke-0 transition-all duration-300 cursor-default">
+        <div className="flex w-full whitespace-nowrap overflow-hidden">
+          <div className="flex animate-[marquee_30s_linear_infinite] items-center gap-12 md:gap-24 opacity-60 shrink-0 pr-12 md:pr-24">
+            {['Vogue', "Harper's Bazaar", 'W Magazine', 'Vanity Fair', 'Savage X Fenty', 'Nike', 'Teen Vogue', 'Refinery29', 'Glamour', 'Elle UK', 'Vogue', "Harper's Bazaar", 'W Magazine', 'Vanity Fair', 'Savage X Fenty', 'Nike', 'Teen Vogue', 'Refinery29', 'Glamour', 'Elle UK'].map((brand, i) => (
+              <span key={i} className="text-2xl md:text-3xl font-display uppercase tracking-widest text-outline hover:text-foreground transition-all duration-300 cursor-default">
                 {brand}
               </span>
             ))}

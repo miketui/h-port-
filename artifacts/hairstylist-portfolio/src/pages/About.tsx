@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { FEATURED_CLIENTS, CAREER_TIMELINE } from "@/lib/data";
@@ -88,9 +89,9 @@ export default function About() {
             </div>
 
             <div className="pt-12 mt-12 border-t border-white/10">
-              <a href="/contact" className="inline-block px-8 py-4 border border-primary text-sm uppercase tracking-widest text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+              <Link href="/contact" className="inline-block px-8 py-4 border border-primary text-sm uppercase tracking-widest text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
                 Book Michael
-              </a>
+              </Link>
             </div>
           </motion.div>
           
