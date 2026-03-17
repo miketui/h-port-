@@ -1,0 +1,367 @@
+I unzipped and reviewed the updated package. This version is much better organized than before.
+
+Overall read
+
+You did the biggest structural fix correctly:
+	•	original images are now in source-assets/originals/...
+	•	the future web-ready image destination exists at public/images/portfolio/...
+	•	the category folders are normalized:
+	•	beauty
+	•	commercial-ecom
+	•	cover
+	•	editorial
+	•	homepage
+	•	red-carpet
+
+That part is right.
+
+What you fixed well
+
+1. Root cleanup
+
+You removed the old messy top-level category folders and replaced them with a proper source system:
+	•	source-assets/originals/...
+
+That is exactly what should hold your untouched screenshots/raw files.
+
+2. Folder naming
+
+The slug names are now web-safe and consistent.
+This is much better than spaces/colons.
+
+3. Final-public structure
+
+You created:
+	•	public/images/portfolio/<category>/exports/...
+
+That is a solid destination for final processed files the site will actually use.
+
+4. Category preservation
+
+Everything still stays grouped by category, which matches your workflow goal.
+
+⸻
+
+The biggest remaining issue
+
+Your file organization is now closer to correct, but the site is still not actually using your real images yet.
+
+src/lib/data.ts is still mostly wired to Unsplash URLs for:
+	•	coverImage
+	•	imageUrl
+
+Even though each project already has a filename, the rendered image source is still the placeholder URL.
+
+That means:
+	•	your repo structure is improved
+	•	but your actual frontend output is still not connected to your local portfolio system yet
+
+So the next major fix is data wiring, not more folder restructuring.
+
+⸻
+
+My verdict on the current organization
+
+Keep
+	•	source-assets/originals/...
+	•	public/images/portfolio/...
+	•	normalized category names
+	•	separate exports/3x4, exports/4x5, exports/featured, exports/social
+
+Revise
+	•	add a masters/ level somewhere
+	•	remove accidental extra folders/files that are not part of the final system
+	•	make data.ts point to local exports instead of Unsplash
+
+Missing
+	•	a true processed-image workflow layer
+	•	actual local image path mapping
+	•	clear rule for where hero/about/opengraph masters live versus portfolio exports
+
+⸻
+
+Exact organization notes after reading the files
+
+1. source-assets/originals/... should stay
+
+Yes — this is where the actual original screenshots/raws should live.
+
+They should not go back to root.
+
+This folder is now the right home for:
+	•	untouched screenshots
+	•	original downloaded source images
+	•	raw starting points before cleanup
+
+2. You still need a masters layer
+
+Right now I see:
+	•	source-assets/originals/...
+	•	public/images/portfolio/.../exports/...
+
+What is still missing is your clean working master layer.
+
+Recommended:
+
+source-assets/
+  originals/
+    beauty/
+    commercial-ecom/
+    cover/
+    editorial/
+    homepage/
+    red-carpet/
+
+  masters/
+    beauty/
+    commercial-ecom/
+    cover/
+    editorial/
+    homepage/
+    red-carpet/
+
+Why this matters:
+	•	originals = untouched source
+	•	masters = cleaned/enhanced full-quality working file
+	•	exports = final resized/cropped website file
+
+Without masters, you risk re-editing exports or losing the intermediate high-quality version.
+
+3. public/images/portfolio/... should contain only final site files
+
+This should stay your rendered asset zone only.
+
+That means:
+	•	no raw screenshots
+	•	no working PSD-equivalent files
+	•	no unprocessed originals
+	•	no random test files
+
+Only final web files should live here.
+
+⸻
+
+What I noticed in the actual code
+
+Portfolio.tsx
+
+This page correctly expects category.coverImage to drive the portfolio hub card images.
+
+Home.tsx
+
+This page uses the same category system plus featured project imagery.
+
+About.tsx
+
+This page still uses the dedicated about portrait and biography sections, which is good.
+
+data.ts
+
+This is still the central blocker.
+
+You already included filename?: string, which is good.
+But the actual display image is still:
+	•	coverImage: "https://images.unsplash.com/..."
+	•	imageUrl: "https://images.unsplash.com/..."
+
+So the real transition you need is:
+
+current
+
+placeholder URLs + filenames
+
+target
+
+local export paths derived from your filenames
+
+⸻
+
+What I would fix next, in order
+
+Phase 1 — finalize the structure
+
+Keep this:
+
+source-assets/originals/
+public/images/portfolio/
+
+Add this:
+
+source-assets/masters/
+
+Phase 2 — clean small inconsistencies
+
+I noticed:
+	•	an extra source-assets/originals/homepage/hp/ folder
+	•	files like edited_remove_object.jpg
+	•	a UUID-style jpeg file
+
+That folder feels like a temporary scratch area, not a locked production structure.
+
+I would either:
+	•	move those into a clearly named temporary folder like source-assets/work-in-progress/homepage/
+	•	or remove them from the final repo if they are not part of the actual planned asset set
+
+Because right now homepage/hp/ weakens the otherwise clean system.
+
+Phase 3 — wire the data to local exports
+
+This is the next real implementation step.
+
+Your site should eventually point to things like:
+
+coverImage: "/images/portfolio/cover/exports/3x4/cover_2022_gottmik_coveteur_09.jpg"
+imageUrl: "/images/portfolio/editorial/exports/4x5/editorial_2021_aurora-james_grazia-usa_34.jpg"
+
+Not to Unsplash.
+
+Phase 4 — choose the first processed set
+
+Before you process all images, lock these first:
+	•	1 homepage hero
+	•	1 about portrait
+	•	1 Open Graph image
+	•	5 portfolio hub category covers
+	•	5 homepage category grid images
+	•	8–12 featured work images
+
+Only after that should you process the rest.
+
+⸻
+
+How the originals should be handled
+
+You asked what to do with the original screenshots image folder.
+
+Answer:
+
+They should remain in:
+
+source-assets/originals/
+
+Yes, keep them in the repo if you want the repo to also act as your asset-production workspace.
+
+If you want a lighter code repo, you could store originals outside the app repo and keep only:
+	•	masters
+	•	exports
+	•	code
+
+But if you want everything together for now, your current source-assets/originals/... idea is fine.
+
+They should not:
+	•	live in repo root
+	•	live inside public/images/portfolio
+	•	be referenced directly by the frontend
+
+⸻
+
+Recommended final structure
+
+This is what I would lock:
+
+h-port--main/
+  source-assets/
+    originals/
+      beauty/
+      commercial-ecom/
+      cover/
+      editorial/
+      homepage/
+      red-carpet/
+    masters/
+      beauty/
+      commercial-ecom/
+      cover/
+      editorial/
+      homepage/
+      red-carpet/
+    work-in-progress/
+      homepage/
+      misc/
+
+  public/
+    images/
+      hero-bg.png
+      about-portrait.png
+      portfolio/
+        beauty/
+          exports/
+            3x4/
+            4x5/
+            featured/
+            social/
+        commercial-ecom/
+          exports/
+            3x4/
+            4x5/
+            featured/
+            social/
+        cover/
+          exports/
+            3x4/
+            4x5/
+            featured/
+            social/
+        editorial/
+          exports/
+            3x4/
+            4x5/
+            featured/
+            social/
+        homepage/
+          exports/
+            3x4/
+            4x5/
+            featured/
+            social/
+        red-carpet/
+          exports/
+            3x4/
+            4x5/
+            featured/
+            social/
+    opengraph.jpg
+
+
+⸻
+
+Exact thoughts on readiness
+
+Strong now
+	•	folder logic
+	•	category preservation
+	•	cleaner repo thinking
+	•	proper separation between source and public destination
+
+Not ready yet
+	•	image rendering system
+	•	final local path mapping
+	•	master-file workflow
+	•	removal of temporary scratch folders
+	•	replacement of placeholder URLs
+
+⸻
+
+Most important next move
+
+The single most important next move is:
+
+stop restructuring folders and start preparing the local-image data mapping strategy.
+
+Because the structure is now close enough.
+
+Your bottleneck is no longer “where do folders go?”
+It is now:
+
+how do we connect processed local files to data.ts and the live site without confusion?
+
+My direct recommendation
+
+Do these next:
+	1.	add source-assets/masters/...
+	2.	clean or relocate homepage/hp/...
+	3.	keep originals where they are
+	4.	do not put unfinished images in public/images/portfolio
+	5.	begin mapping one local-path pattern for data.ts
+
+If you want, next I can give you the exact data.ts refactor pattern so your filenames automatically map to the correct local category export path.

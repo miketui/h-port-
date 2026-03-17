@@ -195,17 +195,74 @@ Note: 5 images appear in BOTH `exports/featured/` (as category covers) and `expo
 
 ---
 
-## WHERE YOUR RAW ORIGINALS ARE NOW
+## FULL REPO STRUCTURE
 
-All 79 raw screenshot images have been moved to:
 ```
-source-assets/originals/
-  beauty/          (13 files)
-  commercial-ecom/ (8 files)
-  cover/           (9 files)
-  editorial/       (20 files)
-  homepage/        (11 files)
-  red-carpet/      (18 files)
+h-port-/
+  source-assets/
+    originals/                          ← untouched screenshots / raw downloads
+      beauty/           (13 files)
+      commercial-ecom/  (8 files)
+      cover/            (9 files)
+      editorial/        (20 files)
+      homepage/         (11 files)
+      red-carpet/       (18 files)
+    masters/                            ← cleaned/enhanced full-quality working files
+      beauty/
+      commercial-ecom/
+      cover/
+      editorial/
+      homepage/                         ← hero, about-portrait, opengraph masters go HERE
+      red-carpet/
+    work-in-progress/                   ← scratch / temp files, not part of final system
+      homepage/
+      misc/
+    MDW_Portfolio_Image_Credits.md
+
+  artifacts/hairstylist-portfolio/
+    public/                             ← final web-ready files ONLY
+      favicon.svg
+      opengraph.jpg
+      images/
+        hero-bg.png                     ← old single hero (delete after adding hero-1..5)
+        about-portrait.png
+        portfolio/
+          beauty/exports/               3x4/ | 4x5/ | featured/ | social/
+          commercial-ecom/exports/      3x4/ | 4x5/ | featured/ | social/
+          cover/exports/                3x4/ | 4x5/ | featured/ | social/
+          editorial/exports/            3x4/ | 4x5/ | featured/ | social/
+          homepage/exports/             3x4/ | 4x5/ | featured/ | social/
+          red-carpet/exports/           3x4/ | 4x5/ | featured/ | social/
 ```
 
-Process: original → clean up → enhance → upscale → crop to target size → export to `public/images/portfolio/{category}/exports/`
+---
+
+## WHERE HERO / ABOUT / OPENGRAPH MASTERS LIVE
+
+| Asset | Master location | Final export location |
+|-------|----------------|----------------------|
+| Hero images (5) | `source-assets/masters/homepage/hero-1.jpg` — `hero-5.jpg` | `artifacts/.../public/images/hero-1.jpg` — `hero-5.jpg` |
+| About portrait | `source-assets/masters/homepage/about-portrait.png` | `artifacts/.../public/images/about-portrait.png` |
+| Open Graph | `source-assets/masters/homepage/opengraph.jpg` | `artifacts/.../public/opengraph.jpg` |
+| Favicon | `source-assets/masters/homepage/favicon.svg` | `artifacts/.../public/favicon.svg` |
+
+---
+
+## 3-STAGE PROCESSING WORKFLOW
+
+```
+original → master → export
+
+1. ORIGINAL (source-assets/originals/{category}/)
+   Untouched source. Never modify. Never delete.
+
+2. MASTER (source-assets/masters/{category}/)
+   Cleaned, enhanced, color-corrected, full-resolution.
+   This is your working file. Re-export from here anytime.
+
+3. EXPORT (artifacts/.../public/images/portfolio/{category}/exports/{ratio}/)
+   Final web-optimized, cropped to target ratio, ready for the live site.
+   This is the ONLY thing that goes in public/.
+```
+
+Process: original → clean up → enhance → upscale → crop to target size → export to `artifacts/hairstylist-portfolio/public/images/`
