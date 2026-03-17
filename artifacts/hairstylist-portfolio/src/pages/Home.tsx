@@ -1,85 +1,47 @@
-import { useState, useEffect, useCallback } from "react";
+import { useRef } from "react";
 import { Link } from "wouter";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PORTFOLIO_CATEGORIES, PRESS_MENTIONS, FEATURED_CLIENTS } from "@/lib/data";
 import { EmailSignup } from "@/components/EmailSignup";
 import { ArrowRight } from "lucide-react";
 
-const HERO_IMAGES = [
-  { src: `${import.meta.env.BASE_URL}images/hero-1.jpg`, alt: "MDW editorial styling" },
-  { src: `${import.meta.env.BASE_URL}images/hero-2.jpg`, alt: "MDW red carpet styling" },
-  { src: `${import.meta.env.BASE_URL}images/hero-3.jpg`, alt: "MDW celebrity hair direction" },
-  { src: `${import.meta.env.BASE_URL}images/hero-4.jpg`, alt: "MDW fashion editorial" },
-  { src: `${import.meta.env.BASE_URL}images/hero-5.jpg`, alt: "MDW creative direction" },
+const EDITORIAL_STRIP = [
+  { src: `${import.meta.env.BASE_URL}images/strip-editorial.jpg`, alt: "MDW editorial work", label: "Editorial" },
+  { src: `${import.meta.env.BASE_URL}images/strip-redcarpet.jpg`, alt: "MDW red carpet styling", label: "Red Carpet" },
+  { src: `${import.meta.env.BASE_URL}images/strip-beauty.jpg`, alt: "MDW beauty work", label: "Beauty" },
+  { src: `${import.meta.env.BASE_URL}images/strip-commercial.jpg`, alt: "MDW commercial campaign", label: "Commercial" },
 ];
 
-const SLIDE_DURATION = 7000;
-
-function HeroCarousel() {
-  const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
-
-  const advance = useCallback(() => {
-    setDirection(1);
-    setCurrent(prev => (prev + 1) % HERO_IMAGES.length);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(advance, SLIDE_DURATION);
-    return () => clearInterval(timer);
-  }, [advance]);
-
-  return (
-    <>
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.img
-          key={current}
-          src={HERO_IMAGES[current].src}
-          alt={HERO_IMAGES[current].alt}
-          custom={direction}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 0.6, scale: 1, transition: { opacity: { duration: 1.5 }, scale: { duration: SLIDE_DURATION / 1000 + 1.5, ease: "linear" } } }}
-          exit={{ opacity: 0, transition: { duration: 1.5 } }}
-          className="absolute inset-0 w-full h-full object-cover object-top mix-blend-luminosity"
-        />
-      </AnimatePresence>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
-        {HERO_IMAGES.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${
-              i === current ? "bg-accent w-6" : "bg-white/30 hover:bg-white/60"
-            }`}
-            aria-label={`Go to slide ${i + 1}`}
-          />
-        ))}
-      </div>
-    </>
-  );
-}
-
 export default function Home() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [0.55, 0]);
+
   const featuredWork = [
-    PORTFOLIO_CATEGORIES[1].projects[0], // Editorial
-    PORTFOLIO_CATEGORIES[0].projects[1], // Covers
-    PORTFOLIO_CATEGORIES[2].projects[0], // Red Carpet
-    PORTFOLIO_CATEGORIES[4].projects[0], // Commercial
+    PORTFOLIO_CATEGORIES[1].projects[0],
+    PORTFOLIO_CATEGORIES[0].projects[1],
+    PORTFOLIO_CATEGORIES[2].projects[0],
+    PORTFOLIO_CATEGORIES[4].projects[0],
   ];
 
   return (
     <PageTransition className="!pt-0 !pb-0">
-      {/* Hero Section */}
-      <section className="relative h-[90vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden">
+      {/* Hero — Single Dominant Image */}
+      <section ref={heroRef} className="relative h-[95vh] min-h-[700px] w-full flex items-end justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-background/50 z-10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 z-10" />
-          <HeroCarousel />
+          <div className="absolute inset-0 bg-background/40 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent z-10" />
+          <motion.img
+            src={`${import.meta.env.BASE_URL}images/hero.jpg`}
+            alt="Michael David — Celebrity Hairstylist & Creative Director"
+            style={{ scale: heroScale, opacity: heroOpacity }}
+            className="absolute inset-0 w-full h-full object-cover object-top"
+          />
         </div>
-        
-        <div className="relative z-20 text-center px-4 max-w-7xl mx-auto w-full">
+
+        <div className="relative z-20 text-center px-4 max-w-7xl mx-auto w-full pb-16 md:pb-24">
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -115,6 +77,34 @@ export default function Home() {
               Book Now
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Editorial Image Strip — 4 images proving range */}
+      <section className="py-16 md:py-24 bg-background border-b border-white/5">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
+            {EDITORIAL_STRIP.map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7, delay: i * 0.1 }}
+                className="group relative aspect-[3/4] overflow-hidden bg-card"
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <span className="absolute bottom-0 left-0 p-5 md:p-6 text-xs md:text-sm uppercase tracking-[0.2em] text-white/90 font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                  {item.label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
