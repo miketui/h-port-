@@ -1,14 +1,19 @@
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 
-export function PageTransition({ children, className = "" }: { children: ReactNode; className?: string }) {
+interface PageTransitionProps {
+  children: ReactNode;
+  className?: string;
+}
+
+export function PageTransition({ children, className = "" }: PageTransitionProps) {
   return (
     <motion.main
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`min-h-screen pt-24 pb-12 ${className}`}
+      exit={{ opacity: 0, y: -12 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className={`pt-28 ${className}`}
     >
       {children}
     </motion.main>

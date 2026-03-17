@@ -7,45 +7,59 @@ import { ArrowRight } from "lucide-react";
 export default function Portfolio() {
   return (
     <PageTransition>
-      <div className="container mx-auto px-6 md:px-12 pt-12 pb-24">
-        <div className="max-w-4xl mx-auto text-center mb-24">
-          <h1 className="text-5xl md:text-7xl font-display mb-8 uppercase tracking-tight">Portfolio Hub</h1>
-          <p className="text-muted-foreground tracking-wide leading-relaxed text-lg max-w-2xl mx-auto">
-            A curated selection of hair direction spanning high fashion editorial, red carpet moments, beauty campaigns, and commercial work.
-          </p>
+      <div className="container mx-auto px-6 md:px-12 pt-8 pb-32">
+        <div className="max-w-4xl mb-20">
+          <motion.h1
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-6xl md:text-8xl lg:text-9xl font-display tracking-tighter mb-6 uppercase"
+          >
+            Portfolio
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl font-sans leading-relaxed border-l-2 border-accent/40 pl-6"
+          >
+            A curated body of work spanning editorial, celebrity, red carpet, beauty, and commercial hair direction.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
-          {PORTFOLIO_CATEGORIES.map((category, i) => (
-            <motion.div
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {PORTFOLIO_CATEGORIES.map((category, idx) => (
+            <Link
               key={category.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: (i % 2) * 0.2 }}
-              className={`group ${i % 2 !== 0 ? 'md:mt-32' : ''} ${i === PORTFOLIO_CATEGORIES.length - 1 && i % 2 === 0 ? 'md:col-span-2 md:max-w-2xl md:mx-auto w-full' : ''}`}
+              href={`/portfolio/${category.slug}`}
+              className={`group block relative overflow-hidden aspect-[4/5] bg-card ${
+                idx === 0 ? "md:col-span-2" : ""
+              }`}
             >
-              <Link href={`/portfolio/${category.slug}`} className="block relative">
-                <div className="img-zoom-wrapper aspect-[3/4] mb-8 bg-card border border-white/5 overflow-hidden">
-                  <img 
-                    src={category.coverImage} 
-                    alt={category.title} 
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 mix-blend-luminosity hover:mix-blend-normal"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-60 group-hover:opacity-20 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 z-10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent z-10" />
+              <img
+                src={category.coverImage}
+                alt={category.title}
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute bottom-0 left-0 p-8 z-20 w-full flex justify-between items-end">
+                <div>
+                  <span className="text-xs text-accent font-medium uppercase tracking-[0.2em] mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
+                    {category.projects.length} Projects
+                  </span>
+                  <h3 className="text-3xl md:text-4xl font-display text-white">
+                    {category.title}
+                  </h3>
+                  <p className="text-sm text-white/60 mt-2 max-w-md hidden md:block">
+                    {category.description}
+                  </p>
                 </div>
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h2 className="text-3xl md:text-4xl font-display mb-3 group-hover:text-primary transition-colors">{category.title}</h2>
-                    <p className="text-xs uppercase tracking-[0.2em] text-accent font-medium">{category.projects.length} Projects</p>
-                  </div>
-                  <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                    <span className="sr-only">View {category.title}</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </div>
+                <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-4 group-hover:translate-x-0 group-hover:bg-accent group-hover:border-accent text-white">
+                  <ArrowRight className="w-4 h-4" />
                 </div>
-              </Link>
-            </motion.div>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

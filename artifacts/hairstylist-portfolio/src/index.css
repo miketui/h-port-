@@ -48,7 +48,6 @@
 }
 
 :root {
-  /* Luxury Dark Theme Enforced Globally */
   --background: 0 0% 7%;
   --foreground: 40 20% 87%;
   --border: 40 10% 16%;
@@ -61,16 +60,16 @@
   --popover-foreground: 40 20% 87%;
   --popover-border: 40 10% 16%;
   
-  --primary: 37 32% 52%; /* Antique Gold */
+  --primary: 37 32% 52%;
   --primary-foreground: 0 0% 7%;
   
-  --secondary: 157 52% 76%; /* Jade Mist — vivid */
+  --secondary: 157 52% 76%;
   --secondary-foreground: 0 0% 7%;
   
   --muted: 0 0% 14%;
   --muted-foreground: 40 8% 55%;
   
-  --accent: 158 78% 36%; /* Vivid Jade */
+  --accent: 158 78% 36%;
   --accent-foreground: 40 20% 87%;
   
   --destructive: 0 65% 45%;
@@ -79,7 +78,7 @@
   --input: 0 0% 18%;
   --ring: 37 32% 52%;
   
-  --radius: 0rem; /* Sharp edges for editorial look */
+  --radius: 0rem;
 }
 
 @layer base {
@@ -97,7 +96,6 @@
   }
 }
 
-/* Custom Scrollbar for a premium feel */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -111,7 +109,6 @@
   background: hsl(var(--accent) / 0.6);
 }
 
-/* Image Hover Zoom Utility */
 .img-zoom-wrapper {
   @apply overflow-hidden relative block;
 }
@@ -122,13 +119,11 @@
   @apply scale-105;
 }
 
-/* Outline Text Effect */
 .text-outline {
   color: transparent;
   -webkit-text-stroke: 1px hsl(var(--muted-foreground) / 0.5);
 }
 
-/* Marquee scroll animation */
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
