@@ -12,3 +12,9 @@ id = "4QeHgS2LWxX-ovXqO8Wsm"
 uri = "file://artifacts/hairstylist-portfolio/MDW_IMAGE_CHECKLIST.md"
 type = "text"
 title = "MDW Complete Image Checklist"
+
+[[outputs]]
+id = "CtEV5I4CDh0gUTIW1w-eN"
+uri = "file://artifacts/hairstylist-portfolio/REPO_TREE.txt"
+type = "text"
+title = "h-port- Complete Directory Tree (140 files)"
