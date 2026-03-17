@@ -32,10 +32,10 @@ const coverImg = (category: string, filename: string): string =>
 export const PORTFOLIO_CATEGORIES: Category[] = [
   {
     id: "0",
-    slug: "covers",
+    slug: "cover",
     title: "Covers",
     description: "Magazine covers spanning the world's most prestigious publications.",
-    coverImage: coverImg("covers", "cover_2022_gottmik_coveteur_09.jpg"),
+    coverImage: coverImg("cover", "cover_2022_gottmik_coveteur_09.jpg"),
     projects: [
       {
         id: "cov1",
@@ -43,7 +43,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         client: "Duckie Thot",
         year: "2018",
         filename: "cover_2018_duckie-thot_harpers-bazaar_01.jpg",
-        imageUrl: img("covers", "cover_2018_duckie-thot_harpers-bazaar_01.jpg"),
+        imageUrl: img("cover", "cover_2018_duckie-thot_harpers-bazaar_01.jpg"),
         imageAlt: "Duckie Thot Harper's Bazaar Cover",
         publication: "Harper's Bazaar"
       },
@@ -53,7 +53,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         client: "Duckie Thot",
         year: "2018",
         filename: "cover_2018_duckie-thot_wonderland_02.jpg",
-        imageUrl: img("covers", "cover_2018_duckie-thot_wonderland_02.jpg"),
+        imageUrl: img("cover", "cover_2018_duckie-thot_wonderland_02.jpg"),
         imageAlt: "Duckie Thot Wonderland Cover",
         publication: "Wonderland"
       },
@@ -63,7 +63,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         client: "Duckie Thot",
         year: "2018",
         filename: "cover_2018_duckie-thot_stylist-uk_03.jpg",
-        imageUrl: img("covers", "cover_2018_duckie-thot_stylist-uk_03.jpg"),
+        imageUrl: img("cover", "cover_2018_duckie-thot_stylist-uk_03.jpg"),
         imageAlt: "Duckie Thot Stylist UK Cover",
         publication: "Stylist UK"
       },
@@ -73,7 +73,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         client: "Kylie Bunbury",
         year: "2021",
         filename: "cover_2021_kylie-bunbury_emmy-magazine_04.jpg",
-        imageUrl: img("covers", "cover_2021_kylie-bunbury_emmy-magazine_04.jpg"),
+        imageUrl: img("cover", "cover_2021_kylie-bunbury_emmy-magazine_04.jpg"),
         imageAlt: "Kylie Bunbury Emmy Magazine Cover",
         publication: "Emmy Magazine"
       },
@@ -83,7 +83,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         client: "Alisha Wainwright",
         year: "2022",
         filename: "cover_2022_alisha-wainwright_photobook_05.jpg",
-        imageUrl: img("covers", "cover_2022_alisha-wainwright_photobook_05.jpg"),
+        imageUrl: img("cover", "cover_2022_alisha-wainwright_photobook_05.jpg"),
         imageAlt: "Alisha Wainwright PhotoBook Cover",
         publication: "PhotoBook Magazine",
         link: "https://www.photobookmagazine.com/features/alisha-wainwright"
@@ -94,7 +94,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         client: "Gugu Mbatha-Raw",
         year: "2020",
         filename: "cover_2020_gugu-mbatha-raw_variety_06.jpg",
-        imageUrl: img("covers", "cover_2020_gugu-mbatha-raw_variety_06.jpg"),
+        imageUrl: img("cover", "cover_2020_gugu-mbatha-raw_variety_06.jpg"),
         imageAlt: "Gugu Mbatha-Raw Variety Cover",
         publication: "Variety"
       },
@@ -104,7 +104,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         client: "Duckie Thot & Jazzelle",
         year: "2018",
         filename: "cover_2018_duckie-thot-jazzelle_chic-album_07.jpg",
-        imageUrl: img("covers", "cover_2018_duckie-thot-jazzelle_chic-album_07.jpg"),
+        imageUrl: img("cover", "cover_2018_duckie-thot-jazzelle_chic-album_07.jpg"),
         imageAlt: "Duckie Thot and Jazzelle Neil Rogers Chic Album Cover",
         publication: "Neil Rogers"
       },
@@ -114,7 +114,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         client: "Aurora James",
         year: "2022",
         filename: "cover_2022_aurora-james_glamour_08.jpg",
-        imageUrl: img("covers", "cover_2022_aurora-james_glamour_08.jpg"),
+        imageUrl: img("cover", "cover_2022_aurora-james_glamour_08.jpg"),
         imageAlt: "Aurora James Glamour Cover",
         publication: "Glamour",
         link: "https://www.glamour.com/story/aurora-james-glamour-women-of-the-year-2022"
@@ -125,7 +125,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         client: "Gottmik",
         year: "2022",
         filename: "cover_2022_gottmik_coveteur_09.jpg",
-        imageUrl: img("covers", "cover_2022_gottmik_coveteur_09.jpg"),
+        imageUrl: img("cover", "cover_2022_gottmik_coveteur_09.jpg"),
         imageAlt: "Gottmik Coveteur Cover",
         publication: "Coveteur"
       },

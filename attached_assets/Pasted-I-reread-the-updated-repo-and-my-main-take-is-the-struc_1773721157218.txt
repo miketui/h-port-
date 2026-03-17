@@ -1,0 +1,135 @@
+I reread the updated repo, and my main take is: the structure is still halfway between a source-asset repo and a finished web-asset repo. The six image folders are still sitting at the repo root, while public/images only contains the hero/about images and public/opengraph.jpg; the portfolio still appears to be driven by src/lib/data.ts, which is still using remote Unsplash coverImage and imageUrl values rather than your local portfolio files.  
+
+So for your question:
+
+Should the original screenshot image folders stay in the root directory?
+
+No — not as the long-term final structure.
+
+They can stay there temporarily while you reorganize, but for a clean production repo I would separate images into two systems:
+
+1. Original/source images
+
+These are your untouched screenshots and raw originals.
+They should not live in the repo root and not be the files your site renders.
+
+Put them in something like:
+
+source-assets/images/originals/
+  beauty/
+  commercial-ecom/
+  cover/
+  editorial/
+  homepage/
+  red-carpet/
+
+or, if you want them inside the app repo:
+
+assets-source/originals/
+  beauty/
+  commercial-ecom/
+  cover/
+  editorial/
+  homepage/
+  red-carpet/
+
+2. Final web-ready images
+
+These are the cleaned, enhanced, cropped, resized exports that the site actually uses.
+
+Put them in:
+
+public/images/portfolio/
+  beauty/
+  commercial-ecom/
+  cover/
+  editorial/
+  homepage/
+  red-carpet/
+
+That way:
+	•	originals stay safe
+	•	final exports stay clean
+	•	the site only points to final web images
+	•	you never mix raw screenshots with publish-ready assets
+
+What I think you should do next
+
+Keep
+	•	the six-category separation
+	•	the existing naming logic by category/client/publication
+	•	public/images/hero-bg.png, public/images/about-portrait.png, and public/opengraph.jpg as dedicated top-level site assets. Those are already referenced directly by the pages.  
+
+Change
+	•	move the current root folders out of the repo root
+	•	normalize folder names:
+	•	Beauty → beauty
+	•	Commercial:ECOM → commercial-ecom
+	•	Cover → cover
+	•	Editorial → editorial
+	•	Homepage → homepage
+	•	Red Carpet → red-carpet
+	•	stop using raw folders as the public site image source
+
+Biggest current issue
+
+Even after your update, the portfolio data file still maps category covers and project images to Unsplash URLs instead of your actual files, so reorganizing the folders alone will not change the live portfolio yet. Category.tsx and Home.tsx render project.imageUrl and category.coverImage, and those values still come from data.ts.  
+
+My exact recommended final structure
+
+repo/
+  source-assets/
+    originals/
+      beauty/
+      commercial-ecom/
+      cover/
+      editorial/
+      homepage/
+      red-carpet/
+
+  public/
+    images/
+      hero-bg.png
+      about-portrait.png
+      portfolio/
+        beauty/
+        commercial-ecom/
+        cover/
+        editorial/
+        homepage/
+        red-carpet/
+    opengraph.jpg
+
+  src/
+    lib/
+      data.ts
+
+How to think about it
+	•	Original screenshots = archive / working source
+	•	Masters = cleaned high-quality working files
+	•	Exports = exact website-ready images
+
+If you want to be even more organized, add this inside each category under source-assets:
+
+source-assets/originals/beauty/
+source-assets/masters/beauty/
+public/images/portfolio/beauty/
+
+That is the cleanest pro workflow.
+
+My current thoughts on the repo
+
+Right now, your repo is close, but not locked yet:
+	•	The category folders exist at the top level.  
+	•	The site-specific public files exist in public.  
+	•	The actual portfolio rendering still depends on placeholder URLs in data.ts.  
+
+So the correct sequence is:
+	1.	Move original screenshot folders out of root
+	2.	Create public/images/portfolio/... for final exports
+	3.	Process images
+	4.	Update data.ts to point to local final exports
+	5.	Then test the site
+
+The originals should be treated like source files, not final assets.
+

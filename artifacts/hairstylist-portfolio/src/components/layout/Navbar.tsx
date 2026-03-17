@@ -30,7 +30,7 @@ export function Navbar() {
 
   const portfolioLinks = [
     { label: "Portfolio Hub", href: "/portfolio" },
-    { label: "Covers", href: "/portfolio/covers" },
+    { label: "Covers", href: "/portfolio/cover" },
     { label: "Editorial", href: "/portfolio/editorial" },
     { label: "Beauty", href: "/portfolio/beauty" },
     { label: "Commercial / ECOM", href: "/portfolio/commercial-ecom" },
