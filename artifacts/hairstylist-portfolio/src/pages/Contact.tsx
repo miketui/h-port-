@@ -34,7 +34,8 @@ export default function Contact() {
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     try {
-      const res = await fetch("https://formspree.io/f/xojkkjgz", {
+      const formspreeId = import.meta.env.VITE_FORMSPREE_ID || "xojkkjgz";
+      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
