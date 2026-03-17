@@ -20,14 +20,14 @@ export default function About() {
           >
             <div className="aspect-[3/4] relative bg-card overflow-hidden border border-white/5">
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10" />
-              <img 
+              <img
                 src={`${import.meta.env.BASE_URL}images/about-portrait.png`}
-                alt="Michael David Portrait" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                alt="Michael David Portrait"
+                className="w-full h-full object-cover md:grayscale md:hover:grayscale-0 transition-all duration-1000"
               />
             </div>
-            <div className="absolute -bottom-8 -right-8 w-64 p-8 bg-[#0a0a0a] border-l-2 border-l-accent border border-white/5 hidden md:block z-20 shadow-2xl">
-              <p className="font-display italic text-2xl text-center text-foreground/90">"Hair is never just hair."</p>
+            <div className="mt-4 md:mt-0 md:absolute md:-bottom-8 md:-right-8 w-full md:w-64 p-6 md:p-8 bg-[#0a0a0a] border-l-2 border-l-accent border border-white/5 z-20 shadow-2xl">
+              <p className="font-display italic text-xl md:text-2xl text-center text-foreground/90">"Hair is never just hair."</p>
             </div>
           </motion.div>
 

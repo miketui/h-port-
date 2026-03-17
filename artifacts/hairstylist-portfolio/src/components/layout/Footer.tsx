@@ -78,8 +78,8 @@ export function Footer() {
           
         </div>
         
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent mb-0" />
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground tracking-wider uppercase">
             &copy; {new Date().getFullYear()} MDW. All rights reserved.
           </p>

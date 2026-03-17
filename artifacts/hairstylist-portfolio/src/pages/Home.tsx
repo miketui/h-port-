@@ -44,14 +44,14 @@ export default function Home() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [0.55, 0]);
 
   const featuredWork = [
-    PORTFOLIO_CATEGORIES[1].projects[0],
-    PORTFOLIO_CATEGORIES[0].projects[1],
-    PORTFOLIO_CATEGORIES[2].projects[0],
-    PORTFOLIO_CATEGORIES[4].projects[0],
+    { ...PORTFOLIO_CATEGORIES[1].projects[0], categorySlug: PORTFOLIO_CATEGORIES[1].slug },
+    { ...PORTFOLIO_CATEGORIES[0].projects[1], categorySlug: PORTFOLIO_CATEGORIES[0].slug },
+    { ...PORTFOLIO_CATEGORIES[2].projects[0], categorySlug: PORTFOLIO_CATEGORIES[2].slug },
+    { ...PORTFOLIO_CATEGORIES[4].projects[0], categorySlug: PORTFOLIO_CATEGORIES[4].slug },
   ];
 
   return (
-    <PageTransition className="!pt-0 !pb-0">
+    <PageTransition noPadding>
       {/* Hero — Single Dominant Image */}
       <section ref={heroRef} className="relative h-[95vh] min-h-[700px] w-full flex items-end justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -217,16 +217,17 @@ export default function Home() {
                 <img
                   src={category.coverImage}
                   alt={category.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
                 <div className="absolute bottom-0 left-0 p-8 z-20 w-full flex justify-between items-end">
                   <div>
-                    <span className="text-xs text-accent font-medium uppercase tracking-[0.2em] mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
+                    <span className="text-xs text-accent font-medium uppercase tracking-[0.2em] mb-2 block opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 md:transform md:translate-y-2 md:group-hover:translate-y-0">
                       Explore
                     </span>
                     <h3 className="text-3xl md:text-4xl font-display text-white">{category.title}</h3>
                   </div>
-                  <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-4 group-hover:translate-x-0 group-hover:bg-accent group-hover:border-accent text-white">
+                  <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500 md:transform md:-translate-x-4 md:group-hover:translate-x-0 group-hover:bg-accent group-hover:border-accent text-white">
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
@@ -242,13 +243,15 @@ export default function Home() {
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Featured In</p>
         </div>
         <div className="flex w-full whitespace-nowrap overflow-hidden">
-          <div className="flex animate-[marquee_30s_linear_infinite] items-center gap-12 md:gap-24 opacity-60 shrink-0 pr-12 md:pr-24">
-            {['Vogue', "Harper's Bazaar", 'W Magazine', 'Vanity Fair', 'Savage X Fenty', 'Nike', 'Teen Vogue', 'Refinery29', 'Glamour', 'Elle UK', 'Vogue', "Harper's Bazaar", 'W Magazine', 'Vanity Fair', 'Savage X Fenty', 'Nike', 'Teen Vogue', 'Refinery29', 'Glamour', 'Elle UK'].map((brand, i) => (
-              <span key={i} className="text-2xl md:text-3xl font-display uppercase tracking-widest text-outline hover:text-foreground transition-all duration-300 cursor-default">
-                {brand}
-              </span>
-            ))}
-          </div>
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex animate-[marquee_30s_linear_infinite] items-center gap-12 md:gap-24 opacity-60 shrink-0 pr-12 md:pr-24">
+              {['Vogue', "Harper's Bazaar", 'W Magazine', 'Vanity Fair', 'Savage X Fenty', 'Nike', 'Teen Vogue', 'Refinery29', 'Glamour', 'Elle UK'].map((brand, i) => (
+                <span key={i} className="text-2xl md:text-3xl font-display uppercase tracking-widest text-outline hover:text-foreground transition-all duration-300 cursor-default">
+                  {brand}
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -270,15 +273,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="group cursor-pointer"
               >
-                <div className="img-zoom-wrapper aspect-[3/4] mb-6 bg-card border border-white/5">
-                  <img src={project.imageUrl} alt={project.imageAlt} className="w-full h-full object-cover" />
-                </div>
-                <h4 className="font-display text-xl mb-1 group-hover:text-primary transition-colors">{project.title}</h4>
-                <p className="text-sm text-muted-foreground tracking-wider uppercase text-xs">
-                  {project.client} &bull; {project.year}
-                </p>
+                <Link href={`/portfolio/${project.categorySlug}`} className="group block">
+                  <div className="img-zoom-wrapper aspect-[3/4] mb-6 bg-card border border-white/5">
+                    <img src={project.imageUrl} alt={project.imageAlt} loading="lazy" className="w-full h-full object-cover" />
+                  </div>
+                  <h4 className="font-display text-xl mb-1 group-hover:text-primary transition-colors">{project.title}</h4>
+                  <p className="text-xs text-muted-foreground tracking-wider uppercase">
+                    {project.client} &bull; {project.year}
+                  </p>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -298,11 +302,11 @@ export default function Home() {
             <div className="w-12 h-px bg-primary mx-auto"></div>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0 border-l border-t border-white/5">
+          <div className="flex flex-wrap border-l border-t border-white/5">
             {FEATURED_CLIENTS.map((client, i) => (
-              <div 
-                key={i} 
-                className="border-r border-b border-white/5 p-6 md:p-8 flex items-center justify-center text-center group transition-colors hover:bg-card/50"
+              <div
+                key={i}
+                className="w-1/2 md:w-1/3 lg:w-1/4 border-r border-b border-white/5 p-6 md:p-8 flex items-center justify-center text-center group transition-colors hover:bg-card/50"
               >
                 <span className="text-sm md:text-base font-display uppercase tracking-widest text-muted-foreground group-hover:text-accent transition-colors">
                   {client}
@@ -361,8 +365,8 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5 z-0" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/10 via-background to-background z-0" />
+        <div className="absolute inset-0 bg-primary/10 z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/20 via-background to-background z-0" />
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="w-16 h-0.5 bg-accent mx-auto mb-10 opacity-60" />
           <h2 className="text-5xl md:text-7xl font-display mb-8">Work With MDW</h2>
