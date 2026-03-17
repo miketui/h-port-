@@ -1,0 +1,149 @@
+Yes — that is a much stronger direction for your site.
+
+A structure like this can feel very luxurious:
+	•	top: one dominant landing-page hero image
+	•	just below: a restrained 4-image mini carousel or editorial image rail
+
+That gives you the best of both worlds:
+	•	one clear, high-end first impression
+	•	additional range right after, without making the hero feel busy
+
+Why this is better
+
+A full 5-image hero carousel can dilute the homepage impact because the first screen is trying to do too much.
+
+Your revised structure is better because:
+	•	the hero gets to feel intentional and cinematic
+	•	the 4-image section becomes proof of range
+	•	the page feels more editorial and less like a template slider
+	•	you can still showcase celebrity, beauty, red carpet, and commercial variety early
+
+Best luxury behavior
+
+Section 1: Hero
+
+Use one image only for the opening screen.
+
+It should do the emotional work:
+	•	premium
+	•	fashion-forward
+	•	memorable
+	•	high-value
+	•	calm confidence
+
+This should be your strongest single image, not necessarily the most famous person.
+
+Section 2: Mini carousel / image strip
+
+As the user scrolls slightly, reveal a 4-image controlled display.
+
+This should do the proof work:
+	•	range
+	•	authority
+	•	category variety
+	•	client caliber
+	•	visual depth
+
+How to make it feel luxurious
+
+Hero section
+
+Keep it clean:
+	•	one strong image
+	•	minimal copy
+	•	elegant type
+	•	restrained CTA
+	•	no clutter
+	•	no heavy UI controls
+
+4-image section
+
+This should not feel like a cheap rotating widget.
+
+Better directions:
+	•	horizontal editorial strip
+	•	4-up image panel
+	•	slow-moving carousel with minimal controls
+	•	grid/slider hybrid
+
+Luxury cues:
+	•	generous spacing
+	•	subtle motion only
+	•	strong cropping consistency
+	•	no loud arrows or dots
+	•	smooth transition behavior
+
+Best content strategy for the 4 images
+
+Use the 4-image section to show four distinct strengths.
+
+A strong mix would be:
+	1.	editorial
+	2.	red carpet
+	3.	beauty
+	4.	commercial / ecom
+
+That immediately tells the visitor:
+	•	you have range
+	•	you have taste
+	•	you have polish
+	•	you are not one-note
+
+My recommendation on carousel style
+
+For your site, I would lean toward one of these:
+
+Best option
+
+4 visible images in a luxury horizontal panel, with slight motion or hover behavior
+
+Why:
+	•	feels more modern/editorial
+	•	users see range instantly
+	•	less template-like than a standard mini slider
+
+Second-best option
+
+mini carousel that shows 1.2–1.5 images on mobile and 4 images on desktop
+
+Why:
+	•	preserves responsiveness
+	•	still feels curated if motion is subtle
+
+Less ideal
+
+traditional carousel with:
+	•	obvious arrows
+	•	dots
+	•	fast autoplay
+	•	cramped spacing
+
+That tends to cheapen luxury sites.
+
+Best page flow
+
+A strong homepage sequence would be:
+	1.	Hero image + headline + short positioning statement
+	2.	4-image luxury image rail / mini carousel
+	3.	featured work / categories
+	4.	press / credibility
+	5.	about / booking CTA
+
+That flow is much more premium than putting everything into the hero.
+
+Can you do this?
+
+Yes, absolutely.
+And conceptually, it is a better move than making the hero itself a large carousel.
+
+My verdict
+
+Approved — this is a smart, luxury-friendly homepage structure.
+
+It gives:
+	•	clarity at the top
+	•	variety just below
+	•	stronger hierarchy
+	•	more editorial sophistication
+
+The key is making the 4-image area feel like a curated image experience, not a generic component.
