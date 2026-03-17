@@ -1,0 +1,11 @@
+{
+  "name": "workspace",
+  "private": true,
+  "scripts": {
+    "typecheck:libs": "tsc --build",
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --parallel run typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

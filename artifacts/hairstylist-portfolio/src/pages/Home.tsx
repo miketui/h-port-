@@ -7,10 +7,10 @@ import { EmailSignup } from "@/components/EmailSignup";
 import { ArrowRight } from "lucide-react";
 
 const EDITORIAL_STRIP = [
-  { src: `${import.meta.env.BASE_URL}images/strip-editorial.jpg`, alt: "MDW editorial work", label: "Editorial" },
-  { src: `${import.meta.env.BASE_URL}images/strip-redcarpet.jpg`, alt: "MDW red carpet styling", label: "Red Carpet" },
-  { src: `${import.meta.env.BASE_URL}images/strip-beauty.jpg`, alt: "MDW beauty work", label: "Beauty" },
-  { src: `${import.meta.env.BASE_URL}images/strip-commercial.jpg`, alt: "MDW commercial campaign", label: "Commercial" },
+  { src: "https://picsum.photos/seed/strip-editorial/800/1000", alt: "MDW editorial work", label: "Editorial" },
+  { src: "https://picsum.photos/seed/strip-redcarpet/800/1000", alt: "MDW red carpet styling", label: "Red Carpet" },
+  { src: "https://picsum.photos/seed/strip-beauty/800/1000", alt: "MDW beauty work", label: "Beauty" },
+  { src: "https://picsum.photos/seed/strip-commercial/800/1000", alt: "MDW commercial campaign", label: "Commercial" },
 ];
 
 export default function Home() {
@@ -34,7 +34,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-background/40 z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent z-10" />
           <motion.img
-            src={`${import.meta.env.BASE_URL}images/hero.jpg`}
+            src="https://picsum.photos/seed/mdw-hero/1920/1080"
             alt="Michael David — Celebrity Hairstylist & Creative Director"
             style={{ scale: heroScale, opacity: heroOpacity }}
             className="absolute inset-0 w-full h-full object-cover object-top"
