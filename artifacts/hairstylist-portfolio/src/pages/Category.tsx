@@ -61,14 +61,12 @@ export default function Category() {
               transition={{ duration: 0.7, delay: (i % 3) * 0.2 }}
               className="group flex flex-col"
             >
-              <div className={`img-zoom-wrapper mb-6 bg-card border border-white/5 ${
-                category.slug === 'editorial' || category.slug === 'commercial-ecom' ? 'aspect-[4/5]' : 'aspect-[3/4]'
-              }`}>
+              <div className="img-zoom-wrapper mb-6 bg-card border border-white/5">
                 <img
                   src={project.imageUrl}
                   alt={project.imageAlt}
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto block"
                 />
               </div>
               <div className="flex-1 flex flex-col">

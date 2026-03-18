@@ -218,7 +218,7 @@ export default function Home() {
                   src={category.coverImage}
                   alt={category.title}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
                 />
                 <div className="absolute bottom-0 left-0 p-8 z-20 w-full flex justify-between items-end">
                   <div>
@@ -275,8 +275,8 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
               >
                 <Link href={`/portfolio/${project.categorySlug}`} className="group block">
-                  <div className="img-zoom-wrapper aspect-[3/4] mb-6 bg-card border border-white/5">
-                    <img src={project.imageUrl} alt={project.imageAlt} loading="lazy" className="w-full h-full object-cover" />
+                  <div className="img-zoom-wrapper mb-6 bg-card border border-white/5">
+                    <img src={project.imageUrl} alt={project.imageAlt} loading="lazy" className="w-full h-auto block" />
                   </div>
                   <h4 className="font-display text-xl mb-1 group-hover:text-primary transition-colors">{project.title}</h4>
                   <p className="text-xs text-muted-foreground tracking-wider uppercase">

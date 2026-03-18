@@ -42,7 +42,7 @@ export default function Portfolio() {
                 src={category.coverImage}
                 alt={category.title}
                 loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
               />
               <div className="absolute bottom-0 left-0 p-8 z-20 w-full flex justify-between items-end">
                 <div>

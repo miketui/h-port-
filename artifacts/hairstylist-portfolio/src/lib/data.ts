@@ -379,8 +379,8 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         title: "Red Carpet",
         client: "Aurora James & Elaine Welteroth",
         year: "2018",
-        filename: "redcarpet_2018_aurora-james-elaine-welteroth_red-carpet_04.jpg",
-        imageUrl: img("red-carpet", "redcarpet_2018_aurora-james-elaine-welteroth_red-carpet_04.jpg"),
+        filename: "redcarpet_unknown_aurora-james-elaine-welteroth_red-carpet_04.jpg",
+        imageUrl: img("red-carpet", "redcarpet_unknown_aurora-james-elaine-welteroth_red-carpet_04.jpg"),
         imageAlt: "Aurora James and Elaine Welteroth red carpet 2018"
       },
       {
@@ -434,8 +434,8 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         title: "Red Carpet",
         client: "Chloe Coleman",
         year: "2019",
-        filename: "redcarpet_2019_chloe-coleman_red-carpet_10.jpg",
-        imageUrl: img("red-carpet", "redcarpet_2019_chloe-coleman_red-carpet_10.jpg"),
+        filename: "redcarpet_unknown_chloe-coleman_red-carpet_10.jpg",
+        imageUrl: img("red-carpet", "redcarpet_unknown_chloe-coleman_red-carpet_10.jpg"),
         imageAlt: "Chloe Coleman red carpet 2019"
       },
       {
@@ -506,8 +506,8 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         title: "The Daily Show",
         client: "Lizzo",
         year: "2019",
-        filename: "redcarpet_2019_lizzo_the-daily-show_18.jpg",
-        imageUrl: img("red-carpet", "redcarpet_2019_lizzo_the-daily-show_18.jpg"),
+        filename: "redcarpet_unknown_lizzo_the-daily-show_18.jpg",
+        imageUrl: img("red-carpet", "redcarpet_unknown_lizzo_the-daily-show_18.jpg"),
         imageAlt: "Lizzo The Daily Show 2019"
       },
     ]
@@ -578,8 +578,8 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         title: "Tastemaker Session 2",
         client: "Liesl Tommy",
         year: "2017",
-        filename: "beauty_2017_liesl-tommy_crafted_17.jpg",
-        imageUrl: img("beauty", "beauty_2017_liesl-tommy_crafted_17.jpg"),
+        filename: "beauty_2021_liesl-tommy_crafted_17.jpg",
+        imageUrl: img("beauty", "beauty_2021_liesl-tommy_crafted_17.jpg"),
         imageAlt: "Liesl Tommy Crafted Tastemaker Session 2",
         publication: "Crafted"
       },
