@@ -20,32 +20,14 @@ export type Category = {
   projects: Project[];
 };
 
-// ⚠️ PLACEHOLDER MODE - Images stripped for editing
-// Real images should go in: /images/portfolio/{category}/exports/{format}/
-// See IMAGE_MAPPING.md for complete restoration guide
+const img = (category: string, filename: string): string =>
+  `${import.meta.env.BASE_URL}images/portfolio/${category}/originals/${filename}`;
 
-const placeholder3x4 = `${import.meta.env.BASE_URL}images/placeholders/3x4.jpg`;
-const placeholder4x5 = `${import.meta.env.BASE_URL}images/placeholders/4x5.jpg`;
-const placeholderFeatured = `${import.meta.env.BASE_URL}images/placeholders/featured.jpg`;
+const cover4x5 = (category: string, filename: string): string =>
+  `${import.meta.env.BASE_URL}images/portfolio/${category}/originals/${filename}`;
 
-// Helper functions - return placeholders for now
-const img = (category: string, filename: string): string => {
-  // TODO: Replace with actual images
-  // Real path: `${import.meta.env.BASE_URL}images/portfolio/${category}/exports/3x4/${filename}`
-  return placeholder3x4;
-};
-
-const cover4x5 = (category: string, filename: string): string => {
-  // TODO: Replace with actual images  
-  // Real path: `${import.meta.env.BASE_URL}images/portfolio/${category}/exports/4x5/${filename}`
-  return placeholder4x5;
-};
-
-const coverImg = (category: string, filename: string): string => {
-  // TODO: Replace with actual images
-  // Real path: `${import.meta.env.BASE_URL}images/portfolio/${category}/exports/featured/${filename}`
-  return placeholderFeatured;
-};
+const coverImg = (category: string, filename: string): string =>
+  `${import.meta.env.BASE_URL}images/portfolio/${category}/originals/${filename}`;
 
 export const PORTFOLIO_CATEGORIES: Category[] = [
   {
