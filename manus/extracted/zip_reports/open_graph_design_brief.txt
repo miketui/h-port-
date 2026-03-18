@@ -1,0 +1,14 @@
+Create a luxury editorial open graph image for a celebrity hairstylist portfolio website.
+
+Specs:
+- Canvas size: 1200 x 630
+- Mood: premium, fashion-forward, dark luxury, high-end editorial
+- Use one dominant portrait with strong hair texture and dramatic beauty styling
+- Add elegant typography with the name "Michael David Warren"
+- Add a refined subtitle: "Celebrity Editorial Hairstylist"
+- Use clean composition with negative space for readability
+- Palette: black, deep charcoal, soft gold, subtle warm neutrals
+- Keep the design sophisticated and minimal, not busy
+- The image should feel like a premium fashion campaign, not a generic website banner
+- Preserve realistic skin and hair texture
+- No cheesy effects, no obvious AI look, no clutter

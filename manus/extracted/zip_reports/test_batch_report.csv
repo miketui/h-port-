@@ -1,0 +1,7 @@
+source_filename,disk_filename,relative_path,source_dimensions,output_dimensions,output_filename,status,upload_time_s,api_time_s,warning_error_notes
+beauty_2019_rihanna_savage-fenty_18.jpg,Beauty_2019_rihanna_savage-fenty_18.jpg.JPG,processed_final/Beauty/Beauty_2019_rihanna_savage-fenty_18.jpg.JPG,1920x1245,3840x2488,beauty_2019_rihanna_savage-fenty_18_upscaled.jpg,SUCCESS,1.0,41.1,
+editorial_2021_aurora-james_grazia-usa_34.jpg,Editorial_2021_aurora-james_grazia-usa_34.jpg,processed_final/Editorial/Editorial_2021_aurora-james_grazia-usa_34.jpg,1920x2409,3840x4816,editorial_2021_aurora-james_grazia-usa_34_upscaled.jpg,SUCCESS,0.5,36.1,
+redcarpet_2022_ebony-obsidian_red-carpet_01.jpg,Redcarpet_2022_ebony-obsidian_red-carpet_01.jpg,processed_final/Red Carpet/Redcarpet_2022_ebony-obsidian_red-carpet_01.jpg,1200x1600,2400x3200,redcarpet_2022_ebony-obsidian_red-carpet_01_upscaled.jpg,SUCCESS,0.4,43.5,
+beauty_2018_lupita-nyongo_ace-awards_14.jpg,Beauty_2018_lupita-nyongo_ace-awards_14.jpg,processed_final/Beauty/Beauty_2018_lupita-nyongo_ace-awards_14.jpg,1200x1600,2400x3200,beauty_2018_lupita-nyongo_ace-awards_14_upscaled.jpg,SUCCESS,0.4,30.1,
+homepage_2019_rihanna_phaidon_01.jpg,homepage_2019_rihanna_phaidon_01.jpg,processed_final/Homepage/homepage_2019_rihanna_phaidon_01.jpg,1200x1600,2400x3200,homepage_2019_rihanna_phaidon_01_upscaled.jpg,SUCCESS,2.6,22.7,
+michael.jpeg,Michael.jpeg,Michael.jpeg,1200x1552,2400x3104,michael_upscaled.jpg,SUCCESS,2.3,22.1,

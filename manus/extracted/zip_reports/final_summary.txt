@@ -1,0 +1,99 @@
+MDW PORTFOLIO EXPORTS — FINAL VALIDATION SUMMARY
+============================================================
+Generated: 2026-03-18 00:59:35 UTC
+
+VALIDATION RESULTS
+----------------------------------------
+Total checks performed: 90
+PASS:                   90
+Missing files:          0
+Dimension mismatches:   0
+Overall status:         ✅ ALL PASS
+
+LOCKED WEBSITE PLACEMENTS
+----------------------------------------
+Homepage hero:
+  hero-bg.png                                          3840x2160  ✅
+
+Homepage strips (2400x1600 each):
+  editorial_2021_aurora-james_grazia-usa_34.jpg        ✅
+  redcarpet_2022_ebony-obsidian_red-carpet_01.jpg      ✅
+  beauty_2018_lupita-nyongo_ace-awards_14.jpg          ✅
+  homepage_2019_rihanna_phaidon_01.jpg                 ✅
+
+Section covers (2400x1600 each):
+  beauty_2021_carmen-solomons_studio_11.jpg   [Beauty]       ✅
+  cover_2018_duckie-thot_harpers-bazaar_01.jpg [Covers]      ✅
+  editorial_2021_salem-mitchell_schon-magazine_29.jpg [Edit]  ✅
+  redcarpet_2022_saniyya-sidney_hca-awards_09.jpg [RC]       ✅
+  ecom_2019_tabria-majors_savage-x-fenty_02.jpg [Comm]       ✅
+
+Special:
+  about-portrait.png                                   1600x2400  ✅
+
+OG prep crops (1200x630 each):
+  og_beauty_rihanna.jpg                                ✅
+  og_editorial_aurora.jpg                              ✅
+
+Design brief:
+  open_graph_design_brief.txt                          ✅
+
+EXPORT FOLDER CONTENTS
+----------------------------------------
+  3x4                                   19 files      8.6 MB
+  4x5                                   19 files      9.2 MB
+  featured                              19 files     15.3 MB
+  social                                19 files      5.8 MB
+  site/homepage_hero                     1 files     11.6 MB
+  site/homepage_strips                   4 files      3.1 MB
+  site/section_covers                    5 files      4.6 MB
+  site/special                           1 files      4.5 MB
+  site/open_graph                        2 files      0.7 MB
+  TOTAL                                 89 files     63.5 MB
+
+RENAME-ON-EXPORT FILES
+----------------------------------------
+  Beauty_2021_liesl-tommy_crafted_17.jpg.jpg
+    -> exported as: beauty_2017_liesl-tommy_crafted_17.jpg
+  Ecom_unknown_ebony-riley-mical-bockru_brother-vellies_07.jpg
+    -> exported as: ecom_2018_ebony-riley-mical-bockru_brother-vellies_07.jpg
+  Ecom_unknown_mical-bockru_brother-vellies_05.jpg
+    -> exported as: ecom_2018_mical-bockru_brother-vellies_05.jpg
+  Ecom_unknown_mical-bockru_brother-vellies_06.jpg
+    -> exported as: ecom_2018_mical-bockru_brother-vellies_06.jpg
+  Redcarpet_unknown_aurora-james-elaine-welteroth_red-carpet_04.jpg
+    -> exported as: redcarpet_2018_aurora-james-elaine-welteroth_red-carpet_04.jpg
+  Redcarpet_unknown_chloe-coleman_red-carpet_10.jpg
+    -> exported as: redcarpet_2019_chloe-coleman_red-carpet_10.jpg
+  Redcarpet_unknown_lizzo_the-daily-show_18.jpg
+    -> exported as: redcarpet_2019_lizzo_the-daily-show_18.jpg
+
+UPSCALE SUMMARY
+----------------------------------------
+  20 images upscaled (2.0x)
+  16 via fal-ai/clarity-upscaler
+  4 via fal-ai/aura-sr (ECOM files — clarity returned black)
+  Settings: creativity=0.15, resemblance=0.85, guidance_scale=4, steps=18
+
+BEAUTY SECTION COVER NOTE
+----------------------------------------
+  Original assignment: beauty_2018_duckie-thot_harpers-bazaar_22.jpg
+  Replaced with:       beauty_2021_carmen-solomons_studio_11.jpg
+  Reason: User-requested swap (confirmed)
+  duckie-thot_22 standard exports retained as normal portfolio images
+
+OUTPUT FILES
+----------------------------------------
+  qa_report.csv
+  export_manifest.csv
+  site_asset_manifest.csv
+  upscale_report.csv
+  test_batch_report.csv
+  open_graph_design_brief.txt
+  manifest.csv
+  upscale_queue.csv
+  manifest.json
+  final_summary.txt
+
+============================================================
+END OF REPORT
