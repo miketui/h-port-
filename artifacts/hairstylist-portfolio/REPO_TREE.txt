@@ -1,0 +1,211 @@
+h-port-/ (GitHub main branch — 140 files total)
+Commit: f9b5b86020 — chore: remove 78 stale root-level files (pre-monorepo duplicates)
+═══════════════════════════════════════════════════════════════════
+
+┌─ artifacts/ (45 files)
+│   📁 hairstylist-portfolio/
+│   │   MDW_IMAGE_CHECKLIST.md (13 KB)
+│   │   📁 public/
+│   │   │   favicon.svg (163 B)
+│   │   │   📁 images/
+│   │   │   │   about-portrait.png (1.2 MB)
+│   │   │   │   hero-bg.png (1.3 MB)
+│   │   │   │   📁 portfolio/
+│   │   │   │   │   📁 beauty/
+│   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   📁 exports/
+│   │   │   │   │   │   │   📁 3x4/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 4x5/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 featured/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 social/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   📁 commercial-ecom/
+│   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   📁 exports/
+│   │   │   │   │   │   │   📁 3x4/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 4x5/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 featured/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 social/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   📁 cover/
+│   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   📁 exports/
+│   │   │   │   │   │   │   📁 3x4/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 4x5/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 featured/
+│   │   │   │   │   ��   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 social/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   📁 editorial/
+│   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   📁 exports/
+│   │   │   │   │   │   │   📁 3x4/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 4x5/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 featured/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 social/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   📁 homepage/
+│   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   📁 exports/
+│   │   │   │   │   │   │   📁 3x4/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 4x5/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 featured/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 social/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   📁 red-carpet/
+│   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   📁 exports/
+│   │   │   │   │   │   │   📁 3x4/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 4x5/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 featured/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   │   │   │   │   📁 social/
+│   │   │   │   │   │   │   │   .gitkeep
+│   │   │   opengraph.jpg (41 KB)
+│   │   📁 src/
+│   │   │   App.tsx (2 KB)
+│   │   │   📁 components/
+│   │   │   │   📁 layout/
+│   │   │   │   │   Footer.tsx (4 KB)
+│   │   │   │   │   Navbar.tsx (10 KB)
+│   │   │   index.css (4 KB)
+│   │   │   📁 lib/
+│   │   │   │   data.ts (33 KB)
+│   │   │   📁 pages/
+│   │   │   │   About.tsx (9 KB)
+│   │   │   │   Category.tsx (5 KB)
+│   │   │   │   Contact.tsx (10 KB)
+│   │   │   │   Home.tsx (15 KB)
+│   │   │   │   not-found.tsx (2 KB)
+│
+┌─ source-assets/ (95 files)
+│   📁 masters/
+│   │   📁 beauty/
+│   │   │   .gitkeep
+│   │   📁 commercial-ecom/
+│   │   │   .gitkeep
+│   │   📁 cover/
+│   │   │   .gitkeep
+│   │   �� editorial/
+│   │   │   .gitkeep
+│   │   📁 homepage/
+│   │   │   .gitkeep
+│   │   📁 red-carpet/
+│   │   │   .gitkeep
+│   MDW_Portfolio_Image_Credits.md (9 KB)
+│   📁 originals/
+│   │   📁 beauty/
+│   │   │   .gitkeep
+│   │   │   beauty_2018_duckie-thot_harpers-bazaar_20.jpg (427 KB)
+│   │   │   beauty_2018_duckie-thot_harpers-bazaar_21.jpg (705 KB)
+│   │   │   beauty_2018_duckie-thot_harpers-bazaar_22.jpg (469 KB)
+│   │   │   beauty_2018_duckie-thot_harpers-bazaar_23.jpg (652 KB)
+│   │   │   beauty_2018_lizzo_paper-magazine_19.jpg (715 KB)
+│   │   │   beauty_2018_lupita-nyongo_ace-awards_14.jpg (389 KB)
+│   │   │   beauty_2019_rihanna_savage-fenty_18.jpg (554 KB)
+│   │   │   beauty_2021_carmen-solomons_studio_11.jpg (437 KB)
+│   │   │   beauty_2021_carmen-solomons_studio_12.jpg (278 KB)
+│   │   │   beauty_2021_chloe-coleman_gunpowder-milkshake_13.jpg (610 KB)
+│   │   │   beauty_2021_liesl-tommy_crafted_17.jpg (413 KB)
+│   │   │   beauty_2021_thuso-mbedu_underground-railroad_16.jpg (212 KB)
+│   │   │   beauty_rihanna_crop-over_15.jpg (816 KB)
+│   │   📁 commercial-ecom/
+│   │   │   .gitkeep
+│   │   │   ecom_2019_nina-marie-daniele_savage-x-fenty_04.jpg (250 KB)
+│   │   │   ecom_2019_nina-marie-daniele-and-models_savage-x-fenty_03.jpg (343 KB)
+│   │   │   ecom_2019_tabria-majors_savage-x-fenty_02.jpg (152 KB)
+│   │   │   ecom_2020_lisa-rinna_christian-cowan_10.jpg (246 KB)
+│   │   │   ecom_2020_veronika-vilim_le-specs_01.jpg (326 KB)
+│   │   │   ecom_unknown_ebony-riley-mical-bockru_brother-vellies_07.jpg (487 KB)
+│   │   │   ecom_unknown_mical-bockru_brother-vellies_05.jpg (349 KB)
+│   │   │   ecom_unknown_mical-bockru_brother-vellies_06.jpg (609 KB)
+│   │   📁 cover/
+│   │   │   .gitkeep
+│   │   │   cover_2018_duckie-thot_harpers-bazaar_01.jpg (500 KB)
+│   │   │   cover_2018_duckie-thot_stylist-uk_03.jpg (580 KB)
+│   │   │   cover_2018_duckie-thot_wonderland_02.jpg (124 KB)
+│   │   │   cover_2018_duckie-thot-jazzelle_chic-album_07.jpg (401 KB)
+│   │   │   cover_2020_gugu-mbatha-raw_variety_06.jpg (573 KB)
+│   │   │   cover_2021_kylie-bunbury_emmy-magazine_04.jpg (756 KB)
+│   │   │   cover_2022_alisha-wainwright_photobook_05.jpg (429 KB)
+│   │   │   cover_2022_aurora-james_glamour_08.jpg (582 KB)
+│   │   │   cover_2022_gottmik_coveteur_09.jpg (383 KB)
+│   │   📁 editorial/
+│   │   │   .gitkeep
+│   │   │   editorial_2018_duckie-thot_anais-bodysuits_22.jpg (475 KB)
+│   │   │   editorial_2018_duckie-thot_anais-bodysuits_23.jpg (252 KB)
+│   │   │   editorial_2018_duckie-thot_harpers-bazaar-mexico_24.jpg (486 KB)
+│   │   │   editorial_2018_henson_micaiah-carter_28.jpg (301 KB)
+│   │   │   editorial_2018_twins_lofficiel-malaysia_40.jpg (462 KB)
+│   │   │   editorial_2018_twins_lofficiel-malaysia_41.jpg (634 KB)
+│   │   │   editorial_2019_elaine-welteroth_elle-uk_39.jpg (1.1 MB)
+│   │   │   editorial_2021_alyah-chanelle-scott_rollacoaster_31.jpg (207 KB)
+│   │   │   editorial_2021_alyah-chanelle-scott_rollacoaster_32.jpg (228 KB)
+│   │   │   editorial_2021_arica-himmel_photobook_25.jpg (223 KB)
+│   │   │   editorial_2021_aurora-james_grazia-usa_34.jpg (637 KB)
+│   │   │   editorial_2021_aurora-james_grazia-usa_35.jpg (333 KB)
+│   │   │   editorial_2021_gugu-mbatha-raw_variety_38.jpg (314 KB)
+│   │   │   editorial_2021_hailey-kilgore_contents-beauty_37.jpg (340 KB)
+│   │   │   editorial_2021_kylie-bunbury_emmy-magazine_36.jpg (603 KB)
+│   │   │   editorial_2021_salem-mitchell_schon-magazine_29.jpg (196 KB)
+│   │   │   editorial_2021_salem-mitchell_schon-magazine_30.jpg (166 KB)
+│   │   │   editorial_2021_saniyya-demi_refinery29_27.jpg (395 KB)
+│   │   │   editorial_2021_saniyya-sidney_refinery29_26.jpg (334 KB)
+│   │   │   editorial_2022_alisha-wainwright_photobook_33.jpg (562 KB)
+│   │   📁 homepage/
+│   │   │   .gitkeep
+│   │   │   homepage_2018_duckie-thot_harpers-bazaar_08.jpg (328 KB)
+│   │   │   homepage_2019_rihanna_phaidon_01.jpg (387 KB)
+│   │   │   homepage_2020_adot-gak_le-specs_03.jpg (274 KB)
+│   │   │   homepage_2020_veronika-vilim_le-specs_02.jpg (188 KB)
+│   │   │   homepage_2021_aurora-james_grazia_06.jpg (225 KB)
+│   │   │   homepage_2021_dashaun-wesley_hbo-max_11.jpg (331 KB)
+│   │   │   homepage_2021_vince-staples_interview-magazine_04.jpg (336 KB)
+│   │   │   homepage_2022_gottmik_coveteur_07.jpg (287 KB)
+│   │   │   homepage_2022_keke-palmer_sag-aftra_09.jpg (379 KB)
+│   │   │   homepage_2023_aurora-james_vanity-fair_10.jpg (449 KB)
+│   │   │   homepage_unknown_unknown-twins_lofficiel-malaysia_05.jpg (197 KB)
+│   │   📁 red-carpet/
+│   │   │   .gitkeep
+│   │   │   redcarpet_2018_lupita-nyongo_ace-awards_14.jpg (370 KB)
+│   │   │   redcarpet_2019_aurora-james_met-gala_06.jpg (301 KB)
+│   │   │   redcarpet_2019_rihanna_bet-awards_13.jpg (349 KB)
+│   │   │   redcarpet_2021_brittany-ogrady_sag-panel_12.jpg (672 KB)
+│   │   │   redcarpet_2021_elaine-welteroth_project-runway_05.jpg (787 KB)
+│   │   │   redcarpet_2021_liesl-tommy_deadline-contenders_08.jpg (437 KB)
+│   │   │   redcarpet_2022_billy-porter_city-of-hope_16.jpg (385 KB)
+│   │   │   redcarpet_2022_billy-porter_spirit-day_17.jpg (498 KB)
+│   │   │   redcarpet_2022_ebony-obsidian_red-carpet_01.jpg (371 KB)
+│   │   │   redcarpet_2022_ebony-obsidian_red-carpet_02.jpg (535 KB)
+│   │   │   redcarpet_2022_mallori-johnson_kindred-premiere_11.jpg (535 KB)
+│   │   │   redcarpet_2022_meena-harris_press_15.jpg (1010 KB)
+│   │   │   redcarpet_2022_saniyya-sidney_hca-awards_09.jpg (1.1 MB)
+│   │   │   redcarpet_2022_saniyya-sidney_naacp-awards_03.jpg (571 KB)
+│   │   │   redcarpet_2023_aurora-james_vanity-fair_07.jpg (494 KB)
+│   │   │   redcarpet_unknown_aurora-james-elaine-welteroth_red-carpet_04.jpg (257 KB)
+│   │   │   redcarpet_unknown_chloe-coleman_red-carpet_10.jpg (736 KB)
+│   │   │   redcarpet_unknown_lizzo_the-daily-show_18.jpg (364 KB)
+│   📁 work-in-progress/
+│   │   📁 homepage/
+│   │   │   5f356f00-21c1-4027-9335-d40acfee8897.jpeg (234 KB)
+│   │   │   edited_remove_object.jpg (185 KB)
+│   │   📁 misc/
+│   │   │   .gitkeep
+│
+└─ END (140 files total)
