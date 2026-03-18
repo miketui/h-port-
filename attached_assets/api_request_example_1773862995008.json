@@ -1,0 +1,10 @@
+{
+  "email": "test_subscriber@example.com",
+  "fields": {
+    "name": "Test User"
+  },
+  "groups": [
+    "182303148544623709"
+  ],
+  "status": "unconfirmed"
+}

@@ -71,6 +71,11 @@ export default defineConfig({
         target: "http://localhost:8080",
         changeOrigin: true,
       },
+      [`${basePath}api`]: {
+        target: "http://localhost:8080",
+        changeOrigin: true,
+        rewrite: (p: string) => p.replace(new RegExp(`^${basePath}`), "/"),
+      },
     },
   },
   preview: {

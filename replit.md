@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a luxury editorial portfolio website for Michael David Warren, a celebrity hairstylist and creative director. The site showcases his work across five portfolio categories: Covers, Editorial, Red Carpet, Beauty, and Commercial/ECOM. It is a static React single-page application with no backend server or database — all content is hardcoded in a data file, and form submissions are handled via Formspree.
+This is a luxury editorial portfolio website for Michael David Warren, a celebrity hairstylist and creative director. The site showcases his work across five portfolio categories: Covers, Editorial, Red Carpet, Beauty, and Commercial/ECOM. Portfolio content is hardcoded in a data file. The contact form uses Formspree, and newsletter signups use a custom backend API that securely proxies to MailerLite.
 
 The project lives inside a pnpm monorepo. The actual website app is at `artifacts/hairstylist-portfolio/`. Supporting library stubs (api-client-react, api-zod, db) exist in the `lib/` folder but are currently empty placeholders.
 
@@ -88,9 +88,9 @@ All 6 page components are loaded with `React.lazy()` + `Suspense`, so only the v
 ## External Dependencies
 
 ### Form Handling
-- **Formspree** — handles both the contact form (`Contact.tsx`) and email newsletter signups (`EmailSignup.tsx`)
-- Formspree endpoint ID is set via `VITE_FORMSPREE_ID` env variable (falls back to hardcoded `"xojkkjgz"`)
-- No server-side form processing exists
+- **Contact Form:** Uses **Formspree** (`Contact.tsx`). Formspree endpoint ID set via `VITE_FORMSPREE_ID` env variable (falls back to `"xojkkjgz"`).
+- **Newsletter Signup:** Uses a custom **Express API server** (`server/index.ts`) that securely proxies to the **MailerLite API**. Collects name + email, sends to MailerLite group `182303148544623709` with double opt-in (`status: "unconfirmed"`). Token is server-side only.
+- The API server runs on port 8080. Vite proxies `/api` requests to it during development.
 
 ### Fonts
 - **Google Fonts** — Playfair Display and Inter loaded via CSS `@import` in `index.css`
@@ -115,9 +115,15 @@ All 6 page components are loaded with `React.lazy()` + `Suspense`, so only the v
 | `PORT` | Vite dev server port (required, throws if missing) |
 | `BASE_PATH` | Vite base URL for asset paths (required, throws if missing) |
 | `VITE_FORMSPREE_ID` | Formspree form ID (optional, has fallback) |
+| `MAILERLITE_API_TOKEN` | MailerLite API token (server-side only, in Replit Secrets) |
+| `MAILERLITE_GROUP_ID` | MailerLite subscriber group ID (server-side only, in Replit Secrets) |
+
+### Backend API Server
+- **Express server** at `server/index.ts`, runs on port 8080
+- **Route:** `POST /api/subscribe` — accepts `{ name, email }`, proxies to MailerLite
+- **Route:** `GET /api/health` — health check
+- Dev script uses `concurrently` to run both Vite and the Express server
+- MailerLite API token is never exposed to the frontend
 
 ### No Database
 There is no database. The `lib/db` package exists as an empty stub. All content is static.
-
-### No Backend Server
-There is no Express, Hono, or any server process. This is a pure static frontend app.

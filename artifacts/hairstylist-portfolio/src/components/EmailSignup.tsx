@@ -17,32 +17,36 @@ export function EmailSignup({
   subheading,
   className = "",
 }: EmailSignupProps) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || status === "loading") return;
+    if (!email || !name || status === "loading") return;
     setStatus("loading");
+    setErrorMessage("");
     try {
-      const formspreeId = import.meta.env.VITE_FORMSPREE_ID || "xojkkjgz";
-      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+      const res = await fetch(`${import.meta.env.BASE_URL}api/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          email,
-          _source: source,
-          _subject: `MDW newsletter signup — ${source}`,
-        }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), source }),
       });
-      if (res.ok) {
+      const data = await res.json();
+      if (res.ok && data.success) {
         setStatus("success");
+        setSuccessMessage(data.message || "Thank you! Please check your email to confirm your subscription.");
+        setName("");
         setEmail("");
       } else {
         setStatus("error");
+        setErrorMessage(data.error || "Something went wrong. Please try again or contact us at info@michaeldavidjr.beauty.");
       }
     } catch {
       setStatus("error");
+      setErrorMessage("Something went wrong. Please try again or contact us at info@michaeldavidjr.beauty.");
     }
   };
 
@@ -66,21 +70,32 @@ export function EmailSignup({
                 key="success"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center justify-center gap-2 text-accent text-sm uppercase tracking-widest py-4"
+                className="flex flex-col items-center gap-2 py-4"
               >
-                <Check className="w-4 h-4" /> You're on the list.
+                <div className="flex items-center gap-2 text-accent text-sm uppercase tracking-widest">
+                  <Check className="w-4 h-4" /> You're on the list
+                </div>
+                <p className="text-muted-foreground text-xs mt-1">{successMessage}</p>
               </motion.div>
             ) : (
               <motion.form
                 key="form"
                 onSubmit={handleSubmit}
-                className="flex flex-col sm:flex-row gap-0 max-w-md mx-auto border border-white/10"
+                className="flex flex-col sm:flex-row gap-0 max-w-lg mx-auto border border-white/10"
               >
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Your name"
+                  required
+                  className="flex-1 bg-transparent px-5 py-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none border-b sm:border-b-0 sm:border-r border-white/10"
+                />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
+                  placeholder="Your email"
                   required
                   className="flex-1 bg-transparent px-5 py-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none border-b sm:border-b-0 sm:border-r border-white/10"
                 />
@@ -99,7 +114,7 @@ export function EmailSignup({
             )}
           </AnimatePresence>
           {status === "error" && (
-            <p className="text-red-400 text-xs mt-3 tracking-wider">Something went wrong — please try again.</p>
+            <p className="text-red-400 text-xs mt-3 tracking-wider">{errorMessage}</p>
           )}
         </div>
       </section>
@@ -123,40 +138,53 @@ export function EmailSignup({
                 key="success"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center gap-2 text-accent text-sm uppercase tracking-widest py-3"
+                className="py-3"
               >
-                <Check className="w-4 h-4" /> You're on the list.
+                <div className="flex items-center gap-2 text-accent text-sm uppercase tracking-widest">
+                  <Check className="w-4 h-4" /> You're on the list
+                </div>
+                <p className="text-muted-foreground text-xs mt-2">{successMessage}</p>
               </motion.div>
             ) : (
               <motion.form
                 key="form"
                 onSubmit={handleSubmit}
-                className="flex border border-white/10 max-w-sm"
+                className="space-y-3 max-w-sm"
               >
                 <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Your name"
                   required
-                  className="flex-1 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none min-w-0"
+                  className="w-full bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none border border-white/10"
                 />
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="px-4 py-3 border-l border-white/10 hover:bg-primary/20 text-primary text-xs uppercase tracking-widest transition-all duration-300 flex items-center gap-1.5 shrink-0"
-                >
-                  {status === "loading" ? (
-                    <Loader2 className="w-3 h-3 animate-spin" />
-                  ) : (
-                    <ArrowRight className="w-4 h-4" />
-                  )}
-                </button>
+                <div className="flex border border-white/10">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Your email"
+                    required
+                    className="flex-1 bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none min-w-0"
+                  />
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="px-4 py-3 border-l border-white/10 hover:bg-primary/20 text-primary text-xs uppercase tracking-widest transition-all duration-300 flex items-center gap-1.5 shrink-0"
+                  >
+                    {status === "loading" ? (
+                      <Loader2 className="w-3 h-3 animate-spin" />
+                    ) : (
+                      <ArrowRight className="w-4 h-4" />
+                    )}
+                  </button>
+                </div>
               </motion.form>
             )}
           </AnimatePresence>
           {status === "error" && (
-            <p className="text-red-400 text-xs mt-2">Something went wrong — please try again.</p>
+            <p className="text-red-400 text-xs mt-2">{errorMessage}</p>
           )}
         </div>
       </div>
@@ -176,37 +204,50 @@ export function EmailSignup({
             key="success"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-2 text-accent text-xs uppercase tracking-widest py-2"
+            className="py-2"
           >
-            <Check className="w-3 h-3" /> You're on the list.
+            <div className="flex items-center gap-2 text-accent text-xs uppercase tracking-widest">
+              <Check className="w-3 h-3" /> You're on the list
+            </div>
+            <p className="text-muted-foreground text-[10px] mt-1">{successMessage}</p>
           </motion.div>
         ) : (
-          <motion.form key="form" onSubmit={handleSubmit} className="flex border border-white/10">
+          <motion.form key="form" onSubmit={handleSubmit} className="space-y-2">
             <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your name"
               required
-              className="flex-1 bg-transparent px-3 py-2.5 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none min-w-0"
+              className="w-full bg-transparent px-3 py-2.5 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none border border-white/10"
             />
-            <button
-              type="submit"
-              disabled={status === "loading"}
-              aria-label="Subscribe"
-              className="px-3 py-2.5 border-l border-white/10 hover:bg-primary/20 text-primary transition-all duration-300 shrink-0"
-            >
-              {status === "loading" ? (
-                <Loader2 className="w-3 h-3 animate-spin" />
-              ) : (
-                <ArrowRight className="w-3 h-3" />
-              )}
-            </button>
+            <div className="flex border border-white/10">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email"
+                required
+                className="flex-1 bg-transparent px-3 py-2.5 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none min-w-0"
+              />
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                aria-label="Subscribe"
+                className="px-3 py-2.5 border-l border-white/10 hover:bg-primary/20 text-primary transition-all duration-300 shrink-0"
+              >
+                {status === "loading" ? (
+                  <Loader2 className="w-3 h-3 animate-spin" />
+                ) : (
+                  <ArrowRight className="w-3 h-3" />
+                )}
+              </button>
+            </div>
           </motion.form>
         )}
       </AnimatePresence>
       {status === "error" && (
-        <p className="text-red-400 text-[10px] mt-1.5">Please try again.</p>
+        <p className="text-red-400 text-[10px] mt-1.5">{errorMessage}</p>
       )}
     </div>
   );
