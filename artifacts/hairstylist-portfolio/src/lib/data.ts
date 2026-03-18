@@ -21,13 +21,13 @@ export type Category = {
 };
 
 const img = (category: string, filename: string): string =>
-  `${import.meta.env.BASE_URL}images/portfolio/${category}/exports/3x4/${filename}`;
+  `${import.meta.env.BASE_URL}images/portfolio/${category}/originals/${filename}`;
 
 const cover4x5 = (category: string, filename: string): string =>
-  `${import.meta.env.BASE_URL}images/portfolio/${category}/exports/4x5/${filename}`;
+  `${import.meta.env.BASE_URL}images/portfolio/${category}/originals/${filename}`;
 
 const coverImg = (category: string, filename: string): string =>
-  `${import.meta.env.BASE_URL}images/portfolio/${category}/exports/featured/${filename}`;
+  `${import.meta.env.BASE_URL}images/portfolio/${category}/originals/${filename}`;
 
 export const PORTFOLIO_CATEGORIES: Category[] = [
   {
@@ -693,8 +693,8 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         title: "Brother Vellies Campaign I",
         client: "Mical Bockru",
         year: "2018",
-        filename: "ecom_2018_mical-bockru_brother-vellies_05.jpg",
-        imageUrl: cover4x5("commercial-ecom", "ecom_2018_mical-bockru_brother-vellies_05.jpg"),
+        filename: "ecom_unknown_mical-bockru_brother-vellies_05.jpg",
+        imageUrl: cover4x5("commercial-ecom", "ecom_unknown_mical-bockru_brother-vellies_05.jpg"),
         imageAlt: "Mical Bockru Brother Vellies campaign I"
       },
       {
@@ -702,8 +702,8 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         title: "Brother Vellies Campaign II",
         client: "Mical Bockru",
         year: "2018",
-        filename: "ecom_2018_mical-bockru_brother-vellies_06.jpg",
-        imageUrl: cover4x5("commercial-ecom", "ecom_2018_mical-bockru_brother-vellies_06.jpg"),
+        filename: "ecom_unknown_mical-bockru_brother-vellies_06.jpg",
+        imageUrl: cover4x5("commercial-ecom", "ecom_unknown_mical-bockru_brother-vellies_06.jpg"),
         imageAlt: "Mical Bockru Brother Vellies campaign II"
       },
       {
@@ -711,8 +711,8 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
         title: "Brother Vellies Campaign",
         client: "Ebony Riley & Mical Bockru",
         year: "2018",
-        filename: "ecom_2018_ebony-riley-mical-bockru_brother-vellies_07.jpg",
-        imageUrl: cover4x5("commercial-ecom", "ecom_2018_ebony-riley-mical-bockru_brother-vellies_07.jpg"),
+        filename: "ecom_unknown_ebony-riley-mical-bockru_brother-vellies_07.jpg",
+        imageUrl: cover4x5("commercial-ecom", "ecom_unknown_ebony-riley-mical-bockru_brother-vellies_07.jpg"),
         imageAlt: "Ebony Riley and Mical Bockru Brother Vellies"
       },
       {

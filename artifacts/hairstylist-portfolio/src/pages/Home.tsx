@@ -8,28 +8,28 @@ import { ArrowRight } from "lucide-react";
 
 const EDITORIAL_STRIP = [
   {
-    src: `${import.meta.env.BASE_URL}images/portfolio/editorial/exports/featured/editorial_2021_aurora-james_grazia-usa_34.jpg`,
+    src: `${import.meta.env.BASE_URL}images/portfolio/editorial/originals/editorial_2021_aurora-james_grazia-usa_34.jpg`,
     alt: "Aurora James Grazia USA editorial",
     label: "Editorial",
     subtitle: "Grazia USA",
     origin: { x: -60, y: 80, rotate: -2 },
   },
   {
-    src: `${import.meta.env.BASE_URL}images/portfolio/red-carpet/exports/featured/redcarpet_2022_ebony-obsidian_red-carpet_01.jpg`,
+    src: `${import.meta.env.BASE_URL}images/portfolio/red-carpet/originals/redcarpet_2022_ebony-obsidian_red-carpet_01.jpg`,
     alt: "Ebony Obsidian red carpet",
     label: "Red Carpet",
     subtitle: "Red Carpet",
     origin: { x: 0, y: 100, rotate: 1 },
   },
   {
-    src: `${import.meta.env.BASE_URL}images/portfolio/beauty/exports/featured/beauty_2018_lupita-nyongo_ace-awards_14.jpg`,
+    src: `${import.meta.env.BASE_URL}images/portfolio/beauty/originals/beauty_2018_lupita-nyongo_ace-awards_14.jpg`,
     alt: "Lupita Nyong'o ACE Awards beauty",
     label: "Beauty",
     subtitle: "ACE Awards",
     origin: { x: 0, y: 120, rotate: -1 },
   },
   {
-    src: `${import.meta.env.BASE_URL}images/portfolio/homepage/exports/featured/homepage_2019_rihanna_phaidon_01.jpg`,
+    src: `${import.meta.env.BASE_URL}images/portfolio/homepage/originals/homepage_2019_rihanna_phaidon_01.jpg`,
     alt: "Rihanna — Phaidon",
     label: "Icon",
     subtitle: "Phaidon",

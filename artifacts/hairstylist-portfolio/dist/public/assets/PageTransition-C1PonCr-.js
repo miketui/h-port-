@@ -1,0 +1,1 @@
+import{o,q as n}from"./index-BylLeulb.js";function e({children:a,className:i="",noPadding:t=!1}){return o.jsx(n.main,{initial:{opacity:0,y:12},animate:{opacity:1,y:0},exit:{opacity:0,y:-12},transition:{duration:.5,ease:[.22,1,.36,1]},className:`${t?"":"pt-28"} ${i}`,children:a})}export{e as P};
