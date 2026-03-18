@@ -1,0 +1,443 @@
+================================================================================
+FINAL PACKAGE INVENTORY
+Generated: 2026-03-18 01:42:37
+Total files: 105
+================================================================================
+
+--- SITE IMAGE (87 files) ---
+
+  3x4/beauty_2018_duckie-thot_harpers-bazaar_20.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/beauty_2018_duckie-thot_harpers-bazaar_22.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/beauty_2018_lupita-nyongo_ace-awards_14.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/beauty_2021_carmen-solomons_studio_11.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/cover_2018_duckie-thot_harpers-bazaar_01.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/cover_2022_gottmik_coveteur_09.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/ecom_2019_nina-marie-daniele-and-models_savage-x-fenty_03.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/ecom_2019_nina-marie-daniele_savage-x-fenty_04.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/ecom_2019_tabria-majors_savage-x-fenty_02.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/ecom_2020_veronika-vilim_le-specs_01.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/editorial_2018_twins_lofficiel-malaysia_40.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/editorial_2021_arica-himmel_photobook_25.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/editorial_2021_aurora-james_grazia-usa_34.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/editorial_2021_salem-mitchell_schon-magazine_29.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/hero-bg.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/homepage_2019_rihanna_phaidon_01.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/redcarpet_2022_ebony-obsidian_red-carpet_01.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/redcarpet_2022_saniyya-sidney_hca-awards_09.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  3x4/redcarpet_2022_saniyya-sidney_naacp-awards_03.jpg
+    Purpose: Gallery grid crop (1200x1600, 3:4 portrait)
+    Category: site image
+
+  4x5/beauty_2018_duckie-thot_harpers-bazaar_20.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/beauty_2018_duckie-thot_harpers-bazaar_22.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/beauty_2018_lupita-nyongo_ace-awards_14.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/beauty_2021_carmen-solomons_studio_11.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/cover_2018_duckie-thot_harpers-bazaar_01.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/cover_2022_gottmik_coveteur_09.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/ecom_2019_nina-marie-daniele-and-models_savage-x-fenty_03.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/ecom_2019_nina-marie-daniele_savage-x-fenty_04.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/ecom_2019_tabria-majors_savage-x-fenty_02.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/ecom_2020_veronika-vilim_le-specs_01.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/editorial_2018_twins_lofficiel-malaysia_40.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/editorial_2021_arica-himmel_photobook_25.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/editorial_2021_aurora-james_grazia-usa_34.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/editorial_2021_salem-mitchell_schon-magazine_29.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/hero-bg.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/homepage_2019_rihanna_phaidon_01.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/redcarpet_2022_ebony-obsidian_red-carpet_01.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/redcarpet_2022_saniyya-sidney_hca-awards_09.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  4x5/redcarpet_2022_saniyya-sidney_naacp-awards_03.jpg
+    Purpose: Editorial layout crop (1280x1600, 4:5 portrait)
+    Category: site image
+
+  featured/beauty_2018_duckie-thot_harpers-bazaar_20.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/beauty_2018_duckie-thot_harpers-bazaar_22.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/beauty_2018_lupita-nyongo_ace-awards_14.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/beauty_2021_carmen-solomons_studio_11.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/cover_2018_duckie-thot_harpers-bazaar_01.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/cover_2022_gottmik_coveteur_09.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/ecom_2019_nina-marie-daniele-and-models_savage-x-fenty_03.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/ecom_2019_nina-marie-daniele_savage-x-fenty_04.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/ecom_2019_tabria-majors_savage-x-fenty_02.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/ecom_2020_veronika-vilim_le-specs_01.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/editorial_2018_twins_lofficiel-malaysia_40.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/editorial_2021_arica-himmel_photobook_25.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/editorial_2021_aurora-james_grazia-usa_34.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/editorial_2021_salem-mitchell_schon-magazine_29.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/hero-bg.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/homepage_2019_rihanna_phaidon_01.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/redcarpet_2022_ebony-obsidian_red-carpet_01.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/redcarpet_2022_saniyya-sidney_hca-awards_09.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  featured/redcarpet_2022_saniyya-sidney_naacp-awards_03.jpg
+    Purpose: Featured/category cover crop (2400x1600, 3:2 landscape)
+    Category: site image
+
+  social/beauty_2018_duckie-thot_harpers-bazaar_20.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/beauty_2018_duckie-thot_harpers-bazaar_22.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/beauty_2018_lupita-nyongo_ace-awards_14.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/beauty_2021_carmen-solomons_studio_11.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/cover_2018_duckie-thot_harpers-bazaar_01.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/cover_2022_gottmik_coveteur_09.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/ecom_2019_nina-marie-daniele-and-models_savage-x-fenty_03.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/ecom_2019_nina-marie-daniele_savage-x-fenty_04.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/ecom_2019_tabria-majors_savage-x-fenty_02.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/ecom_2020_veronika-vilim_le-specs_01.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/editorial_2018_twins_lofficiel-malaysia_40.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/editorial_2021_arica-himmel_photobook_25.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/editorial_2021_aurora-james_grazia-usa_34.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/editorial_2021_salem-mitchell_schon-magazine_29.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/hero-bg.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/homepage_2019_rihanna_phaidon_01.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/redcarpet_2022_ebony-obsidian_red-carpet_01.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/redcarpet_2022_saniyya-sidney_hca-awards_09.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  social/redcarpet_2022_saniyya-sidney_naacp-awards_03.jpg
+    Purpose: Social media sharing crop (1080x1080, square)
+    Category: site image
+
+  site/homepage_hero/hero-bg.png
+    Purpose: Homepage hero background image (3840x2160)
+    Category: site image
+
+  site/homepage_strips/beauty_2018_lupita-nyongo_ace-awards_14.jpg
+    Purpose: Homepage strip image — featured work (2400x1600)
+    Category: site image
+
+  site/homepage_strips/editorial_2021_aurora-james_grazia-usa_34.jpg
+    Purpose: Homepage strip image — featured work (2400x1600)
+    Category: site image
+
+  site/homepage_strips/homepage_2019_rihanna_phaidon_01.jpg
+    Purpose: Homepage strip image — featured work (2400x1600)
+    Category: site image
+
+  site/homepage_strips/redcarpet_2022_ebony-obsidian_red-carpet_01.jpg
+    Purpose: Homepage strip image — featured work (2400x1600)
+    Category: site image
+
+  site/section_covers/beauty_2021_carmen-solomons_studio_11.jpg
+    Purpose: Section cover image for category landing page (2400x1600)
+    Category: site image
+
+  site/section_covers/cover_2018_duckie-thot_harpers-bazaar_01.jpg
+    Purpose: Section cover image for category landing page (2400x1600)
+    Category: site image
+
+  site/section_covers/ecom_2019_tabria-majors_savage-x-fenty_02.jpg
+    Purpose: Section cover image for category landing page (2400x1600)
+    Category: site image
+
+  site/section_covers/editorial_2021_salem-mitchell_schon-magazine_29.jpg
+    Purpose: Section cover image for category landing page (2400x1600)
+    Category: site image
+
+  site/section_covers/redcarpet_2022_saniyya-sidney_hca-awards_09.jpg
+    Purpose: Section cover image for category landing page (2400x1600)
+    Category: site image
+
+  site/special/about-portrait.png
+    Purpose: About page portrait of Michael David Warren (1600x2400)
+    Category: site image
+
+
+--- ICON (7 files) ---
+
+  site/icons/apple-touch-icon.png
+    Purpose: 180x180 icon for iOS home screen bookmarks
+    Category: icon
+
+  site/icons/favicon-16x16.png
+    Purpose: 16x16 favicon PNG for modern browsers
+    Category: icon
+
+  site/icons/favicon-32x32.png
+    Purpose: 32x32 favicon PNG for modern browsers
+    Category: icon
+
+  site/icons/favicon.ico
+    Purpose: Multi-size favicon for browser tabs (16/32/48px)
+    Category: icon
+
+  site/icons/icon-192.png
+    Purpose: 192x192 PWA icon for Android/Chrome
+    Category: icon
+
+  site/icons/icon-512.png
+    Purpose: 512x512 PWA icon and master icon source
+    Category: icon
+
+  site/icons/maskable-icon-512.png
+    Purpose: 512x512 maskable PWA icon with safe-zone padding
+    Category: icon
+
+
+--- SOCIAL/OG ASSET (3 files) ---
+
+  site/open_graph/og-image.jpg
+    Purpose: Final polished Open Graph social sharing image (1200x630)
+    Category: social/OG asset
+
+  site/open_graph/og_beauty_rihanna.jpg
+    Purpose: OG prep crop — beauty/Rihanna source (1200x630)
+    Category: social/OG asset
+
+  site/open_graph/og_editorial_aurora.jpg
+    Purpose: OG prep crop — editorial/Aurora James source (1200x630)
+    Category: social/OG asset
+
+
+--- REPORT (5 files) ---
+
+  reports/qa_report.csv
+    Purpose: QA dimension verification report for all exported images
+    Category: report
+
+  reports/export_manifest.csv
+    Purpose: Log of all standard 4-format exports with crop codes and dimensions
+    Category: report
+
+  reports/site_asset_manifest.csv
+    Purpose: Log of all website-specific asset exports with placement roles
+    Category: report
+
+  reports/upscale_report.csv
+    Purpose: Log of all fal-ai upscale operations with timings and models used
+    Category: report
+
+  reports/test_batch_report.csv
+    Purpose: Results from the initial 6-image test batch upscale
+    Category: report
+
+
+--- SUMMARY (2 files) ---
+
+  reports/final_summary.txt
+    Purpose: Validation summary of all exports
+    Category: summary
+
+  ./FINAL_PACKAGE_INVENTORY.txt
+    Purpose: This file — inventory of every file in the package
+    Category: summary
+
+
+--- SOURCE BRIEF (1 files) ---
+
+  reports/open_graph_design_brief.txt
+    Purpose: Creative direction brief for Open Graph image design
+    Category: source brief
+
