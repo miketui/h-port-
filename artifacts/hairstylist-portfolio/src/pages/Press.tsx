@@ -3,10 +3,16 @@ import { ExternalLink } from "lucide-react";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PRESS_MENTIONS } from "@/lib/data";
 import { EmailSignup } from "@/components/EmailSignup";
+import { SEO } from "@/components/SEO";
 
 export default function Press() {
   return (
     <PageTransition>
+      <SEO
+        title="Press & Features"
+        description="MDW in the press — features and credits from Vogue, Vanity Fair, Harper's Bazaar, Elle, and the world's leading fashion publications."
+        path="/press"
+      />
       <div className="container mx-auto px-6 md:px-12 pt-8 pb-32">
         <div className="max-w-4xl mb-20">
           <motion.h1

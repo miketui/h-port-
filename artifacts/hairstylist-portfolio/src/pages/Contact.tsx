@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { EmailSignup } from "@/components/EmailSignup";
+import { SEO } from "@/components/SEO";
 import { useToast } from "@/hooks/use-toast";
 
 const contactSchema = z.object({
@@ -20,6 +21,19 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 export default function Contact() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const contactJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Book MDW — Michael David Warren Jr.",
+    url: "https://michaeldavidjr.beauty/contact",
+    mainEntity: {
+      "@type": "ProfessionalService",
+      name: "MDW Studio",
+      email: "info@michaeldavidjr.beauty",
+      areaServed: ["Los Angeles", "New York", "Global"],
+      serviceType: ["Celebrity Hair Styling", "Editorial Hair Direction", "Red Carpet Styling", "Brand Campaigns"],
+    },
+  };
   
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -74,6 +88,12 @@ export default function Contact() {
 
   return (
     <PageTransition>
+      <SEO
+        title="Contact & Bookings"
+        description="Book Michael David Warren Jr. for editorial hair direction, celebrity styling, red carpet, and brand campaigns. Based in Los Angeles and New York — available globally."
+        path="/contact"
+        jsonLd={contactJsonLd}
+      />
       <div className="container mx-auto px-6 md:px-12 pt-12 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           

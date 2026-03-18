@@ -1,13 +1,17 @@
+import { useState } from "react";
 import { useParams, Link } from "wouter";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PORTFOLIO_CATEGORIES } from "@/lib/data";
 import { EmailSignup } from "@/components/EmailSignup";
+import { Lightbox } from "@/components/Lightbox";
+import { SEO } from "@/components/SEO";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 
 export default function Category() {
   const params = useParams();
   const categorySlug = params.category;
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   
   const categoryIndex = PORTFOLIO_CATEGORIES.findIndex(c => c.slug === categorySlug);
   const category = categoryIndex >= 0 ? PORTFOLIO_CATEGORIES[categoryIndex] : undefined;
@@ -17,6 +21,7 @@ export default function Category() {
   if (!category) {
     return (
       <PageTransition className="flex items-center justify-center min-h-[60vh]">
+        <SEO title="Category Not Found" path={`/portfolio/${categorySlug}`} />
         <div className="text-center">
           <h1 className="text-4xl font-display mb-4">Category Not Found</h1>
           <Link href="/portfolio" className="text-primary hover:underline uppercase tracking-widest text-sm">Return to Portfolio</Link>
@@ -25,8 +30,46 @@ export default function Category() {
     );
   }
 
+  const lightboxImages = category.projects.map((p) => ({
+    src: p.imageUrl,
+    alt: p.imageAlt,
+    title: p.title,
+    client: p.client,
+  }));
+
+  const categoryJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `${category.title} — MDW Portfolio`,
+    description: category.description,
+    url: `https://michaeldavidjr.beauty/portfolio/${category.slug}`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "MDW — Michael David",
+      url: "https://michaeldavidjr.beauty",
+    },
+    mainEntity: {
+      "@type": "ImageGallery",
+      name: category.title,
+      numberOfItems: category.projects.length,
+      image: category.projects.map((p) => ({
+        "@type": "ImageObject",
+        contentUrl: p.imageUrl,
+        name: p.title,
+        description: p.imageAlt,
+      })),
+    },
+  };
+
   return (
     <PageTransition>
+      <SEO
+        title={`${category.title} Portfolio`}
+        description={`${category.description} View ${category.projects.length} projects by celebrity hairstylist Michael David Warren Jr.`}
+        path={`/portfolio/${category.slug}`}
+        jsonLd={categoryJsonLd}
+      />
+
       <div className="container mx-auto px-6 md:px-12 pt-8 pb-32">
         <Link href="/portfolio" className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors mb-12">
           <ArrowLeft className="w-4 h-4" /> Back to Categories
@@ -49,6 +92,14 @@ export default function Category() {
           >
             {category.description}
           </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-sm text-muted-foreground/60 mt-4 pl-6"
+          >
+            Tap any image to view full-screen &middot; Swipe to browse
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
@@ -61,14 +112,19 @@ export default function Category() {
               transition={{ duration: 0.7, delay: (i % 3) * 0.2 }}
               className="group flex flex-col"
             >
-              <div className="img-zoom-wrapper mb-6 bg-card border border-white/5">
+              <button
+                type="button"
+                onClick={() => setLightboxIndex(i)}
+                className="img-zoom-wrapper mb-6 bg-card border border-white/5 cursor-pointer text-left"
+                aria-label={`View ${project.title} full-screen`}
+              >
                 <img
                   src={project.imageUrl}
                   alt={project.imageAlt}
                   loading="lazy"
                   className="w-full h-auto block"
                 />
-              </div>
+              </button>
               <div className="flex-1 flex flex-col">
                 <h3 className="font-display text-2xl mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
                 
@@ -94,7 +150,6 @@ export default function Category() {
           ))}
         </div>
 
-        {/* Next / Previous Category Navigation */}
         <div className="mt-24 pt-12 border-t border-white/5 flex justify-between items-center">
           {prevCategory ? (
             <Link href={`/portfolio/${prevCategory.slug}`} className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
@@ -116,7 +171,6 @@ export default function Category() {
           ) : <div />}
         </div>
 
-        {/* Email Signup */}
         <div className="mt-4">
           <EmailSignup
             variant="section"
@@ -125,8 +179,15 @@ export default function Category() {
             subheading="New MDW projects, behind-the-scenes access, and press moments — straight to your inbox."
           />
         </div>
-
       </div>
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={lightboxImages}
+          initialIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </PageTransition>
   );
 }

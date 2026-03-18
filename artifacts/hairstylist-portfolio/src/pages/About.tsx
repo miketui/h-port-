@@ -3,10 +3,32 @@ import { motion } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { FEATURED_CLIENTS, CAREER_TIMELINE } from "@/lib/data";
 import { EmailSignup } from "@/components/EmailSignup";
+import { SEO } from "@/components/SEO";
 
 export default function About() {
   return (
     <PageTransition>
+      <SEO
+        title="About Michael David"
+        description="Meet Michael David Warren Jr. — celebrity hairstylist and creative director based in Los Angeles and New York. From assisting Guido Palau to styling Rihanna, Lupita Nyong'o, and Billy Porter."
+        path="/about"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Michael David Warren Jr.",
+          alternateName: "MDW",
+          url: "https://michaeldavidjr.beauty",
+          image: "https://michaeldavidjr.beauty/images/about-portrait.png",
+          jobTitle: "Celebrity Hairstylist & Creative Director",
+          worksFor: { "@type": "Organization", name: "MDW Studio" },
+          knowsAbout: ["Celebrity Hair Styling", "Editorial Hair Direction", "Red Carpet Styling", "Fashion Editorial", "Creative Direction"],
+          address: [
+            { "@type": "PostalAddress", addressLocality: "Los Angeles", addressRegion: "CA", addressCountry: "US" },
+            { "@type": "PostalAddress", addressLocality: "New York", addressRegion: "NY", addressCountry: "US" },
+          ],
+          sameAs: ["https://www.instagram.com/md.warren"],
+        }}
+      />
       <div className="container mx-auto px-6 md:px-12 pt-12 pb-24">
         
         {/* Main Bio Section */}

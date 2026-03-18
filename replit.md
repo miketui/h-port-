@@ -49,17 +49,28 @@ Preferred communication style: Simple, everyday language.
 - Each category has a `coverImage` (featured aspect), and projects with `3x4` gallery images
 
 ### Image Asset Structure
-Images live in `public/images/` with this structure:
+All 79 portfolio images are served from original high-res files (1920px+ on longest dimension). Eight formerly low-res images were AI-upscaled via FAL AI Aura SR.
 ```
 public/images/
 ├── hero-bg.png
 ├── about-portrait.png
-└── portfolio/{category}/exports/{format}/
-    ├── 3x4/      (1200x1600 gallery thumbnails)
-    ├── 4x5/      (1280x1600 editorial layout)
-    ├── featured/ (2400x1600 landscape covers/homepage strip)
-    └── social/   (1080x1080 square)
+└── portfolio/{category}/originals/
+    └── *.jpg     (1920px+ originals, uncropped)
 ```
+
+### Lightbox Gallery
+Category pages feature a fullscreen lightbox gallery (`src/components/Lightbox.tsx`). Clicking any image opens it fullscreen with:
+- Swipe left/right on mobile, arrow keys on desktop
+- Image counter (e.g. "3 / 19")
+- Dot navigation at bottom
+- Close via X button, Escape key, or clicking outside
+
+### SEO
+Dynamic per-page SEO via `react-helmet-async` (`src/components/SEO.tsx`):
+- Unique title, description, canonical URL, OG tags, and Twitter cards per page
+- JSON-LD structured data (ProfessionalService, Person, CollectionPage, ContactPage schemas)
+- Static sitemap.xml and robots.txt for `michaeldavidjr.beauty`
+- Note: This is a client-side SPA — Google renders JavaScript, but prerendering would further improve crawlability
 
 ### Code Splitting
 All 6 page components are loaded with `React.lazy()` + `Suspense`, so only the visited page's code is loaded initially.

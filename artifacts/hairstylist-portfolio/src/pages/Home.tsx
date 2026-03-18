@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PORTFOLIO_CATEGORIES, PRESS_MENTIONS, FEATURED_CLIENTS } from "@/lib/data";
 import { EmailSignup } from "@/components/EmailSignup";
+import { SEO } from "@/components/SEO";
 import { ArrowRight } from "lucide-react";
 
 const EDITORIAL_STRIP = [
@@ -52,6 +53,11 @@ export default function Home() {
 
   return (
     <PageTransition noPadding>
+      <SEO
+        title="Celebrity Hairstylist & Creative Director"
+        description="Michael David Warren Jr. — celebrity hairstylist, creative director, and author. Editorial hair direction for Vogue, Harper's Bazaar, Vanity Fair. Clients include Rihanna, Lupita Nyong'o, Billy Porter, Lizzo."
+        path="/"
+      />
       {/* Hero — Single Dominant Image */}
       <section ref={heroRef} className="relative h-[95vh] min-h-[700px] w-full flex items-end justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">

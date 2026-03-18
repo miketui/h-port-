@@ -2,11 +2,17 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PORTFOLIO_CATEGORIES } from "@/lib/data";
+import { SEO } from "@/components/SEO";
 import { ArrowRight } from "lucide-react";
 
 export default function Portfolio() {
   return (
     <PageTransition>
+      <SEO
+        title="Portfolio"
+        description="Explore MDW's portfolio — magazine covers, fashion editorials, red carpet styling, beauty work, and commercial campaigns for the world's biggest names."
+        path="/portfolio"
+      />
       <div className="container mx-auto px-6 md:px-12 pt-8 pb-32">
         <div className="max-w-4xl mb-20">
           <motion.h1
