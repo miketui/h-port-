@@ -48,8 +48,7 @@ export default function Contact() {
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     try {
-      const formspreeId = import.meta.env.VITE_FORMSPREE_ID || "xojkkjgz";
-      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+      const res = await fetch(`${import.meta.env.BASE_URL}api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,26 +57,27 @@ export default function Contact() {
         body: JSON.stringify({
           name: data.name,
           email: data.email,
-          _replyto: data.email,
           projectType: data.projectType,
           message: data.message,
         }),
       });
 
+      const responseData = await res.json();
+
       if (!res.ok) {
-        throw new Error("Submission failed");
+        throw new Error(responseData.error || "Submission failed");
       }
 
       toast({
         title: "Inquiry Sent",
-        description: "Thank you. Michael will be in touch within 48–72 hours.",
+        description: responseData.message || "Thank you. Michael will be in touch within 48–72 hours.",
         duration: 5000,
       });
       form.reset();
-    } catch {
+    } catch (error: any) {
       toast({
         title: "Something went wrong",
-        description: "Please try again or email info@michaeldavidjr.beauty directly.",
+        description: error.message || "Please try again or email info@michaeldavidjr.beauty directly.",
         duration: 6000,
         variant: "destructive",
       });
