@@ -35,7 +35,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
     slug: "cover",
     title: "Covers",
     description: "Magazine covers spanning the world's most prestigious publications.",
-    coverImage: coverImg("cover", "cover_2022_gottmik_coveteur_09.jpg"),
+    coverImage: coverImg("cover", "cover_2018_duckie-thot_harpers-bazaar_01.jpg"),
     projects: [
       {
         id: "cov1",
@@ -136,7 +136,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
     slug: "editorial",
     title: "Editorial",
     description: "Fashion editorial storytelling spanning the world's leading publications — from conceptual fashion stories to intimate portrait series.",
-    coverImage: coverImg("editorial", "editorial_2021_aurora-james_grazia-usa_34.jpg"),
+    coverImage: coverImg("editorial", "editorial_2021_salem-mitchell_schon-magazine_29.jpg"),
     projects: [
       {
         id: "e1",
@@ -345,7 +345,7 @@ export const PORTFOLIO_CATEGORIES: Category[] = [
     slug: "red-carpet",
     title: "Red Carpet",
     description: "High-stakes glamour crafted for cinema's biggest stages, award shows, and international galas.",
-    coverImage: coverImg("red-carpet", "redcarpet_2022_saniyya-sidney_naacp-awards_03.jpg"),
+    coverImage: coverImg("red-carpet", "redcarpet_2022_saniyya-sidney_hca-awards_09.jpg"),
     projects: [
       {
         id: "rc1",
