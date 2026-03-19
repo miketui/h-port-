@@ -39,7 +39,7 @@
 - **Description:** MDW in the press — features and credits from Vogue, Vanity Fair, Harper's Bazaar, Elle, and the world's leading fashion publications.
 
 ### Contact (`/contact`)
-- **Title:** Contact | MDW — Michael David
+- **Title:** Contact & Bookings | MDW — Michael David
 - **Description:** Book Michael David for editorial, celebrity, red carpet, or commercial projects. Available globally — Los Angeles, New York, international.
 
 ## Technical SEO Assets
