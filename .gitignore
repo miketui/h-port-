@@ -35,3 +35,12 @@ source-assets/work-in-progress/
 # Logs
 *.log
 npm-debug.log*
+
+# Replit workspace artifacts
+lib/
+artifacts/mockup-sandbox/
+replit.md
+pnpm-workspace.yaml
+pnpm-lock.yaml
+tsconfig.base.json
+.gitkeep
