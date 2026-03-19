@@ -1,5 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
+const MAILERLITE_API_URL = "https://connect.mailerlite.com/api/subscribers";
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -13,7 +15,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, message } = req.body || {};
+  const { name, email, message, projectType } = req.body || {};
 
   if (!name || typeof name !== 'string' || name.trim().length === 0) {
     return res.status(400).json({ error: 'Name is required' });
@@ -32,8 +34,52 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Message is required' });
   }
 
-  // Log the contact form submission (in production, you'd send this to an email service or CRM)
-  console.log('Contact form submission:', { name: name.trim(), email, message: message.trim() });
+  const apiToken = process.env.MAILERLITE_API_TOKEN;
+  const groupId = process.env.MAILERLITE_GROUP_ID;
 
-  return res.status(200).json({ success: true, message: 'Message received' });
+  if (!apiToken) {
+    console.error('MAILERLITE_API_TOKEN not configured');
+    return res.status(500).json({ error: 'Server configuration error' });
+  }
+
+  try {
+    const payload: Record<string, unknown> = {
+      email: email.trim().toLowerCase(),
+      fields: {
+        name: name.trim(),
+        project_type: (projectType && typeof projectType === 'string' && projectType.trim()) || 'Not specified',
+        message: message.trim(),
+      },
+      status: 'active',
+    };
+
+    if (groupId) {
+      payload.groups = [groupId];
+    }
+
+    const response = await fetch(MAILERLITE_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiToken}`,
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (response.status === 200 || response.status === 201) {
+      return res.status(200).json({ success: true, message: 'Message received' });
+    }
+
+    const errorData = await response.json().catch(() => null);
+
+    if (response.status === 422 && errorData?.message?.toLowerCase().includes('already')) {
+      return res.status(200).json({ success: true, message: 'Message received' });
+    }
+
+    console.error('MailerLite error:', response.status, errorData);
+    return res.status(500).json({ error: 'Failed to process contact form' });
+  } catch (error) {
+    console.error('Contact form error:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
 }
