@@ -3,27 +3,15 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
-// Platform-agnostic defaults — works on Replit, Vercel, Netlify, or local
+// Platform-agnostic defaults — works on Vercel, Netlify, or local
 const port = Number(process.env.PORT) || 5173;
 const basePath = process.env.BASE_PATH || "/";
-const isReplit = !!process.env.REPL_ID;
-const isDev = process.env.NODE_ENV !== "production";
 
 export default defineConfig({
   base: basePath,
   plugins: [
     react(),
     tailwindcss(),
-    // Replit dev plugins — only loaded inside Replit dev mode
-    ...(isReplit && isDev
-      ? [
-          await import("@replit/vite-plugin-runtime-error-modal").then((m) => m.default()),
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer({ root: path.resolve(import.meta.dirname, "..") }),
-          ),
-          await import("@replit/vite-plugin-dev-banner").then((m) => m.devBanner()),
-        ]
-      : []),
   ],
   resolve: {
     alias: {
