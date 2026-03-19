@@ -64,7 +64,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-background/40 z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent z-10" />
           <motion.img
-            src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
+            src={`${import.meta.env.BASE_URL}images/hero-bg.jpg`}
             alt="Michael David — Celebrity Hairstylist & Creative Director"
             style={{ scale: heroScale, opacity: heroOpacity }}
             className="absolute inset-0 w-full h-full object-cover object-top"
