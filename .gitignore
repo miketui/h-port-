@@ -1,4 +1,37 @@
--e 
-# Environment files
-*.env
-*.env.*
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+.vite/
+
+# Environment
+.env
+.env.*
+.env.local
+.env.production
+
+# Dev artifacts (Replit, IDE)
+.replit
+replit.nix
+.cache/
+.config/
+.upm/
+
+# Attached assets (dev uploads, not for version control)
+attached_assets/
+manus/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Source masters (keep originals in public/images only)
+source-assets/originals/
+source-assets/work-in-progress/
+
+# Logs
+*.log
+npm-debug.log*

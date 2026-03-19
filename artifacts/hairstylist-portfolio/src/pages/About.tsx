@@ -18,7 +18,7 @@ export default function About() {
           name: "Michael David Warren Jr.",
           alternateName: "MDW",
           url: "https://michaeldavidjr.beauty",
-          image: "https://michaeldavidjr.beauty/images/about-portrait.png",
+          image: "https://michaeldavidjr.beauty/images/about-portrait.jpg",
           jobTitle: "Celebrity Hairstylist & Creative Director",
           worksFor: { "@type": "Organization", name: "MDW Studio" },
           knowsAbout: ["Celebrity Hair Styling", "Editorial Hair Direction", "Red Carpet Styling", "Fashion Editorial", "Creative Direction"],
@@ -43,7 +43,7 @@ export default function About() {
             <div className="aspect-[3/4] relative bg-card overflow-hidden border border-white/5">
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10" />
               <img
-                src={`${import.meta.env.BASE_URL}images/about-portrait.png`}
+                src={`${import.meta.env.BASE_URL}images/about-portrait.jpg`}
                 alt="Michael David Portrait"
                 className="w-full h-full object-cover md:grayscale md:hover:grayscale-0 transition-all duration-1000"
               />
