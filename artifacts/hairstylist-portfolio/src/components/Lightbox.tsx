@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 type LightboxImage = {
   src: string;
@@ -103,16 +104,22 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
           className="flex flex-col items-center max-h-[90vh] max-w-[90vw] md:max-w-[80vw]"
           onClick={(e) => e.stopPropagation()}
         >
-          <motion.img
+          <motion.div
             key={currentIndex}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
-            src={current.src}
-            alt={current.alt}
-            className="max-h-[80vh] max-w-full object-contain select-none"
-            draggable={false}
-          />
+            className="max-h-[80vh] max-w-full flex items-center justify-center"
+          >
+            <OptimizedImage
+              src={current.src}
+              alt={current.alt}
+              sizes="100vw"
+              quality={85}
+              priority={true}
+              className="max-h-[80vh] max-w-full object-contain select-none"
+            />
+          </motion.div>
 
           <div className="mt-4 text-center">
             {current.title && (

@@ -6,6 +6,7 @@ import { PORTFOLIO_CATEGORIES } from "@/lib/data";
 import { EmailSignup } from "@/components/EmailSignup";
 import { Lightbox } from "@/components/Lightbox";
 import { SEO } from "@/components/SEO";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 
 export default function Category() {
@@ -116,14 +117,16 @@ export default function Category() {
               <button
                 type="button"
                 onClick={() => setLightboxIndex(i)}
-                className="img-zoom-wrapper mb-6 bg-card border border-white/5 cursor-pointer text-left"
+                className="img-zoom-wrapper mb-6 bg-card border border-white/5 cursor-pointer text-left aspect-[3/4]"
                 aria-label={`View ${project.title} full-screen`}
               >
-                <img
+                <OptimizedImage
                   src={project.imageUrl}
                   alt={project.imageAlt}
                   loading="lazy"
-                  className="w-full h-auto block"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={75}
+                  className="w-full h-full object-cover block"
                 />
               </button>
               <div className="flex-1 flex flex-col">

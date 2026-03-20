@@ -12,6 +12,8 @@ build/
 .env.*
 .env.local
 .env.production
+!.env.example
+!artifacts/hairstylist-portfolio/.env.example
 
 # Dev artifacts (Replit, IDE)
 .replit

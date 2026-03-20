@@ -5,6 +5,7 @@ import { PageTransition } from "@/components/layout/PageTransition";
 import { PORTFOLIO_CATEGORIES, PRESS_MENTIONS, FEATURED_CLIENTS } from "@/lib/data";
 import { EmailSignup } from "@/components/EmailSignup";
 import { SEO } from "@/components/SEO";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import { ArrowRight } from "lucide-react";
 
 const EDITORIAL_STRIP = [
@@ -64,12 +65,19 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-background/40 z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent z-10" />
-          <motion.img
-            src={`${import.meta.env.BASE_URL}images/hero-bg.jpg`}
-            alt="Michael David — Celebrity Hairstylist & Creative Director"
+          <motion.div
             style={{ scale: heroScale, opacity: heroOpacity }}
-            className="absolute inset-0 w-full h-full object-cover object-top"
-          />
+            className="absolute inset-0 w-full h-full"
+          >
+            <OptimizedImage
+              src={`${import.meta.env.BASE_URL}images/hero-bg.jpg`}
+              alt="Michael David — Celebrity Hairstylist & Creative Director"
+              priority={true}
+              sizes="100vw"
+              quality={80}
+              className="absolute inset-0 w-full h-full object-cover object-top"
+            />
+          </motion.div>
         </div>
 
         <div className="relative z-20 text-center px-4 max-w-7xl mx-auto w-full pb-16 md:pb-24">
@@ -150,13 +158,19 @@ export default function Home() {
                 className="group relative"
               >
                 <div className="relative aspect-[3/4] overflow-hidden bg-card">
-                  <motion.img
-                    src={item.src}
-                    alt={item.alt}
-                    className="w-full h-full object-cover"
+                  <motion.div
                     whileHover={{ scale: 1.06 }}
                     transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  />
+                    className="w-full h-full"
+                  >
+                    <OptimizedImage
+                      src={item.src}
+                      alt={item.alt}
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      quality={75}
+                      className="w-full h-full object-cover"
+                    />
+                  </motion.div>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
                     initial={{ opacity: 0 }}
@@ -221,10 +235,12 @@ export default function Home() {
               >
                 <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 z-10" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent z-10" />
-                <img
+                <OptimizedImage
                   src={category.coverImage}
                   alt={category.title}
                   loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={75}
                   className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
                 />
                 <div className="absolute bottom-0 left-0 p-8 z-20 w-full flex justify-between items-end">
@@ -282,8 +298,8 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
               >
                 <Link href={`/portfolio/${project.categorySlug}`} className="group block">
-                  <div className="img-zoom-wrapper mb-6 bg-card border border-white/5">
-                    <img src={project.imageUrl} alt={project.imageAlt} loading="lazy" className="w-full h-auto block" />
+                  <div className="img-zoom-wrapper mb-6 bg-card border border-white/5 aspect-[3/4] overflow-hidden">
+                    <OptimizedImage src={project.imageUrl ?? ""} alt={project.imageAlt ?? ""} loading="lazy" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" quality={75} className="w-full h-full object-cover block" />
                   </div>
                   <h4 className="font-display text-xl mb-1 group-hover:text-primary transition-colors">{project.title}</h4>
                   <p className="text-xs text-muted-foreground tracking-wider uppercase">
