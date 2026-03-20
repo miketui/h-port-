@@ -64,6 +64,7 @@ export function SEO({
       "Brand Campaign Hair Direction",
     ],
     priceRange: "$$$$",
+    telephone: "",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Hair Direction Services",
@@ -79,6 +80,7 @@ export function SEO({
       "@type": "ContactPoint",
       email: "info@michaeldavidjr.beauty",
       contactType: "booking",
+      availableLanguage: "English",
     },
   };
 
@@ -86,6 +88,12 @@ export function SEO({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="geo.region" content="US-CA" />
+      <meta name="geo.placename" content="Los Angeles" />
+      <meta name="geo.position" content="34.0522;-118.2437" />
+      <meta name="ICBM" content="34.0522, -118.2437" />
       <link rel="canonical" href={canonicalUrl} />
       {keywords && <meta name="keywords" content={keywords} />}
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -107,11 +115,6 @@ export function SEO({
       <meta name="twitter:image" content={image} />
       <meta name="twitter:site" content="@md_warren" />
       <meta name="twitter:creator" content="@md_warren" />
-
-      <meta name="geo.region" content="US-CA" />
-      <meta name="geo.placename" content="Los Angeles" />
-      <meta name="geo.position" content="34.0522;-118.2437" />
-      <meta name="ICBM" content="34.0522, -118.2437" />
 
       <script type="application/ld+json">
         {JSON.stringify(jsonLd || defaultJsonLd)}
