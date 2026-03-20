@@ -57,6 +57,7 @@ export default function Home() {
         title="Celebrity Hairstylist & Creative Director"
         description="Michael David Warren Jr. — celebrity hairstylist, creative director, and author. Editorial hair direction for Vogue, Harper's Bazaar, Vanity Fair. Clients include Rihanna, Lupita Nyong'o, Billy Porter, Lizzo."
         path="/"
+        keywords="celebrity hairstylist, Michael David Warren Jr, MDW, hair direction, Rihanna hairstylist, editorial hair stylist Los Angeles, red carpet hairstylist, Vogue hair stylist, Harper's Bazaar, Vanity Fair, Savage X Fenty, creative director hair, celebrity hair stylist New York, luxury hairstylist, fashion editorial hair, Billy Porter stylist, Lupita Nyong'o hairstylist, Lizzo hairstylist, Aurora James, Duckie Thot"
       />
       {/* Hero — Single Dominant Image */}
       <section ref={heroRef} className="relative h-[95vh] min-h-[700px] w-full flex items-end justify-center overflow-hidden">
