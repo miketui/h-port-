@@ -21,6 +21,7 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 export default function Contact() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
   const contactJsonLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -46,6 +47,11 @@ export default function Contact() {
   });
 
   const onSubmit = async (data: ContactFormValues) => {
+    if (honeypot) {
+      toast({ title: "Inquiry Sent", description: "Thank you.", duration: 5000 });
+      form.reset();
+      return;
+    }
     setIsSubmitting(true);
     try {
       const res = await fetch(`${import.meta.env.BASE_URL}api/contact`, {
@@ -59,6 +65,7 @@ export default function Contact() {
           email: data.email,
           projectType: data.projectType,
           message: data.message,
+          website: honeypot,
         }),
       });
 
@@ -153,6 +160,19 @@ export default function Contact() {
             <h2 className="text-3xl font-display mb-8">Send an Inquiry</h2>
             
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
+              {/* Honeypot field — invisible to users, catches bots */}
+              <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px", height: 0, width: 0, overflow: "hidden" }}>
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">

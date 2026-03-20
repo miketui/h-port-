@@ -19,6 +19,7 @@ export function EmailSignup({
 }: EmailSignupProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -26,13 +27,18 @@ export function EmailSignup({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !name || status === "loading") return;
+    if (honeypot) {
+      setStatus("success");
+      setSuccessMessage("Thank you!");
+      return;
+    }
     setStatus("loading");
     setErrorMessage("");
     try {
       const res = await fetch(`${import.meta.env.BASE_URL}api/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), source }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), source, website: honeypot }),
       });
       const data = await res.json();
       if (res.ok && data.success) {
@@ -83,6 +89,10 @@ export function EmailSignup({
                 onSubmit={handleSubmit}
                 className="flex flex-col sm:flex-row gap-0 max-w-lg mx-auto border border-white/10"
               >
+                <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px", height: 0, width: 0, overflow: "hidden" }}>
+                  <label htmlFor="website-banner">Website</label>
+                  <input type="text" id="website-banner" name="website" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
+                </div>
                 <input
                   type="text"
                   value={name}
@@ -151,6 +161,10 @@ export function EmailSignup({
                 onSubmit={handleSubmit}
                 className="space-y-3 max-w-sm"
               >
+                <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px", height: 0, width: 0, overflow: "hidden" }}>
+                  <label htmlFor="website-section">Website</label>
+                  <input type="text" id="website-section" name="website" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
+                </div>
                 <input
                   type="text"
                   value={name}
@@ -213,6 +227,10 @@ export function EmailSignup({
           </motion.div>
         ) : (
           <motion.form key="form" onSubmit={handleSubmit} className="space-y-2">
+            <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px", height: 0, width: 0, overflow: "hidden" }}>
+              <label htmlFor="website-compact">Website</label>
+              <input type="text" id="website-compact" name="website" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
+            </div>
             <input
               type="text"
               value={name}

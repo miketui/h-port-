@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PORTFOLIO_CATEGORIES } from "@/lib/data";
 import { SEO } from "@/components/SEO";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import { ArrowRight } from "lucide-react";
 
 export default function Portfolio() {
@@ -45,10 +46,12 @@ export default function Portfolio() {
             >
               <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 z-10" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent z-10" />
-              <img
+              <OptimizedImage
                 src={category.coverImage}
                 alt={category.title}
                 loading="lazy"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={75}
                 className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
               />
               <div className="absolute bottom-0 left-0 p-8 z-20 w-full flex justify-between items-end">

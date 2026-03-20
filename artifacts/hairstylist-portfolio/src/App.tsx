@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { CookieNotice } from "@/components/CookieNotice";
 import NotFound from "@/pages/not-found";
 
 const Home = lazy(() => import("@/pages/Home"));
@@ -14,6 +15,7 @@ const Category = lazy(() => import("@/pages/Category"));
 const About = lazy(() => import("@/pages/About"));
 const Press = lazy(() => import("@/pages/Press"));
 const Contact = lazy(() => import("@/pages/Contact"));
+const Privacy = lazy(() => import("@/pages/Privacy"));
 
 const queryClient = new QueryClient();
 
@@ -42,6 +44,7 @@ function Router() {
               <Route path="/about" component={About} />
               <Route path="/press" component={Press} />
               <Route path="/contact" component={Contact} />
+              <Route path="/privacy" component={Privacy} />
               <Route component={NotFound} />
             </Switch>
           </AnimatePresence>
@@ -60,6 +63,7 @@ function App() {
           <Router />
         </WouterRouter>
         <Toaster />
+        <CookieNotice />
       </TooltipProvider>
     </QueryClientProvider>
   );

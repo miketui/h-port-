@@ -4,6 +4,7 @@ import { PageTransition } from "@/components/layout/PageTransition";
 import { FEATURED_CLIENTS, CAREER_TIMELINE } from "@/lib/data";
 import { EmailSignup } from "@/components/EmailSignup";
 import { SEO } from "@/components/SEO";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 export default function About() {
   return (
@@ -43,9 +44,11 @@ export default function About() {
           >
             <div className="aspect-[3/4] relative bg-card overflow-hidden border border-white/5">
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10" />
-              <img
+              <OptimizedImage
                 src={`${import.meta.env.BASE_URL}images/about-portrait.jpg`}
                 alt="Michael David Portrait"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={80}
                 className="w-full h-full object-cover md:grayscale md:hover:grayscale-0 transition-all duration-1000"
               />
             </div>
