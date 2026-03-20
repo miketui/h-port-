@@ -95,6 +95,8 @@ export function SEO({
       <meta name="geo.position" content="34.0522;-118.2437" />
       <meta name="ICBM" content="34.0522, -118.2437" />
       <link rel="canonical" href={canonicalUrl} />
+      {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
