@@ -68,6 +68,7 @@ export default function Category() {
         description={`${category.description} View ${category.projects.length} projects by celebrity hairstylist Michael David Warren Jr.`}
         path={`/portfolio/${category.slug}`}
         jsonLd={categoryJsonLd}
+        keywords={`${category.title.toLowerCase()} hair styling, ${category.title.toLowerCase()} hairstylist, ${category.projects.slice(0, 5).map(p => p.client).join(', ')}, Michael David Warren, MDW, celebrity ${category.title.toLowerCase()}`}
       />
 
       <div className="container mx-auto px-6 md:px-12 pt-8 pb-32">
