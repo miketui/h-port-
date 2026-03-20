@@ -12,6 +12,7 @@ export default function About() {
         title="About Michael David"
         description="Meet Michael David Warren Jr. — celebrity hairstylist and creative director based in Los Angeles and New York. From assisting Guido Palau to styling Rihanna, Lupita Nyong'o, and Billy Porter."
         path="/about"
+        keywords="about Michael David Warren Jr, MDW biography, celebrity hairstylist bio, Guido Palau assistant, Rihanna personal hairstylist, editorial hair director biography, Los Angeles celebrity stylist, New York hairstylist, fashion industry hair professional, creative director beauty"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Person",

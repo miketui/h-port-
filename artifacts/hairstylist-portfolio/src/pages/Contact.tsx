@@ -92,6 +92,7 @@ export default function Contact() {
         title="Contact & Bookings"
         description="Book Michael David Warren Jr. for editorial hair direction, celebrity styling, red carpet, and brand campaigns. Based in Los Angeles and New York — available globally."
         path="/contact"
+        keywords="book celebrity hairstylist, hire Michael David Warren, MDW booking, celebrity hair styling booking, editorial hair direction inquiry, red carpet hairstylist for hire, brand campaign hair stylist, Los Angeles hairstylist booking, New York hair stylist contact, luxury hair styling services"
         jsonLd={contactJsonLd}
       />
       <div className="container mx-auto px-6 md:px-12 pt-12 pb-24">

@@ -12,6 +12,19 @@ export default function Press() {
         title="Press & Features"
         description="MDW in the press — features and credits from Vogue, Vanity Fair, Harper's Bazaar, Elle, and the world's leading fashion publications."
         path="/press"
+        keywords="Michael David Warren press, MDW press features, celebrity hairstylist press, Vogue hair feature, Vanity Fair hairstylist, Harper's Bazaar hair, Elle hair direction, fashion press hair stylist, editorial hair press coverage, celebrity stylist publications"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Press & Features — MDW",
+          description: "MDW in the press — features and credits from Vogue, Vanity Fair, Harper's Bazaar, Elle, and the world's leading fashion publications.",
+          url: "https://michaeldavidjr.beauty/press",
+          isPartOf: {
+            "@type": "WebSite",
+            name: "MDW — Michael David",
+            url: "https://michaeldavidjr.beauty",
+          },
+        }}
       />
       <div className="container mx-auto px-6 md:px-12 pt-8 pb-32">
         <div className="max-w-4xl mb-20">

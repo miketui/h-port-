@@ -12,6 +12,7 @@ export default function Portfolio() {
         title="Portfolio"
         description="Explore MDW's portfolio — magazine covers, fashion editorials, red carpet styling, beauty work, and commercial campaigns for the world's biggest names."
         path="/portfolio"
+        keywords="celebrity hairstylist portfolio, editorial hair portfolio, red carpet hair styling, magazine cover hairstylist, fashion hair direction, beauty campaign hair, commercial hair styling, Michael David Warren portfolio, MDW portfolio, Vogue covers hair, Harper's Bazaar hair"
       />
       <div className="container mx-auto px-6 md:px-12 pt-8 pb-32">
         <div className="max-w-4xl mb-20">
